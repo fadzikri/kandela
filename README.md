@@ -6,8 +6,8 @@ Tujuan untuk belajar membuat API dengan dataset buatan.
 
 Todo :
 
-- [ ] Manual Scrape
+- [x] Manual Scrape
 - [ ] Automatic Scrape per 2.5 Months
 - [ ] Service Express
 - [ ] Version and Detail Version
-- [ ] Bahasa Indonesia
+- ~[ ] Bahasa Indonesia~
