@@ -10,4 +10,3 @@ Todo :
 - [ ] Automatic Scrape per 2.5 Months
 - [ ] Service Express
 - [ ] Version and Detail Version
-- ~[ ] Bahasa Indonesia~
