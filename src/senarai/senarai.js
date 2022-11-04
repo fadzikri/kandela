@@ -48,4 +48,4 @@ const scrapeSenaraiJSON = () => {
     fs.writeFileSync(`${__dirname}/senarai.json`, JSON.stringify(datas), "utf-8");
 }
 
-createSenaraiJSON();
+module.exports = createSenaraiJSON;
