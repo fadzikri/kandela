@@ -1,0 +1,2 @@
+# kandela
+Senarai versi Linux.
