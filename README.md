@@ -8,5 +8,5 @@ Todo :
 
 - [x] Manual Scrape
 - [ ] Automatic Scrape per 2.5 Months
-- [ ] Service Express
+- [x] Service Express
 - [ ] Version and Detail Version
