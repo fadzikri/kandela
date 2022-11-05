@@ -10,3 +10,5 @@ Todo :
 - [ ] Automatic Scrape per 2.5 Months
 - [x] Service Express
 - [ ] Version and Detail Version
+
+Berjalan di : <https://kandela.cyclic.app>
