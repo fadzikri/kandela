@@ -10,7 +10,9 @@ app.use(favicon(`${__dirname}/favicon.ico`))
 app.get('/', (req, res) => {
   res.json({
     status: true,
-    message: "Hello..."
+    message: "Hello...",
+    senarai: "https://kandela.cyclic.app/senarai",
+    detail: "Nanti"
   })
 })
 
