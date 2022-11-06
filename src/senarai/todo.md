@@ -2,5 +2,5 @@
 
 Todo :
 
-- [ ] Senarai Judul -> Versi
-- [ ] Gabung jadi satu
+- [x] Senarai Judul dan Versi
+- [x] Gabung jadi satu
