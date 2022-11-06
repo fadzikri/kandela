@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="Linux, kernel, operating system, changes, changelog, file system, Linus Torvalds, open source, device drivers">
+    <meta name="description" content="Summary of the changes and new features merged in the Linux kernel during the 3.6 development cycle">
+    <meta name="robots" content="index,nofollow">
+
+    <title>Linux_3.6 - Linux Kernel Newbies</title>
+    <script type="text/javascript" src="/moin_static199/common/js/common.js"></script>
+
+    <script type="text/javascript">
+      <!--
+      var search_hint = "Search";
+      //
+      -->
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/memodump.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/moinizer.css">
+
+    <!-- css only for MS IE6/IE7 browsers -->
+    <!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+    <link rel="alternate" title="Linux Kernel Newbies: Linux_3.6" href="/Linux_3.6?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Linux_3.6&amp;ddiffs=1" type="application/rss+xml">
+
+
+    <link rel="Start" href="/Linux_Kernel_Newbies">
+    <link rel="Alternate" title="Wiki Markup" href="/Linux_3.6?action=raw">
+    <link rel="Alternate" media="print" title="Print View" href="/Linux_3.6?action=print">
+    <link rel="Search" href="/FindPage">
+    <link rel="Index" href="/TitleIndex">
+    <link rel="Glossary" href="/WordIndex">
+    <link rel="Help" href="/HelpOnFormatting">
+  </head>
+
+  <body lang="en" dir="ltr">
+
+    <div id="outbox" class="sidebar-toggle">
+      <!-- Bootstrap navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+        <div class="container">
+
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <!-- Sidebar toggler -->
+            <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+              <span class="sr-only">Toggle sidebar</span>
+              <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+            </button>
+            <!-- Button to show navbar controls when collapsed -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Sitename -->
+
+            <div class="navbar-brand-wrapper">
+              <a class="navbar-brand" href="/Linux_Kernel_Newbies"><img src="/moin_static199/kn-icon.png" alt="KernelNewbies"></a>
+            </div>
+
+          </div> <!-- /.navbar-header -->
+
+          <!-- Body of navbar -->
+          <div class="collapse navbar-collapse">
+
+            <!-- Navbar elements -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- Comment toggle button -->
+
+              <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+                <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onClick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                  <span class="hidden-sm">Comments</span>
+                </a>
+              </li>
+
+              <!-- Edit button -->
+
+              <li class="disabled">
+                <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+              </li>
+
+              <!-- Search form -->
+
+              <li>
+                <div class="navbar-form">
+                  <form class="form-search" role="search" id="searchform" method="get" action="/Linux_3.6">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <div class="form-group">
+                      <label class="sr-only" for="searchinput">Search:</label>
+                      <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value" value="">
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Menu -->
+
+              <li class="dropdown">
+                <!-- Menu button -->
+                <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                  Menu<span class="padding"></span><span class="caret"></span>
+                </a>
+                <!-- Dropdown contents -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Navigation</li>
+                  <li><a href="/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                  <li><a href="/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                  <li><a href="/Linux_3.6?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Help</li>
+                  <li><a href="/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                  <li><a href="/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Display</li>
+                  <li><a href="/Linux_3.6?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                  <li><a href="/Linux_3.6?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                  <li><a href="/Linux_3.6?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                  <li><a href="/Linux_3.6?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Edit</li>
+                  <li><a href="/Linux_3.6?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                  <li><a href="/Linux_3.6?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+                </ul>
+              </li> <!-- /dropdown -->
+
+              <!-- Login user -->
+
+              <li>
+                <a class="menu-nav-login" href="/Linux_3.6?action=login" rel="nofollow">Login</a>
+              </li>
+
+
+            </ul> <!-- /.navbar-right -->
+
+          </div> <!-- /.collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+      <!-- End of navbar -->
+
+      <div class="container no-padding" id="pagebox">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar-toggle" id="sidebar-curtain">
+          <div class="sidebar-toggle" id="sidebar-mover">
+            <div class="sidebar-toggle" id="sidebar" role="navigation">
+              <!-- SideBar contents -->
+              <div class="sidebar clearfix">
+                <div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+                  <span class="anchor" id="SideBar.line-1"></span>
+                  <p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Community <span class="anchor" id="SideBar.line-17"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">References <span class="anchor" id="SideBar.line-23"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/RecentChanges">Recent Changes</a> <span class="anchor" id="SideBar.line-29"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-30"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-31"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span>
+                    </li>
+                  </ul><span class="anchor" id="SideBar.bottom"></span>
+                </div>
+              </div>
+              <!-- End of SideBar contents -->
+
+              <div>
+                <h4>Navigation</h4>
+                <ul id='navibar'>
+                  <li class="wikilink"><a href="/RecentChanges">RecentChanges</a></li>
+                  <li class="wikilink"><a href="/FindPage">FindPage</a></li>
+                  <li class="wikilink"><a href="/HelpContents">HelpContents</a></li>
+                </ul>
+              </div>
+
+
+            </div> <!-- /#sidebar -->
+          </div> <!-- /#sidebar-mover -->
+        </div>
+        <div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+          <div id="location">
+            <span id="interwiki"><a href="/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+            <ul id="pagelocation">
+              <li><a href="/Linux_3.6">Linux_3.6</a></li>
+            </ul>
+
+            <span class="lastupdate">Last updated at 2017-12-30 01:30:34</span>
+          </div>
+
+
+          <!-- Page contents -->
+          <div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+            <span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span>
+            <p class="line862">Linux 3.6 has <a class="https" href="https://lkml.org/lkml/2012/9/30/152">been released</a> on 30 Sep 2012 <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span>
+            <p class="line867"><em><strong>Summary</strong></em>: This Linux release includes new features in Btrfs: subvolume quotas, quota groups and snapshot diffs (aka &quot;send/receive&quot;). It also includes support for suspending to disk and memory at the same time, a TCP &quot;Fast Open&quot; mode, a &quot;TCP small queues&quot; feature to fight bufferbloat; support for safe swapping over NFS/NBD, better Ext4 quota support, support for the PCIe D3cold power state; and VFIO, which allows safe access from guest drivers to bare-metal host devices. Many small features and new drivers and fixes are also available. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span>
+            <p class="line867">
+            <div class="table-of-contents">
+              <p class="table-of-contents-heading">Contents
+              <ol>
+                <li>
+                  <a href="#Prominent_features_in_Linux_3.6">Prominent features in Linux 3.6</a>
+                  <ol>
+                    <li>
+                      <a href="#Btrfs:_subvolume_quotas.2C_quota_groups.2C_snapshot_diff.2C_cross-subvolume_file_clones">Btrfs: subvolume quotas, quota groups, snapshot diff, cross-subvolume file clones</a>
+                      <ol>
+                        <li>
+                          <a href="#Subvolume_quotas_and_quota_groups">Subvolume quotas and quota groups</a>
+                        </li>
+                        <li>
+                          <a href="#Snapshot_diffs.2C_aka_.22send.2Freceive.22">Snapshot diffs, aka &quot;send/receive&quot;</a>
+                        </li>
+                        <li>
+                          <a href="#Cross-subvolume_file_clones">Cross-subvolume file clones</a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li>
+                      <a href="#Suspend_to_disk_and_memory_at_the_same_time">Suspend to disk and memory at the same time</a>
+                    </li>
+                    <li>
+                      <a href="#Preparatory_work_to_support_the_SMBv2_protocol">Preparatory work to support the SMBv2 protocol</a>
+                    </li>
+                    <li>
+                      <a href="#TCP_Fast_Open_.28client_side.29">TCP Fast Open (client side)</a>
+                    </li>
+                    <li>
+                      <a href="#Bufferbloat_fight:_TCP_small_queues">Bufferbloat fight: TCP small queues</a>
+                    </li>
+                    <li>
+                      <a href="#Safe_swap_over_NFS.2FNBD">Safe swap over NFS/NBD</a>
+                    </li>
+                    <li>
+                      <a href="#ext4:_better_quota_support">ext4: better quota support</a>
+                    </li>
+                    <li>
+                      <a href="#PCIe_D3cold_power_state_support">PCIe D3cold power state support</a>
+                    </li>
+                    <li>
+                      <a href="#VFIO:_bare-metal_safe_access_to_devices_from_userspace_drivers">VFIO: bare-metal safe access to devices from userspace drivers</a>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="#Driver_and_architecture-specific_changes">Driver and architecture-specific changes</a>
+                </li>
+                <li>
+                  <a href="#Various_core_changes">Various core changes</a>
+                </li>
+                <li>
+                  <a href="#Memory_Management">Memory Management</a>
+                </li>
+                <li>
+                  <a href="#Block">Block</a>
+                </li>
+                <li>
+                  <a href="#Perf.2Ftracing">Perf/tracing</a>
+                </li>
+                <li>
+                  <a href="#Virtualization">Virtualization</a>
+                </li>
+                <li>
+                  <a href="#Security">Security</a>
+                </li>
+                <li>
+                  <a href="#Networking">Networking</a>
+                </li>
+                <li>
+                  <a href="#Cryptography">Cryptography</a>
+                </li>
+                <li>
+                  <a href="#File_systems">File systems</a>
+                </li>
+                <li>
+                  <a href="#Other_news_sites_that_track_the_changes_of_this_release">Other news sites that track the changes of this release</a>
+                </li>
+              </ol>
+            </div> <span class="anchor" id="line-10"></span>
+            <h1 id="Prominent_features_in_Linux_3.6">1. Prominent features in Linux 3.6</h1>
+            <span class="anchor" id="line-11"></span>
+            <p class="line867">
+            <h2 id="Btrfs:_subvolume_quotas.2C_quota_groups.2C_snapshot_diff.2C_cross-subvolume_file_clones">1.1. Btrfs: subvolume quotas, quota groups, snapshot diff, cross-subvolume file clones</h2>
+            <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span>
+            <p class="line867">
+            <h3 id="Subvolume_quotas_and_quota_groups">1.1.1. Subvolume quotas and quota groups</h3>
+            <span class="anchor" id="line-14"></span>
+            <p class="line874">A size limit can be set for each subvolume. Once the subvolume reachs that limit, it won't be possible to write more data in it. This feature can be used as a substitute of quotas, assigning to each user home a subvolume and setting a size limit to it. <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span>
+            <p class="line874">However, handling subvolumes quotas individually can be hard. Btrfs supports the concept of quota groups. It is possible to create a quota group and toss multiple subvolumes into that group: the quota limits will be automatically applied to all subvolumes in the group. The command used for this feature is btrfs qgroup create/destroy assign/remove show/limit <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span>
+            <p class="line867"><a class="http" href="http://git.kernel.org/linus/630dc772ea51bca3ec6fac609f450cbe0cafd1d6">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/7069830a9e381e33d44ded45095f764844c71d24">2</a>, <a class="http" href="http://git.kernel.org/linus/e679376911d016b670c8cfc1645c178f77e8d1d3">3</a>, <a class="http" href="http://git.kernel.org/linus/6f72c7e20dbaea55f04546de69586c84a3654503">4</a>, <a class="http" href="http://git.kernel.org/linus/5d13a37bd5327220e13329943d1228acfbe5934a">5</a>, <a class="http" href="http://git.kernel.org/linus/20897f5c86b9d2b77baea1d48eda7fa4ac217279">6</a>, <a class="http" href="http://git.kernel.org/linus/edf39272db4810282360f7362d43ade1d524c913">7</a>, <a class="http" href="http://git.kernel.org/linus/546adb0d817c34dc2be3a7cb5bba8771f837a562">8</a>, <a class="http" href="http://git.kernel.org/linus/c556723794b3487a79de1ecd6354975b1389f5ff">9</a>, <a class="http" href="http://git.kernel.org/linus/bed92eae26ccf280d1a2168b7509447b56675a27">10</a>, <a class="http" href="http://git.kernel.org/linus/416ac51da90e98daaac17e1f359a6c5591f7f5bd">11</a>, <a class="http" href="http://git.kernel.org/linus/bcef60f249034f69e89e544461cbfecb68975595">12)</a> <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span>
+            <p class="line867">
+            <h3 id="Snapshot_diffs.2C_aka_.22send.2Freceive.22">1.1.2. Snapshot diffs, aka &quot;send/receive&quot;</h3>
+            <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span>
+            <p class="line874">Btrfs can compute the differences between two snapshots and store the differences into a file. This file can be replayed later to reconstruct the sent subvolumes/snapshots. The main, but not only, usage for send/receive is backups. <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/31db9f7c23fbf7e95026143f79645de6507b583b">(commit)</a> <span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span>
+            <p class="line867">
+            <h3 id="Cross-subvolume_file_clones">1.1.3. Cross-subvolume file clones</h3>
+            <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span>
+            <p class="line874">The Btrfs copy-on-write design allows to have many files sharing the same underlying data. This allows to copy (using cp --reflink) files or directories without duplicating the space usage. This had a limitation, though: it was not possible to clone across different subvolumes. This restriction has been removed (it is still not possible to clone files when they cross vfsmounts, ie. two subvolumes from one filesystem mounted separately) <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span>
+            <p class="line862">Recommended LWN article: <a class="https" href="https://lwn.net/Articles/506244/">Btrfs send/receive</a> <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/362a20c5e27614739c46707d1c5f55c214d164ce">(commit)</a> <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span>
+            <p class="line867">
+            <h2 id="Suspend_to_disk_and_memory_at_the_same_time">1.2. Suspend to disk and memory at the same time</h2>
+            <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span>
+            <p class="line874">In portable devices it is useful to write a hibernation image to disk, and then suspend. If the battery runs out or power is otherwise lost, the computer will power off, but it will be resumed from the hibernated image. If not, it will resume normally from memory suspend, and hibernation image will be discarded. <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span>
+            <p class="line862">If you would like to write hibernation image to swap and then suspend to RAM, you can try &quot;echo suspend &gt; /sys/power/disk; echo disk &gt; /sys/power/state&quot; <span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/62c552ccc3eda1198632a4f344aa32623d226bab">(commit)</a> <span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span>
+            <p class="line867">
+            <h2 id="Preparatory_work_to_support_the_SMBv2_protocol">1.3. Preparatory work to support the SMBv2 protocol</h2>
+            <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span>
+            <p class="line867"><img alt="/!\" height="16" src="/moin_static199/memodump/img/alert.png" title="/!\" width="16" /> Note <img alt="/!\" height="16" src="/moin_static199/memodump/img/alert.png" title="/!\" width="16" /> : The SMBv2 support <strong>isn't actually available in this release</strong>, it <a class="https" href="https://plus.google.com/u/0/107616711159256259828/posts/6A15szm5y1b">got turned off</a> before the release. It will be available in 3.7. <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span>
+            <p class="line862">The cifs networking filesystem has added support for the <a class="http" href="http://en.wikipedia.org/wiki/Server_Message_Block#SMB2">version 2 of the SMB protocol</a>. The SMB2 protocol is the successor to the popular CIFS and SMB network file sharing protocols, and is the native file sharing mechanism for Windows OSs since it was introduced in Windows Vista in 2006. SMB2 enablement will eventually allow users better performance, security and features, than would not be possible with previous protocols. <span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/5478f9ba9a34d660eb3227dcd16314689c51f946">(commit)</a> <span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span>
+            <p class="line867">
+            <h2 id="TCP_Fast_Open_.28client_side.29">1.4. TCP Fast Open (client side)</h2>
+            <span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span>
+            <p class="line874">&quot;Fast Open&quot; is a optimization to the process of stablishing a TCP connection that allows the elimination of one round time trip (RTT) from certain kinds of TCP conversations. Fast Open could result in speed improvements of between 4% and 41% in the page load times on popular web sites. In this version only the client-side has been merged. <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span>
+            <p class="line862">Recommended LWN article: <a class="https" href="https://lwn.net/Articles/508865/">TCP Fast Open: expediting web services</a> <span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/2100c8d2d9db23c0a09901a782bb4e3b21bee298">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/1fe4c481ba637660793217769695c146a037bd54">2</a>, <a class="http" href="http://git.kernel.org/linus/67da22d23fa6f3324e03bcd0580b914b2e4afbf3">3</a>, <a class="http" href="http://git.kernel.org/linus/aab4874355679c70f93993cf3b3fd74643b9ac33">4</a>, <a class="http" href="http://git.kernel.org/linus/8e4178c1c7b52f7c99f5fd22ef7af6b2bff409e3">5</a>, <a class="http" href="http://git.kernel.org/linus/783237e8daf13481ee234997cbbbb823872ac388">6</a>, <a class="http" href="http://git.kernel.org/linus/cf60af03ca4e71134206809ea892e49b92a88896">7)</a> <span class="anchor" id="line-60"></span><span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span>
+            <p class="line867">
+            <h2 id="Bufferbloat_fight:_TCP_small_queues">1.5. Bufferbloat fight: TCP small queues</h2>
+            <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span>
+            <p class="line862">TCP small queues is another mechanism designed to fight bufferbloat. TCP Small Queues goal is to reduce number of TCP packets in xmit queues (qdisc &amp; device queues), to reduce RTT and cwnd bias, part of the bufferbloat problem. Without reduction of nominal bandwidth, we have reduction of buffering per bulk sender : &lt; 1ms on Gbit (instead of 50ms with TSO) and &lt; 8ms on 100Mbit (instead of 132 ms). <span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span>
+            <p class="line862">Recommended LWN article: <a class="https" href="https://lwn.net/Articles/507065/">TCP small queues</a> <span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/46d3ceabd8d98ed0ad10f20c595ca784e34786c5">(commit)</a> <span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span>
+            <p class="line867">
+            <h2 id="Safe_swap_over_NFS.2FNBD">1.6. Safe swap over NFS/NBD</h2>
+            <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span>
+            <p class="line862">The Linux Terminal Server Project recommends the use of the Network Block Device (NBD) for swap according <a class="https" href="https://sourceforge.net/projects/ltsp/files/Docs-Admin-Guide/LTSPManual.pdf/download">to the manual</a>. There is also documentation and tutorials on how to setup swap over NBD at <a class="https" href="https://help.ubuntu.com/community/UbuntuLTSP/EnableNBDSWAP">some places</a>. The nbd-client also documents the use of NBD as swap. Despite this, a machine using NBD for swap could deadlock within minutes if swap was used intensively. This release allows safe swapping over NBD and also adds support for swapping over NFS. <span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span>
+            <p class="line862">Recommended LWN article: <a class="https" href="https://lwn.net/Articles/439298/">Safely swapping over the net</a> <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/072bb0aa5e062902968c5c1007bba332c7820cf4">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/a564b8f0398636ba30b07c0eaebdef7ff7837249">2)</a> <span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span>
+            <p class="line867">
+            <h2 id="ext4:_better_quota_support">1.7. ext4: better quota support</h2>
+            <span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span>
+            <p class="line862">ext4 has added support for quotas as a first class feature in ext4; which is to say, instead of as separate files visible in the file system directory hierarchy, the quota files are stored in hidden inodes as file system metadata, and will be managed directly by e2fsprogs, and quota will be enabled automatically as soon as the file system is mounted. The repquota program will not function initially, until a new QUOTASCAN_OPEN interface is implemented. More details at <a class="https" href="https://ext4.wiki.kernel.org/index.php/Design_For_1st_Class_Quota_in_Ext4">https://ext4.wiki.kernel.org/index.php/Design_For_1st_Class_Quota_in_Ext4</a> <span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/7c319d328505b7781b65238ae9f53293b5ee0ca8">(commit)</a> <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span>
+            <p class="line867">
+            <h2 id="PCIe_D3cold_power_state_support">1.8. PCIe D3cold power state support</h2>
+            <span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span>
+            <p class="line874">This release adds PCI Express runtime D3cold power state support. D3cold is the deepest power saving state for a PCIe device, where its main power is removed. <span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/448bd857d48e69b33ef323739dc6d8ca20d4cda7">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/71a83bd727cc31c5fe960c3758cb396267ff710e">2</a>, <a class="http" href="http://git.kernel.org/linus/4f9c1397e2e80e52b17ec4e39760caa807bd15c7">3)</a> <span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span>
+            <p class="line867">
+            <h2 id="VFIO:_bare-metal_safe_access_to_devices_from_userspace_drivers">1.9. VFIO: bare-metal safe access to devices from userspace drivers</h2>
+            <span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span>
+            <p class="line874">The VFIO driver is an IOMMU/device agnostic framework for exposing direct device access to userspace, in a secure, IOMMU protected environment. In other words, this allows safe, non-privileged, userspace drivers. Why does Linux wants that? Virtual machines often make use of direct device access (&quot;device assignment&quot;) when configured for the highest possible I/O performance. From a device and host perspective, this simply turns the VM into a userspace driver, with the benefits of significantly reduced latency, higher bandwidth, and direct use of bare-metal device drivers. Some applications, particularly in the high performance computing field, also benefit from low-overhead, direct device access from userspace. Examples include network adapters (often non-TCP/IP based) and compute accelerators. <span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span>
+            <p class="line862">Recommended LWN article: <a class="https" href="https://lwn.net/Articles/474088/">Safe device assignment with VFIO</a> <span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/89e1f7d4c66d85f42c3d52ea3866eb10cadf6153">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/4a5b2a20ec87384eeb19e70991e7e15a00cad87b">2</a>, <a class="http" href="http://git.kernel.org/linus/73fa0d10d077d9521ee2dace2307ae2c9a965336">3</a>, <a class="http" href="http://git.kernel.org/linus/cba3345cc494ad286ca8823f44b2c16cae496679">4)</a> <span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span>
+            <p class="line867">
+            <h1 id="Driver_and_architecture-specific_changes">2. Driver and architecture-specific changes</h1>
+            <span class="anchor" id="line-103"></span>
+            <p class="line862">All the driver and architecture-specific changes can be found in the <a class="http" href="http://kernelnewbies.org/Linux_3.6_DriverArch">Linux_3.6_DriverArch page</a> <span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span>
+            <p class="line867">
+            <h1 id="Various_core_changes">3. Various core changes</h1>
+            <span class="anchor" id="line-106"></span>
+            <ul>
+              <li>
+                <p class="line862">Add symlink and hardlink restrictions to the Linux VFS, which helps to solve a long-standing class of security issues consisting in the symlink-based time-of-check-time-of-use race. Some distributions have been using this functionality for a while. Recommended LWN article: <a class="https" href="https://lwn.net/Articles/503660/">Tightening security: not for the impatient</a> Code: <a class="http" href="http://git.kernel.org/linus/a51d9eaa41866ab6b4b6ecad7b621f8b66ece0dc">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/800179c9b8a1e796e441674776d11cd4c05d61d7">2)</a> <span class="anchor" id="line-107"></span>
+              </li>
+              <li>
+                <p class="line862">IOMMU groups <a class="http" href="http://git.kernel.org/linus/d72e31c9374627068df29da8085ca18c92ae35d3">(commit)</a> <span class="anchor" id="line-108"></span>
+              </li>
+              <li>
+                <p class="line862">process scheduler: Remove broken power estimation <a class="http" href="http://git.kernel.org/linus/ee08d1284ea9235b29bd2d9b7493b4b4cf3da09c">(commit)</a> <span class="anchor" id="line-109"></span>
+              </li>
+              <li>
+                <p class="line862">Thermal: Add Hysteresis attributes <a class="http" href="http://git.kernel.org/linus/27365a6c7d64a3bba22ee62109e4a071bbd7f933">(commit)</a>, make Thermal trip points writeable <a class="http" href="http://git.kernel.org/linus/c56f5c0342dfee11a1a13d2f5bb7618de5b17590">(commit)</a> <span class="anchor" id="line-110"></span>
+              </li>
+              <li>
+                <p class="line862">cpuidle: add support for states that affect multiple CPUs <a class="http" href="http://git.kernel.org/linus/4126c0197bc8c58a0bb7fcda07b01b596b6fb4c5">(commit)</a> <span class="anchor" id="line-111"></span>
+              </li>
+              <li>
+                <p class="line862">RCU: Control RCU_FANOUT_LEAF from boot-time parameter <a class="http" href="http://git.kernel.org/linus/f885b7f2b2de70be266d2cecc476f773a1e2ca5d">(commit)</a> <span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Memory_Management">4. Memory Management</h1>
+            <span class="anchor" id="line-114"></span>
+            <ul>
+              <li>
+                <p class="line862">Allow swap readahead IOPS to be merged, it improves throughput and at the same time lowers CPU consumption <a class="http" href="http://git.kernel.org/linus/3fb5c298b04eb6e472f8db1f0fb472749d30041c">(commit)</a> <span class="anchor" id="line-115"></span>
+              </li>
+              <li>
+                <p class="line862">Add new HugeTLB cgroup <a class="http" href="http://git.kernel.org/linus/2bc64a2046975410505bb119bba32705892b9255">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/585e27ea6d2e71d0091443c39a00a35e6a5c5e8f">(commit)</a> <span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Block">5. Block</h1>
+            <span class="anchor" id="line-118"></span>
+            <ul>
+              <li>
+                <p class="line862">Add a new operation code (BLKPG_RESIZE_PARTITION) to the BLKPG ioctl that allows altering the size of an existing partition, even if it is currently in use <a class="http" href="http://git.kernel.org/linus/c83f6bf98dc1f1a194118b3830706cebbebda8c4">(commit)</a> <span class="anchor" id="line-119"></span>
+              </li>
+              <li>
+                <p class="line862">Device mapper RAID: Add support for MD RAID10 <a class="http" href="http://git.kernel.org/linus/63f33b8dda88923487004b20fba825486d009e7b">(commit)</a> <span class="anchor" id="line-120"></span>
+              </li>
+              <li>
+                <p class="line862">Device mapper thin: add read-only and fail I/O modes <a class="http" href="http://git.kernel.org/linus/e49e582965b3694f07a106adc83ddb44aa4f0890">(commit)</a> <span class="anchor" id="line-121"></span>
+              </li>
+              <li>
+                <p class="line862">Device mapper: remove persistent data debug space map checker <a class="http" href="http://git.kernel.org/linus/3caf6d73d4dc163b2d135e0b52b052a2b63e5216">(commit)</a> <span class="anchor" id="line-122"></span>
+              </li>
+              <li>
+                <p class="line862">md/raid1: prevent merging too large request <a class="http" href="http://git.kernel.org/linus/12cee5a8a29e7263e39953f1d941f723c617ca5f">(commit)</a> <span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Perf.2Ftracing">6. Perf/tracing</h1>
+            <span class="anchor" id="line-125"></span>
+            <ul>
+              <li>
+                <p class="line862">hists browser: Implement printing snapshots to files <a class="http" href="http://git.kernel.org/linus/aff3f3f68ae6002a30543726b2ae48cafce109e6">(commit)</a> <span class="anchor" id="line-126"></span>
+              </li>
+              <li>
+                <p class="line862">Add sort by src line/number <a class="http" href="http://git.kernel.org/linus/409a8be61560c5875816da6dcb0c575d78145a5c">(commit)</a> <span class="anchor" id="line-127"></span>
+              </li>
+              <li>
+                <p class="line862">Add PMU event alias support <a class="http" href="http://git.kernel.org/linus/a6146d5040cce560f700221158d77dd335eed332">(commit)</a> <span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Virtualization">7. Virtualization</h1>
+            <span class="anchor" id="line-130"></span>
+            <ul>
+              <li>
+                <p class="line862">Add tcm_vhost, a vhost-level TCM fabric driver for virtio SCSI initiators into KVM guest <a class="http" href="http://git.kernel.org/linus/057cbf49a1f08297877e46c82f707b1bfea806a8">(commit)</a> <span class="anchor" id="line-131"></span>
+              </li>
+              <li>
+                <p class="line862">virtio: rng: s3/s4 support <a class="http" href="http://git.kernel.org/linus/0bc1a2ef19b45bb23617b203bc631b44609f17ba">(commit)</a> <span class="anchor" id="line-132"></span>
+              </li>
+              <li>
+                <p class="line862">Add mcelog support for Xen platform <a class="http" href="http://git.kernel.org/linus/cef12ee52b054282461a6d5fe7742755fa6e3bd3">(commit)</a> <span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Security">8. Security</h1>
+            <span class="anchor" id="line-135"></span>
+            <ul>
+              <li>SELinux <span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span></li>
+            </ul>
+            <p class="line867">
+            <h1 id="Networking">9. Networking</h1>
+            <span class="anchor" id="line-138"></span>
+            <ul>
+              <li>
+                <p class="line862">Delete ipv4 routing cache <a class="http" href="http://git.kernel.org/linus/89aef8921bfbac22f00e04f8450f6e447db13e42">(commit)</a> <span class="anchor" id="line-139"></span>
+              </li>
+              <li>
+                <p class="line862">tcp: implement the RFC 5691 3.2 mitigation against Blind Reset attack using RST bit <a class="http" href="http://git.kernel.org/linus/282f23c6ee343126156dd41218b22ece96d747e3">(commit)</a> and SYN bit, RFC 5961 4.2 <a class="http" href="http://git.kernel.org/linus/0c24604b68fc7810d429d6c3657b6f148270e528">(commit)</a> <span class="anchor" id="line-140"></span>
+              </li>
+              <li>
+                <p class="line862">VTI support: Virtual (secure) IP: tunneling. This can be used with xfrm mode tunnel to give the notion of a secure tunnel for IPSEC and then use routing protocol on top <a class="http" href="http://git.kernel.org/linus/1181412c1a671ed4e8fb1736f17e6ec617c68059">(commit)</a> <span class="anchor" id="line-141"></span>
+              </li>
+              <li>
+                <p class="line862">mac802154: add WPAN device-class support <a class="http" href="http://git.kernel.org/linus/32bad7e30f113a8a5cebe4704bf6519ab4383e1b">(commit)</a> <span class="anchor" id="line-142"></span>
+              </li>
+              <li>
+                <p class="line862">Add interface option to enable routing of 127.0.0.0/8 <a class="http" href="http://git.kernel.org/linus/d0daebc3d622f95db181601cb0c4a0781f74f758">(commit)</a> <span class="anchor" id="line-143"></span>
+              </li>
+              <li>
+                <p class="line862">team: add multiqueue <a class="http" href="http://git.kernel.org/linus/6c85f2bdda2086d804e198a3f31b685bc2f86b04">(commit)</a>, and netpoll support <a class="http" href="http://git.kernel.org/linus/bd2d0837abc0206ecdd3f6b9fc8c25b55b63c96b">(commit)</a> <span class="anchor" id="line-144"></span>
+              </li>
+              <li>
+                <p class="line862">tun: experimental zero-copy tx support <a class="http" href="http://git.kernel.org/linus/0690899b4d4501b3505be069b9a687e68ccbe15b">(commit)</a> <span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Add support for 40GbE link <a class="http" href="http://git.kernel.org/linus/e440cf2ca0a1b075c64016240d46c3aa9d877bbf">(commit)</a> <span class="anchor" id="line-147"></span>
+              </li>
+              <li>
+                <p class="line862">Add 802.11ad (60 GHz band) support <a class="http" href="http://git.kernel.org/linus/3a0c52a6d82cc41da965284412608c74aece34e4">(commit)</a> <span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span>
+              </li>
+              <li class="gap">netfilter <span class="anchor" id="line-150"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add fail-open support <a class="http" href="http://git.kernel.org/linus/fdb694a01f1fcd30fd16d8aa290c34699fe98a17">(commit)</a> <span class="anchor" id="line-151"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add user-space connection tracking helper infrastructure <a class="http" href="http://git.kernel.org/linus/12f7a505331e6b2754684b509f2ac8f0011ce644">(commit)</a> <span class="anchor" id="line-152"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">Added kernel support in EEE Ethtool commands <a class="http" href="http://git.kernel.org/linus/80f12eccce775dc6bb93dba9b52529740f929237">(commit)</a> <span class="anchor" id="line-153"></span>
+              </li>
+              <li>
+                <p class="line862">Speedup /proc/net/unix <a class="http" href="http://git.kernel.org/linus/7123aaa3a1416529ce461e98108e6b343b294643">(commit)</a> <span class="anchor" id="line-154"></span>
+              </li>
+              <li>
+                <p class="line862">wireless: remove wext sysfs <a class="http" href="http://git.kernel.org/linus/35b2a113cb0298d4f9a1263338b456094a414057">(commit)</a> <span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Cryptography">10. Cryptography</h1>
+            <span class="anchor" id="line-158"></span>
+            <ul>
+              <li>
+                <p class="line862">Hardware acceleration in Atmel processors for the following algorithms: AES <a class="http" href="http://git.kernel.org/linus/bd3c7b5c2aba0d806285700848f588ca482094d8">(commit)</a>, DES/TDES <a class="http" href="http://git.kernel.org/linus/13802005d8f2db244ec1f5d7f6923de8f7a463db">(commit)</a> and SHA-1/SHA-256 <a class="http" href="http://git.kernel.org/linus/ebc82efa1cd64efba0f41455460411b852b5b89c">(commit)</a> <span class="anchor" id="line-159"></span>
+              </li>
+              <li>
+                <p class="line862">CRC hardware driver for Blackfin BF60x family processors. <a class="http" href="http://git.kernel.org/linus/b8840098b70c11d70c29263e0765f103e6cbe55e">(commit)</a> <span class="anchor" id="line-160"></span>
+              </li>
+              <li>
+                <p class="line862">caam: add support for SEC v5.x RNG4 <a class="http" href="http://git.kernel.org/linus/=281922a1d4f59bdebbe78c1d9f4c50a967eb6cff">(commit)</a>, ahash HMAC support <a class="http" href="http://git.kernel.org/linus/045e36780f11523e26d1e4a8c78bdc57f4003bd0">(commit)</a>, hwrng support <a class="http" href="http://git.kernel.org/linus/e24f7c9e87d46fad06bf1097d48f9923acd8e61c">(commit)</a> <span class="anchor" id="line-161"></span>
+              </li>
+              <li>
+                <p class="line862">serpent: add x86_64/avx assembler implementation <a class="http" href="http://git.kernel.org/linus/7efe4076725aeb01722445b56613681aa492c8d6">(commit)</a> <span class="anchor" id="line-162"></span>
+              </li>
+              <li>
+                <p class="line862">twofish: add x86_64/avx assembler implementation <a class="http" href="http://git.kernel.org/linus/107778b592576c0c8e8d2ca7a2aa5415a4908223">(commit)</a> <span class="anchor" id="line-163"></span>
+              </li>
+              <li>
+                <p class="line862">talitos: add sha224, sha384 and sha512 to existing AEAD algorithms <a class="http" href="http://git.kernel.org/linus/357fb60502ede168fa1b76b996298e0045e24b59">(commit)</a> <span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="File_systems">11. File systems</h1>
+            <span class="anchor" id="line-166"></span>
+            <ul>
+              <li>Btrfs <span class="anchor" id="line-167"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Improve multi-thread buffer read <a class="http" href="http://git.kernel.org/linus/67c9684f48ea9cbc5e9b8a1feb3151800e9dcc22">(commit)</a> <span class="anchor" id="line-168"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Introduce subvol uuids and times <a class="http" href="http://git.kernel.org/linus/8ea05e3a4262b9e6871c349fa3486bcfc72ffd1a">(commit)</a> <span class="anchor" id="line-169"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Allow mount -o remount,compress=no <a class="http" href="http://git.kernel.org/linus/063849eafda03edf6872a3728b4a98dcc86290c7">(commit)</a> <span class="anchor" id="line-170"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add DEVICE_READY ioctl <a class="http" href="http://git.kernel.org/linus/02db0844beffc1c4e99d750be58ffb3ed95d6d62">(commit)</a> <span class="anchor" id="line-171"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Join DEV_STATS ioctls to one <a class="http" href="http://git.kernel.org/linus/b27f7c0c150f74564b5d4c6c24a03c5226bf6327">(commit)</a> <span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">pstore <span class="anchor" id="line-176"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add console messages handling <a class="http" href="http://git.kernel.org/linus/b5d38e9bf1b0c4db19e336b59b38dfb5d28bf1bf">(commit)</a> <span class="anchor" id="line-177"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add console log messages support <a class="http" href="http://git.kernel.org/linus/f29e5956aebafe63f81e80f972c44c4a666e5c7f">(commit)</a> <span class="anchor" id="line-178"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add persistent function tracing <a class="http" href="http://git.kernel.org/linus/060287b8c467bf49a594d8d669e1986c6d8d76b0">(commit)</a> <span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">eCryptfs <span class="anchor" id="line-182"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Copy up POSIX ACL and read-only flags from lower mount <a class="http" href="http://git.kernel.org/linus/;a=commit;h=069ddcda37b2cf5bb4b6031a944c0e9359213262">(commit)</a> <span class="anchor" id="line-183"></span><span class="anchor" id="line-184"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">GFS2 <span class="anchor" id="line-185"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Reduce file fragmentation <a class="http" href="http://git.kernel.org/linus/;a=commit;h=8e2e00473598dd5379d8408cb974dade000acafc">(commit)</a> <span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Other_news_sites_that_track_the_changes_of_this_release">12. Other news sites that track the changes of this release</h1>
+            <span class="anchor" id="line-188"></span>
+            <ul>
+              <li>
+                <p class="line862">LWN report <a class="https" href="https://lwn.net/Articles/507852/">part 1</a>, <a class="https" href="https://lwn.net/Articles/508790/">2</a> and <a class="https" href="https://lwn.net/Articles/509433/">3</a> <span class="anchor" id="line-189"></span>
+              </li>
+              <li>
+                <p class="line862">H-Online: <a class="http" href="http://www.h-online.com/open/features/What-s-new-in-Linux-3-6-1714690.html">What's new in Linux 3.6</a> <span class="anchor" id="line-190"></span><span class="anchor" id="line-191"></span>
+              </li>
+            </ul>
+            <p class="line867">
+              <hr />
+            <p class="line874"> <span class="anchor" id="line-192"></span>
+            <ul>
+              <li style="list-style-type:none">
+                <p class="line891"><a href="/CategoryReleases">CategoryReleases</a> <span class="anchor" id="line-193"></span>
+              </li>
+            </ul><span class="anchor" id="bottom"></span>
+          </div>
+          <!-- End of page contents -->
+          <div class="clearfix"></div>
+
+        </div> <!-- /#contentbox -->
+        <!-- End of content body -->
+      </div> <!-- /.container, #pagebox -->
+    </div> <!-- /#outbox -->
+
+    <!-- pageinfo -->
+    <div id="pageinfo-container">
+      <div class="container">
+        <p id="pageinfo" class="info" lang="en" dir="ltr">KernelNewbies: Linux_3.6 (last edited 2017-12-30 01:30:34 by <span title="??? @ localhost[127.0.0.1]">localhost</span>)</p>
+
+      </div>
+    </div>
+    <!-- End of pageinfo -->
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container text-right text-muted">
+        <ul id="credits">
+          <li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li>
+          <li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li>
+          <li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li>
+          <li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+        </ul>
+
+
+
+      </div> <!-- /.container -->
+    </div> <!-- /#footer -->
+    <!-- End of footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/moin_static199/memodump/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/moin_static199/memodump/js/bootstrap.min.js"></script>
+    <!-- toggle.js by dossist -->
+    <script src="/moin_static199/memodump/js/toggle.js"></script>
+    <!-- Custom script -->
+
+    <script>
+      + function($) {
+        // Toggle minified navbar under mobile landscape view
+        $('.navbar-collapse').on('show.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('show');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('hide');
+        });
+
+        //Scroll position fix for hash anchors
+        var mdAnchorFix = {
+          escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+          escape: function(str) {
+            return str.replace(mdAnchorFix.escapeRe, '\\$&');
+          },
+          rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+          isTransparent: function(rgbstr) {
+            if (rgbstr === 'transparent') {
+              return true;
+            }
+            rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+            if (rgbMatch) {
+              return (Number(rgbMatch[2]) ? false : true);
+            }
+            return false;
+          },
+          navbarHeight: function() {
+            var height = 0;
+            var $navbar = $('.navbar');
+            if (!mdAnchorFix.isTransparent($navbar.css('background-color')) &&
+              ($navbar.css('display') !== 'none') &&
+              ($navbar.css('visibility') !== 'hidden')) {
+              height = $navbar.height();
+            }
+            return height;
+          },
+          jump: function() {
+            origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+            offset = mdAnchorFix.navbarHeight() + 15;
+            setTimeout(function() {
+              window.scrollTo(0, origin - offset);
+            }, 1);
+          },
+          clickWrapper: function() {
+            if (($(this).attr('href') === location.hash) ||
+              !('onhashchange' in window.document.body)) {
+              setTimeout(function() {
+                $(window).trigger("hashchange");
+              }, 1);
+            }
+          },
+        };
+        $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+        $(window).on("hashchange", mdAnchorFix.jump);
+        if (location.hash) setTimeout(function() {
+          mdAnchorFix.jump();
+        }, 100);
+      }(jQuery);
+    </script>
+
+    <!-- End of JavaScript -->
+  </body>
+
+</html>

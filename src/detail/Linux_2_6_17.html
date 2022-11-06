@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="Linux, Kernel, Operative System, Linus Torvalds, Open Source, drivers">
+    <meta name="description" content="Summary of the changes and new features merged in the Linux Kernel during the 2.6.17 development">
+    <meta name="robots" content="index,nofollow">
+
+    <title>Linux_2_6_17 - Linux Kernel Newbies</title>
+    <script type="text/javascript" src="/moin_static199/common/js/common.js"></script>
+
+    <script type="text/javascript">
+      <!--
+      var search_hint = "Search";
+      //
+      -->
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/memodump.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/moinizer.css">
+
+    <!-- css only for MS IE6/IE7 browsers -->
+    <!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+    <link rel="alternate" title="Linux Kernel Newbies: Linux_2_6_17" href="/Linux_2_6_17?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Linux_2_6_17&amp;ddiffs=1" type="application/rss+xml">
+
+
+    <link rel="Start" href="/Linux_Kernel_Newbies">
+    <link rel="Alternate" title="Wiki Markup" href="/Linux_2_6_17?action=raw">
+    <link rel="Alternate" media="print" title="Print View" href="/Linux_2_6_17?action=print">
+    <link rel="Search" href="/FindPage">
+    <link rel="Index" href="/TitleIndex">
+    <link rel="Glossary" href="/WordIndex">
+    <link rel="Help" href="/HelpOnFormatting">
+  </head>
+
+  <body lang="en" dir="ltr">
+
+    <div id="outbox" class="sidebar-toggle">
+      <!-- Bootstrap navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+        <div class="container">
+
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <!-- Sidebar toggler -->
+            <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+              <span class="sr-only">Toggle sidebar</span>
+              <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+            </button>
+            <!-- Button to show navbar controls when collapsed -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Sitename -->
+
+            <div class="navbar-brand-wrapper">
+              <a class="navbar-brand" href="/Linux_Kernel_Newbies"><img src="/moin_static199/kn-icon.png" alt="KernelNewbies"></a>
+            </div>
+
+          </div> <!-- /.navbar-header -->
+
+          <!-- Body of navbar -->
+          <div class="collapse navbar-collapse">
+
+            <!-- Navbar elements -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- Comment toggle button -->
+
+              <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+                <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onClick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                  <span class="hidden-sm">Comments</span>
+                </a>
+              </li>
+
+              <!-- Edit button -->
+
+              <li class="disabled">
+                <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+              </li>
+
+              <!-- Search form -->
+
+              <li>
+                <div class="navbar-form">
+                  <form class="form-search" role="search" id="searchform" method="get" action="/Linux_2_6_17">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <div class="form-group">
+                      <label class="sr-only" for="searchinput">Search:</label>
+                      <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value" value="">
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Menu -->
+
+              <li class="dropdown">
+                <!-- Menu button -->
+                <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                  Menu<span class="padding"></span><span class="caret"></span>
+                </a>
+                <!-- Dropdown contents -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Navigation</li>
+                  <li><a href="/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                  <li><a href="/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                  <li><a href="/Linux_2_6_17?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Help</li>
+                  <li><a href="/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                  <li><a href="/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Display</li>
+                  <li><a href="/Linux_2_6_17?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                  <li><a href="/Linux_2_6_17?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                  <li><a href="/Linux_2_6_17?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                  <li><a href="/Linux_2_6_17?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Edit</li>
+                  <li><a href="/Linux_2_6_17?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                  <li><a href="/Linux_2_6_17?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+                </ul>
+              </li> <!-- /dropdown -->
+
+              <!-- Login user -->
+
+              <li>
+                <a class="menu-nav-login" href="/Linux_2_6_17?action=login" rel="nofollow">Login</a>
+              </li>
+
+
+            </ul> <!-- /.navbar-right -->
+
+          </div> <!-- /.collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+      <!-- End of navbar -->
+
+      <div class="container no-padding" id="pagebox">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar-toggle" id="sidebar-curtain">
+          <div class="sidebar-toggle" id="sidebar-mover">
+            <div class="sidebar-toggle" id="sidebar" role="navigation">
+              <!-- SideBar contents -->
+              <div class="sidebar clearfix">
+                <div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+                  <span class="anchor" id="SideBar.line-1"></span>
+                  <p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Community <span class="anchor" id="SideBar.line-17"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">References <span class="anchor" id="SideBar.line-23"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/RecentChanges">Recent Changes</a> <span class="anchor" id="SideBar.line-29"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-30"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-31"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span>
+                    </li>
+                  </ul><span class="anchor" id="SideBar.bottom"></span>
+                </div>
+              </div>
+              <!-- End of SideBar contents -->
+
+              <div>
+                <h4>Navigation</h4>
+                <ul id='navibar'>
+                  <li class="wikilink"><a href="/RecentChanges">RecentChanges</a></li>
+                  <li class="wikilink"><a href="/FindPage">FindPage</a></li>
+                  <li class="wikilink"><a href="/HelpContents">HelpContents</a></li>
+                </ul>
+              </div>
+
+
+            </div> <!-- /#sidebar -->
+          </div> <!-- /#sidebar-mover -->
+        </div>
+        <div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+          <div id="location">
+            <span id="interwiki"><a href="/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+            <ul id="pagelocation">
+              <li><a href="/Linux_2_6_17">Linux_2_6_17</a></li>
+            </ul>
+
+            <span class="lastupdate">Last updated at 2017-12-30 01:30:03</span>
+          </div>
+
+
+          <!-- Page contents -->
+          <div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+            <span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span>
+            <p class="line862">Released 17 June, 2006 (<a class="http" href="http://www.kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.17">full SCM git log</a>) <span class="anchor" id="line-5"></span>
+            <h4 id="A2.6.17">2.6.17</h4>
+            <span class="anchor" id="line-6"></span>
+            <ul>
+              <li>Overview <span class="anchor" id="line-7"></span>
+                <ul>
+                  <li>Support for the multicore Niagara series of CPUs from Sun. <span class="anchor" id="line-8"></span></li>
+                  <li>
+                    <p class="line862">Driver for the Broadcom 43xx based wireless cards by the <a class="http" href="http://bcm43xx.berlios.de">bcm43xx project</a>, a chip embedded in <a class="http" href="http://linux-bcom4301.sourceforge.net/go/hardware">many laptops</a> <span class="anchor" id="line-9"></span>
+                  </li>
+                  <li>splice, a new I/O mechanism (see below) <span class="anchor" id="line-10"></span></li>
+                  <li>
+                    <p class="line862">X86 &quot;SMP alternatives&quot; (optimizes a single kernel image at runtime according with the available platform) <a class="http" href="http://lwn.net/Articles/164121/">(LWN article)</a> <span class="anchor" id="line-11"></span>
+                  </li>
+                  <li>New scheduler domain which optimizes CPU scheduling decisions for multi-core CPUs <span class="anchor" id="line-12"></span></li>
+                  <li>
+                    <p class="line862">sync_file_range syscall, <a class="http" href="http://lwn.net/Articles/178199/">(LWN article)</a> <span class="anchor" id="line-13"></span>
+                  </li>
+                  <li>Block queue IO tracing <span class="anchor" id="line-14"></span></li>
+                  <li>
+                    <p class="line862">Raid5 reshaping support <a class="http" href="http://lwn.net/Articles/169140/">(LWN article)</a> <span class="anchor" id="line-15"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Lightweight robust futexes <a class="http" href="http://lwn.net/Articles/172149/">(LWN article)</a> <span class="anchor" id="line-16"></span>
+                  </li>
+                  <li>User-space software suspend interface <span class="anchor" id="line-17"></span></li>
+                  <li>Generic RTC subsystem <span class="anchor" id="line-18"></span></li>
+                  <li>iptables support for H.323 protocol, compatibility for 32-bit iptables userspace tools running in a 64-bit kernel <span class="anchor" id="line-19"></span></li>
+                  <li>Add support for Router Preference (RFC4191), Router Reachability Probing (RFC4191) and experimental support for Route Information Option in RA (RFC4191) in IPV6 <span class="anchor" id="line-20"></span></li>
+                  <li>CCID2 support for DCCP <span class="anchor" id="line-21"></span></li>
+                  <li>Softmac layer to the wireless stack <span class="anchor" id="line-22"></span></li>
+                  <li>Updates for JFS, ALSA, NFS, V4L/DVB (many new devices added), and many bugfixes and minor updates. <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>Kernel Core changes</strong> <span class="anchor" id="line-26"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Introduce the splice(), tee() and vmsplice() system calls, a new I/O method. <a class="http" href="http://lwn.net/Articles/178199/">(LWN article about splice())</a>, <a class="http" href="http://lwn.net/Articles/179492/">(LWN article about tee())</a>, <a class="http" href="http://lwn.net/Articles/181169/">(LWN article about vmsplice())</a> The idea behind splice is the availability of a in-kernel buffer that the user has control over, where &quot;splice()&quot; moves data to/from the buffer from/to an arbitrary file descriptor, while &quot;tee()&quot; copies the data in one buffer to another, ie: it &quot;duplicates&quot; it. The in-buffer however is implemented as a set of reference-counted pointers which the kernel copies around without actually copying the data. So while tee() &quot;duplicates&quot; the in-kernel buffer, in practice it doesn't copy the data but increments the reference pointers, avoiding extra copies of the data. In the same way, splice() can move data from one end to another, but instead of bringing the data from the source to the process' memory and sending back to the destination it just moves it avoiding the extra copy. This new scheme can be used anywhere where a process needs to send something from one end to another, but it doesn't need to touch or even look at the data, just forward it: Avoiding extra copies of data means you don't waste time copying data around (huge performance improvement). For example, you could forward data that comes from a MPEG-4 hardware encoder, and tee() it to duplicate the stream, and write one of the streams to disk, and the other one to a socket for a real-time network broadcast. Again, all without actually physically copying it around in memory. vmsplice() does the same than splice(), but instead of splicing from fd to fd as splice() does, it splices from a user address range into a file. The idea and first implementation were done by Linus Torvalds, the final implementation by Jens Axboe <a class="http" href="http://marc.theaimsgroup.com/?l=linux-kernel&amp;m=110507985702357&amp;w=2">(email 1)</a>, <a class="http" href="http://marc.theaimsgroup.com/?l=linux-kernel&amp;m=110511497731192&amp;w=2">(email 2)</a>, <a class="http" href="http://marc.theaimsgroup.com/?l=linux-kernel&amp;m=110511787707447&amp;w=2">(email 3)</a>, <a class="http" href="http://marc.theaimsgroup.com/?l=linux-kernel&amp;m=114547247100565&amp;w=2">(email 4)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5274f052e7b3dbd81935772eb551dfd0325dfa9d">(commit 1)</a>, <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=70524490ee2ea1bbf6cee6c106597b3ac25a3fc2">(commit 2)</a>, <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3a326a2ce88e71d00ac0d133e314a3342a7709f8">(commit 3)</a> <span class="anchor" id="line-27"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Introduce the sync_file_range() syscall, due to concerns about extending in non-POSIX-compatible ways the fadvise() interface. Interface: long sync_file_range(int fd, loff_t offset, loff_t nbytes, int flags). This is used to synchronize a file's data to disk, starting at offset and proceeding for nbytes bytes. More details in <a class="http" href="http://lwn.net/Articles/178199/">(this LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f79e2abb9bd452d97295f34376dedbec9686b986">(commit)</a> <span class="anchor" id="line-28"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add a new scheduler domain for representing multi-core with shared caches between cores. This makes possible to make smarter cpu scheduling decisions on such systems, improving performance greatly for some cases (see commit) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1e9f28fa1eb9773bf65bae08288c6a0a38eef4a7">(commit)</a> <span class="anchor" id="line-29"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Lightweight robust futexes: if a process exits prematurely while holding a pthread_mutex_t lock shared with some other process (e.g. yum segfaults or it's kill -9-ed), then waiters for that lock need to be notified that the last owner of the lock exited in some irregular way. This creates a API to fix that <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/robust-futexes.txt">Documentation</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/robust-futex-ABI.txt">ABI documentation</a>, <a class="http" href="http://lwn.net/Articles/172149/">(LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e9056f13bfcdd054a0c3d730e4e096748d8a363a">(commit 1)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0771dfefc9e538f077d0b43b6dec19a5a67d0e70">(commit 2)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=dfd4e3ec246355274c9cf62c6b04a1ee6fa3caba">(commit 3)</a> <span class="anchor" id="line-30"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Block queue IO tracing support (blktrace). This allows users to see any traffic happening on a block device queue. In other words, you can get very detailed statistics of what your disks are doing. User space support tools available in: git://brick.kernel.dk/data/git/blktrace.git <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2056a782f8e7e65fd4bfd027506b4ce1c5e9ccd4">(commit)</a> <span class="anchor" id="line-31"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Cpuset memory spread implementation: Alternative memory allocation policy, if enabled it spreads out these kinds of memory allocations over all the nodes allowed to a task, instead of preferring to place them on the node where the task is executing. All other kinds of allocations, including anonymous pages for a tasks stack and data regions, are not affected by this policy choice, and continue to be allocated preferring the node local to execution, as modified by the NUMA mempolicy <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=825a46af5ac171f9f41f794a0a00165588ba1589">(commit 1)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=44110fe385af23ca5eee8a6ad4ff55d50339097a">(commit 2)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4b6a9316fab51af611dc8671f296734089f6a22a">(commit 3)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=101a50019ae5e370d73984ee05d56dd3b08f330a">(commit 4)</a> <span class="anchor" id="line-32"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Introduce a user space interface for swsusp <a class="http" href="http://lwn.net/Articles/153203/">(LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e1819d615f24ce0726a7d0bd3dd0152d7b21654">(commit)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f577eb30afdc68233f25d4d82b04102129262365">(commit)</a> <span class="anchor" id="line-33"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Implement /proc/slab_allocators <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=871751e25d956ad24f129ca972b7851feaa61d53">(commit)</a> <span class="anchor" id="line-34"></span>
+                  </li>
+                  <li>
+                    <p class="line862">New /proc file /proc/self/mountstats, where mounted file systems can export information (configuration options, performance counters, and so on) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b4629fe2f094b719847f31be1ee5ab38300038b2">(commit)</a> <span class="anchor" id="line-35"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Enable mprotect on huge pages <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8f860591ffb29738cf5539b6fbf27f50dcdeb380">(commit)</a> <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">Various core changes <span class="anchor" id="line-38"></span>
+                <ul>
+                  <li>
+                    <p class="line862">CONFIG_UNWIND_INFO: Generates frame unwind information <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=604bf5a216e7f2d97cdf62614ca1281921531040">(commit)</a> <span class="anchor" id="line-39"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Reduce the size of (struct fdtable) to exactly 64 bytes on 32bits platforms, lowering kmalloc() allocated space by 50% <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0c9e63fd38a2fb2181668a0cdd622a3c23cfd567">(commit)</a> <span class="anchor" id="line-40"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Optimize select/poll by putting small data sets on the stack instead of using kmalloc for small fd sets, an old optimization from Linux 2.0 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=70674f95c0a2ea694d5c39f4e514f538a09be36f">(commit)</a> <span class="anchor" id="line-41"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Deprecate the use of MS_VERBOSE and replace it with MS_SILENT <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9b04c997b1120feefa1e6ee8e2902270bc055cd2">(commit)</a> <span class="anchor" id="line-42"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add API for flushing Anon pages <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=03beb07664d768db97bf454ae5c9581cd4737bb4">(commit)</a> <span class="anchor" id="line-43"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add flush_kernel_dcache_page() API <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5a3a5a98b6422d05c39eaa32c8b3f83840c7b768">(commit)</a> <span class="anchor" id="line-44"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add blkcnt_t as the type of inode.i_blocks. This enables you to make the size of blkcnt_t either 4 bytes or 8 bytes on 32 bits architecture with CONFIG_LSF. On h8300, i386, mips, powerpc, s390 and sh that define sector_t, blkcnt_t is defined as u64 if CONFIG_LSF is enabled; otherwise it is defined as unsigned long. On other architectures, it is defined as unsigned long <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a0f62ac6362c168754cccb36f196b3dfbddc3bc3">(commit)</a> <span class="anchor" id="line-45"></span>
+                  </li>
+                  <li>
+                    <p class="line862">for_each_possible_cpu: defines for_each_possible_cpu, a for-loop over cpu_possible_map. for_each_online_cpu is for-loop cpu over cpu_online_map <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=631d6747e1d877a4baa924cb373b8b9511a53e5e">(commit)</a> <span class="anchor" id="line-46"></span>
+                  </li>
+                  <li>
+                    <p class="line862">unify page_to_pfn(),pfn_to_page() <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a117e66ed45ac0569c039ea60bd7a9a61e031858">(commit)</a> <span class="anchor" id="line-47"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Notifier chain: Introduces three new, parallel APIs: one for blocking notifiers, one for atomic notifiers, and one for &quot;raw&quot; notifiers (which is really just the old API under a new name) <a class="http" href="http://lwn.net/Articles/185500">LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e041c683412d5bf44dc2b109053e3b837b71742d">(commit)</a> <span class="anchor" id="line-48"></span>
+                  </li>
+                  <li>
+                    <p class="line862">add EXPORT_SYMBOL_GPL_FUTURE(): This patch adds the ability to mark symbols that will be changed in the future, so that kernel modules that don't include MODULE_LICENSE(&quot;GPL&quot;) and use the symbols, will be flagged and printed out to the system log <a class="http" href="http://lwn.net/Articles/171838/">(LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9f28bb7e1d0188a993403ab39b774785892805e1">(commit)</a> <span class="anchor" id="line-49"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Permit Dual-MIT/GPL licenses <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7529c301165079d0f149d0e54724829e602f8fc0">(commit)</a> <span class="anchor" id="line-50"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CFQ: Seek and async performance tuning <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=206dc69b31ca05baac68c75b8ed2ba7dd857d273">(commit)</a>, change cfq io context linking from list to tree: Improves performance on setups with many disks <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e2d74ac0664c89757bde8fb18c98cd7bf53da61c">(commit)</a> <span class="anchor" id="line-51"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Remove RTC UIP synchronization <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=63732c2f37093d63102d53e70866cf87bf0c0479">(commit)</a> <span class="anchor" id="line-52"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Introduce FMODE_EXEC file flag, to indicate that file is being opened for execution. This is useful for distributed filesystems to maintain consistent behavior for returning ETXTBUSY when opening for write and execution happens on different nodes <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b500531e6f5f234ed267bd7060ee06d144faf0ca">(commit)</a> <span class="anchor" id="line-53"></span>
+                  </li>
+                  <li>
+                    <p class="line862">strndup_user(): a function to easy copying C strings from userspace <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=96840aa00a031069a136ec4c55d0bdd09ac6d3a7">(commit)</a> <span class="anchor" id="line-54"></span>
+                  </li>
+                  <li>
+                    <p class="line862">msync(): perform dirty page levelling <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9c50823eebf7c256b92b4e0f02b5fb30e97788c2">(commit)</a> <span class="anchor" id="line-55"></span>
+                  </li>
+                  <li>
+                    <p class="line862">kbuild: Improved modversioning support for external modules <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=040fcc819a2e7783a570f4bdcdd1f2a7f5f06837">(commit)</a> and support building individual files for external modules <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=06300b21f4c79fd1578f4b7ca4b314fbab61a383">(commit)</a> <span class="anchor" id="line-56"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Mark unwind info for signal trampolines using the new S augmentation flag in recent GCCs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=da2e9e1ff40c863a12803c32209baaded3512433">(commit)</a> <span class="anchor" id="line-57"></span>
+                  </li>
+                  <li>
+                    <p class="line862">vt: Add TIOCL_GETKMSGREDIRECT needed by the userland suspend tool to get the current value of kmsg_redirect from the kernel so that it can save it and restore it after resume <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0ca07731e495584bd84dca15a0f065470d594ec4">(commit)</a> <span class="anchor" id="line-58"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Removes the support for pps <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5ddcfa878d5b10b0ab94251a4229a8a9daaf93ed">(commit)</a> <span class="anchor" id="line-59"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Configurable NODES_SHIFT <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c80d79d746cc48bd94b0ce4f6d4f3c90cd403aaf">(commit)</a> <span class="anchor" id="line-60"></span>
+                  </li>
+                  <li>
+                    <p class="line862">slab: add statistics for alien cache overflows <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fb7faf3313d527bf68ba2e7ff3a2b6ebf201af73">(commit)</a> <span class="anchor" id="line-61"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add GFP_NOWAIT, an alias for GFP_ATOMIC &amp; ~<span class="u">GFP_HIGH <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7b04d7170e9af805cac19f97b28fff10db897893">(commit)</a> <span class="anchor" id="line-62"></span>
+                  </li>
+                  <li>
+                    <p class="line862">POLLRDHUP/EPOLLRDHUP handling for half-closed devices notifications <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f348d70a324e15afc701a494f32ec468abb7d1eb">(commit)</a> <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>Architecture-specific</strong> <span class="anchor" id="line-65"></span>
+                <ul>
+                  <li>x86 32/64 <span class="anchor" id="line-66"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">SMP &quot;alternatives&quot; for x86-32. This features detects the configuration of the system at boot time, and patches certain instructions in the kernel image on the fly with optimized versions for UP or SMP, depending on what system is running. This is useful for distros, who can provide a single kernel which auto-optimizes itself for UP or SMP environments. The feature can patch both SMP-&gt;UP and UP-&gt;SMP. The UP-&gt;SMP case is useful for CPU hotplug (which may be useful in virtualized environments to hot-add/remove CPUs in virtualized guests in reaction to load changes in the host) <a class="http" href="http://lwn.net/Articles/164121/">(LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9a0b5817ad97bb718ab85322759d19a238712b47">(commit)</a> <span class="anchor" id="line-67"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Make CONFIG_REGPARM enabled by default. With this option, GCC passes the first 3 function parameters in registers. It's a noticeable win both for size and for performance, and gcc[34] handles it correctly <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b824eb605ccba995fd32c6590aed365f93d48002">(commit)</a> <span class="anchor" id="line-68"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Use -mtune=generic for generic kernels. The upcoming gcc 4.2 got a new option -mtune=generic to tune code for both common AMD and Intel CPUs. Use this option when available for generic kernels. On x86-64 it is used with CONFIG_GENERIC_CPU. On i386 it is enabled with CONFIG_X86_GENERIC. It won't affect the base line CPU support in any ways and also not the minimum supported CPU <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=dca99a38bccceda9e079d4c95abefbd9028605fe">(commit)</a> <span class="anchor" id="line-69"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Increase the variability of the process stack on x86-64 for now. 8 MB is not really very random, use 1GB (or more with larger page sizes) instead<a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=913bd906019514579b3c7ec5ab9c463e89207a57">(commit)</a> <span class="anchor" id="line-70"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow disabling the &quot;sep&quot; feature (X86_FEATURE_SEP) at boot. This forces use of the int80 vsyscall, useful mainly for testing or benchmarking the int80 vsyscall code <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4f88651125e2ca8b106b6f65b65ea45776517bf3">(commit)</a> <span class="anchor" id="line-71"></span>
+                      </li>
+                      <li>
+                        <p class="line862">&quot;make isoimage&quot; support, FDINITRD= support. This adds a &quot;make isoimage&quot; to i386 and x86-64, which allows the automatic creation of a bootable CD image. It also adds an option FDINITRD= to include an initrd of the user's choice in generated floppy- or CD boot images <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=841b8a46bffec232377d2de157f971e812be4fe4">(commit)</a> <span class="anchor" id="line-72"></span>
+                      </li>
+                      <li>
+                        <p class="line862">kprobes-booster <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=311ac88fd2d4194a95e9e38d2fe08917be98723c">(commit)</a> <span class="anchor" id="line-73"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Remove the obsolete microcode_ioctl <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f45e4656ac0609437267b242953c07d523649f8d">(commit)</a> <span class="anchor" id="line-74"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Support memory hotadd without sparsemem <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9d99aaa31f5994d1923c3713ce9144c4c42332e1">(commit)</a> <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=68a3a7feb08f960095072f28ec20f7900793c506">(commit)</a> <span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">PPC <span class="anchor" id="line-78"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Numa: Support sparse online node map <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=482ec7c403d239bb4f1732faf9a14988094ce08b">(commit)</a> <span class="anchor" id="line-79"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Implement accurate task and cpu time accounting for 64-bit powerpc kernels <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c6622f63db86fcbd41bf6fe05ddf2e00c1e51ced">(commit)</a> <span class="anchor" id="line-80"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Support for the physmapped flash on m8xx <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=076d022c566fddde41fd4a858dd24bacad8304d7">(commit)</a> <span class="anchor" id="line-81"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add PCI support for 8540 ADS <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8080d5497146d5d27d9e8e78229d1adc7fe280cf">(commit)</a> <span class="anchor" id="line-82"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add platform support for MPC834x USB controllers <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4b10cfd40e3fa1c1663b9c9fa22260d41e669c6f">(commit)</a> <span class="anchor" id="line-83"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add oprofile calltrace support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6c6bd754bf43d59756f094de144ecac239629dda">(commit)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fa465f8c7008c6cab32b05f3f1af57f7c86e8873">(commit)</a> <span class="anchor" id="line-84"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add hvc backend for rtas, needed to get console output on those boards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f4d1749e9570d3984800c371c6e06eb35b9718b1">(commit)</a> <span class="anchor" id="line-85"></span>
+                      </li>
+                      <li>spufs (Cell processor) <span class="anchor" id="line-86"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Enable SPE problem state MMIO access <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6df10a82f8de89c66eb91c371d62d76e87b2cbba">(commit)</a> <span class="anchor" id="line-87"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Allow SPU code to do syscalls <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2dd14934c9138c562d93c501e88c6d6f061eb8ba">(commit)</a> <span class="anchor" id="line-88"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Adds support for the LITE5200B, the new development board for the Freescale MPC5200 processor <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f8dd311982c86141f4f2fd326c0edf0c2d9fd97b">(commit)</a> <span class="anchor" id="line-89"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Adds support for the PCI hostbridge in MPC5200B <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5931c4350059ce9bd5fe398b628c478753a11e44">(commit)</a> <span class="anchor" id="line-90"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Implement mfc access for PPE-side DMA <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a33a7d7309d79656bc19a0e96fc4547a1633283e">(commit)</a> <span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">ARM <span class="anchor" id="line-93"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add support for the new XScale v3 core <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=23bdf86aa06ebe71bcbf6b7d25de9958c6ab33fa">(commit)</a> <span class="anchor" id="line-94"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Intel ixp23xx series of CPUs and support for the ADI Engineering Roadrunner, Intel IXDP2351, and IP Fabrics Double Espresso platforms <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c4713074375c61f939310b04e92090afe29810dc">(commit)</a> <span class="anchor" id="line-95"></span>
+                      </li>
+                      <li>
+                        <p class="line862">proc-v6: page table walks with outer-cacheable attribute, and enable no-execute in page tables <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3747b36eeab93d8969e86987bbc1d44971229b26">(commit)</a> <span class="anchor" id="line-96"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Cirrus ep93xx series of CPUs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e7736d47a11a771ba87314be563b2cb6b8d11d14">(commit)</a> <span class="anchor" id="line-97"></span>
+                      </li>
+                      <li>
+                        <p class="line862">ep93xx: Add GPIO interrupt support for the first 16 GPIO lines (port A and B ) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=bd20ff5793b4ece4fa3e9e0fcf8e6bbd93526215">(commit)</a> <span class="anchor" id="line-98"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Intel's IXDP28x5 platform. This is just and IXDP2801 with a new CPU rev <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0328ad23cfd8a0501f44a1b83e49d5b0e47e2b3c">(commit)</a> <span class="anchor" id="line-99"></span>
+                      </li>
+                      <li>
+                        <p class="line862">s3c2410: Support for Simtec IM2440D20 CPU modules (Osiris) s<a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=110d322b29c08d8cf1dba599fd45ad2b9752a4bb">(commit)</a> <span class="anchor" id="line-100"></span>
+                      </li>
+                      <li>
+                        <p class="line862">s3c24xx: Add USB bus clock source <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=36c64af4e013ddf44c44298f50ff138ef1e2e7b7">(commit)</a> <span class="anchor" id="line-101"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Battery support for sharp zaurus sl-5500 (collie). Collie slowly charges battery even with charging disabled, so fast charge is not enabled yet <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=48a03ae863e0031def037fc828d7ea1a29b6fb7b">(commit)</a> <span class="anchor" id="line-102"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for logicpd pxa270 card engine <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e9937d4b0a9382c4c78411d1c53e62be396ee9a9">(commit)</a> <span class="anchor" id="line-103"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds support for the Ethernet controller integrated in the Atmel AT91RM9200 SoC processor. <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d4b7780ea1d2e08410fcc9963a57254147ae577a">(commit)</a> <span class="anchor" id="line-104"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add Cirrus EP93xx AMBA PL010 serial support: <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=aee85fe8e8143d3f54d9e6d3c6cdd40ead563267">(commit)</a> <span class="anchor" id="line-105"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a driver for the on-chip watchdog on the cirrus ep93xx series of ARM CPUs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f52ac8fec8a13e207f675b0c16e0d5f800c1c204">(commit)</a> <span class="anchor" id="line-106"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds support for the LED(s) on the AT91RM9200-based boards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cc2832a1313340ff1de55f15fac5b7fe48fa2a72">(commit)</a> <span class="anchor" id="line-107"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds support for the I/O coherent cache available on the xsc3 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=23759dc6430428897a36c4d493f611eca55c9481">(commit)</a> <span class="anchor" id="line-108"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add pci slave support for ixp23xx <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=532bda5d9cd2f94a9e374765c23858c7d8641f66">(commit)</a> <span class="anchor" id="line-109"></span>
+                      </li>
+                      <li>
+                        <p class="line862">SD/MMC support for i.MX/MX1 SD/MMC controller <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=56ca904053ab14ba4067a72b69a5edf246771209">(commit)</a> <span class="anchor" id="line-110"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Support for 2.6 (MMC/SD driver) on the Atmel AT91RM9200 processor <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=65dbf34393f7b3d20e993d9651a825df0fa5376b">(commit)</a> <span class="anchor" id="line-111"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow un-muxed syscalls to be available for everyone <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d53ace70052b5c0a08a4f92993c0614f84920abf">(commit)</a> <span class="anchor" id="line-112"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nommu: Adds MPU support in boot/compressed/head.S <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=10c2df65060e1ab57b2f75e0749de0ee9b8f4810">(commit)</a> <span class="anchor" id="line-113"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nommu: Add nommu specific Kconfig and MMUEXT variable in Makefile <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f8c07de6beac55c3273cbd679bfa67555ef14ef5">(commit)</a> <span class="anchor" id="line-114"></span>
+                      </li>
+                      <li>
+                        <p class="line862">backlight: Generalise to support other Sharp SL hardware, this enables the driver to support other Zaurus hardware, specifically the SL-6000x (Tosa) model <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2c0f5fb08e8ad59f396b1bda41ccd93cbb00a09f">(commit)</a> <span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">PARISC <span class="anchor" id="line-117"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add PREEMPT support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=50a34dbd612925f2ec55b1781632835ef36b97d5">(commit)</a> <span class="anchor" id="line-118"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Enable ioremap functionality unconditionally <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=29ef8295327653ff09a56285c35213cd31fa54b3">(commit)</a> <span class="anchor" id="line-119"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add CONFIG_HPPA_IOREMAP to conditionally enable ioremap <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b8ce0aadcdebbaf5ec013c57e2a0803060817bcc">(commit)</a> <span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">MIPS: <span class="anchor" id="line-122"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Kpsd and other AP/SP improvements <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2600990e640e3bef29ed89d565864cf16ee83833">(commit)</a> <span class="anchor" id="line-123"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Improved multithreading <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=41c594ab65fc89573af296d192aa5235d09717ab">(commit)</a> <span class="anchor" id="line-124"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add early console for Cobalt <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e87dddeb92618d9dbb8b9f946a193739a4447609">(commit)</a> <span class="anchor" id="line-125"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Remove obsoleted serial au1x00_uart driver as announced in feature-removal-schedule.txt <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=335bd9dff31d042b773591933d3ee5bd62d5ea27">(commit)</a> <span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">UML: <span class="anchor" id="line-128"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add hotplug memory support to UML, see details in the commit <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=02dea0875b0f9b331a65fd6097dfd6115ca4ef24">(commit)</a> <span class="anchor" id="line-129"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Implement {get,set}_thread_area for i386 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=aa6758d4867cd07bd76105ade6177fe6148e559a">(commit)</a> <span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">Sparc <span class="anchor" id="line-132"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">sparc64: Add support for the Niagara platform (CPU, PCI devices, hypervisor, hypervisor serial console, etc) which includes a big rewrite of some parts of the sparc64 architecture <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c4a1745aa09fc110afdefea0e5d025043e348bae">(commit)</a> <span class="anchor" id="line-133"></span>
+                      </li>
+                      <li>
+                        <p class="line862">VGA support in sparc32 <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ac50ab3e45436900b5d73edd0c6b0744af560535">(commit)</a> <span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">IA64: <span class="anchor" id="line-136"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Support for cpu0 removal <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ff741906ad3cf4b8ca1a958acb013a97a6381ca2">(commit)</a> <span class="anchor" id="line-137"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Export cpu cache info in sysfs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f19180056ea09ec6a5d32e741234451a1e6eba4d">(commit)</a> <span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">S390: <span class="anchor" id="line-140"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Channel path measurements <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=495a5b45ac33b8fe2c49780fdbcc8014cb6d6ddc">(commit)</a> <span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>Filesystems</strong> <span class="anchor" id="line-145"></span>
+                <ul>
+                  <li>Ext3 <span class="anchor" id="line-146"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Performance improvement: Mapping multiple blocks at a once in ext3_get_blocks() <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=89747d369d34e333b9b60f10f333a0b727b4e4e2">(commit)</a> <span class="anchor" id="line-147"></span>
+                      </li>
+                      <li>
+                        <p class="line862">&quot;nobh&quot; writeback support for filesystems blocksize &lt; pagesize <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a0e9285233a32edf267d27cd03fe0056951422cf">(commit)</a> <span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">XFS <span class="anchor" id="line-150"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Introduces multi-level in-core file extent <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0293ce3a9fd1b34c933a96577a8ba737b681cf75">(commit)</a> <span class="anchor" id="line-151"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Reenable the noikeep (delete inode cluster space) option by default <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e15f195cfb2fb1f2af0fdfc21277643deb26c0df">(commit)</a> <span class="anchor" id="line-152"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Reorganize some of the in-core file extent:<a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4eea22f01bb4fdba1aab4430c33adbe88d9d4985">(commit)</a> <span class="anchor" id="line-153"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>JFS <span class="anchor" id="line-154"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add uid, gid, and umask mount options <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=69eb66d7da7dba2696281981347698e1693c2340">(commit)</a> <span class="anchor" id="line-155"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add ext2 inode attributes for jfs. To see the type of inode attributes implemented see the commit <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fa3241d24cf1182b0ffb6e4d412c3bc2a2ab7bf6">(commit)</a> <span class="anchor" id="line-156"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Reenable write barriers by default <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3bbcc8e3976f8bba2fd607c8850d7dfe7e332fda">(commit)</a> <span class="anchor" id="line-157"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Provide support for the splice syscall <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1b895840ce93fd2d150a86c800a3085eaab4eb9e">(commit)</a> <span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">FUSE <span class="anchor" id="line-160"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add O_ASYNC support <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=385a17bfc3cb035333c8a91eddc78a6e04c4625e">(commit)</a> <span class="anchor" id="line-161"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add O_NONBLOCK support <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e5ac1d1e70a8c19a65a959d73650203df7a2e168">(commit)</a> <span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">NFS <span class="anchor" id="line-164"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add I/O performance counters <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=91d5b47023b608227d605d1e916b29dd0215bff7">(commit)</a> <span class="anchor" id="line-165"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Introduce mechanism for tracking NFS client metrics <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d9ef5a8c26aab09762afce43df64736720b4860e">(commit)</a> <span class="anchor" id="line-166"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Use UNSTABLE + COMMIT for NFS O_DIRECT writes <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fad61490419b3e494f300e9b2579810ef3bcda31">(commit)</a> <span class="anchor" id="line-167"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add RPC I/O statistics to /proc/self/mountstats <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4ece3a2d18fd7fe1d4972284a8c98c569020093f">(commit)</a> <span class="anchor" id="line-168"></span>
+                      </li>
+                      <li>
+                        <p class="line862">SUNRPC: add a handful of per-xprt counters, monitor generic transport events <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=262ca07de4d7f1bff20361c1353bb14b3607afb2">(commit)</a> <span class="anchor" id="line-169"></span>
+                      </li>
+                      <li>
+                        <p class="line862">SUNRPC: track length of RPC wait queues which will eventually be exported to userland via the RPC iostats interface <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e19b63dafdf7d615b0d36b90990a07e7792b9d3a">(commit)</a> <span class="anchor" id="line-170"></span>
+                      </li>
+                      <li>
+                        <p class="line862">SUNRPC: introduce per-task RPC iostats <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ef759a2e54ed434b2f72b52a14edecd6d4eadf74">(commit)</a> <span class="anchor" id="line-171"></span>
+                      </li>
+                      <li>
+                        <p class="line862">SUNRPC: provide a mechanism for collecting stats in the RPC client <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=11c556b3d8d481829ab5f9933a25d29b00913b5a">(commit)</a> <span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">CIFS <span class="anchor" id="line-174"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add posix (advisory) byte range locking support to cifs client: Samba (version 3) server support for this is also currently being done. This client code is in an experimental path (requires enabling /proc/fs/cifs/Experimental) while it is being tested <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=08547b036b8445e2318e14f1f03308105b01fc5b">(commit)</a> <span class="anchor" id="line-175"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Readdir perf optimizations part 1 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d47d7c1a850b867047fe17140fabd0376894e849">(commit)</a> <span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">NTFS <span class="anchor" id="line-178"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add support for sparse files which have a compression unit of 0 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a0646a1f04f1ec4c7514e5b00496b54e054a2c99">(commit)</a> <span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">sysfs/relayfs/debugfs <span class="anchor" id="line-181"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">relayfs: migrate from relayfs to a generic relay API <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b86ff981a8252d83d6a7719ae09f3a05307e3592">(commit)</a> <span class="anchor" id="line-182"></span>
+                      </li>
+                      <li>
+                        <p class="line862">relay: add sendfile() support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=221415d76231d9012871e6e6abcbad906c46626a">(commit)</a> <span class="anchor" id="line-183"></span>
+                      </li>
+                      <li>
+                        <p class="line862">debugfs: Add debugfs_create_blob() helper for exporting binary data <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=dd308bc355a1aa4f202fe9a3133b6c676cb9606c">(commit)</a> <span class="anchor" id="line-184"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Make sysfs attributes pollable <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4508a7a734b111b8b7e39986237d84acb1168dd0">(commit)</a> <span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>SELinux/audit</strong> <span class="anchor" id="line-188"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Support for process-context based filtering <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=376bd9cb357ec945ac893feaeb63af7370a6e70b">(commit 1)</a>, <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3dc7e3153eddfcf7ba8b50628775ba516e5f759f">(commit 2)</a> <span class="anchor" id="line-189"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Disable the automatic labeling of new inodes on disk when no policy is loaded. Discussion in <a class="https" href="https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=180296">https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=180296</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8aad38752e81d1d4de67e3d8e2524618ce7c9276">(commit)</a> <span class="anchor" id="line-190"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add a slab cache for the SELinux inode security struct <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7cae7e26f245151b9ccad868bf2edf8c8048d307">(commit)</a> <span class="anchor" id="line-191"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Hardwire important SE Linux events to the audit system <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=af601e4623d0303bfafa54ec728b7ae8493a8e1b">(commit)</a> <span class="anchor" id="line-192"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Audit string fields interface + consumer <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=93315ed6dd12dacfc941f9eb8ca0293aadf99793">(commit)</a> <span class="anchor" id="line-193"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add tty to syscall audit records <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a6c043a887a9db32a545539426ddfc8cc2c28f8f">(commit)</a> <span class="anchor" id="line-194"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add a little more information to the add/remove rule message emitted by the kernel <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5d3301088f7e412992d9e61cc3604cbdff3090ff">(commit)</a> <span class="anchor" id="line-195"></span>
+                  </li>
+                  <li>
+                    <p class="line862">More filter rule comparators. Currently, audit only supports the &quot;=&quot; and &quot;!=&quot; operators in the -F filter rules, add &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, and &quot;&lt;=&quot; <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b63862f46547487388e582e8ac9083830d34f058">(commit)</a> <span class="anchor" id="line-196"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Send an audit event when a network interface goes into promiscuous mode <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5bdb98868062c1b14025883049551af343233187">(commit)</a> <span class="anchor" id="line-197"></span><span class="anchor" id="line-198"></span><span class="anchor" id="line-199"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>Networking</strong> <span class="anchor" id="line-200"></span>
+                <ul>
+                  <li>IPV6 <span class="anchor" id="line-201"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add support for Router Preference (RFC4191) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ebacaaa0fdf4402cdf4c8e569f54af36b6f0aa2d">(commit)</a> <span class="anchor" id="line-202"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add Router Reachability Probing (RFC4191) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=270972554c91acd29412d8b6a10e606041012106">(commit)</a> <span class="anchor" id="line-203"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add experimental support for Route Information Option in RA (RFC4191): <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=70ceb4f53929f73746be72f73707cd9f8753e2fc">(commit)</a> <span class="anchor" id="line-204"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add router_probe_interval sysctl <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=52e1635631b342803aecaf81a362c1464e3da2e5">(commit)</a> <span class="anchor" id="line-205"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add accept_ra_pinfo sysctl. This controls whether we accept Prefix Information in RAs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c4fd30eb18666972230689eb30e8f90844bce635">(commit)</a> <span class="anchor" id="line-206"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add accept_ra_rt_info_max_plen sysctl <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=09c884d4c3b45cda904c2291d4723074ff523611">(commit)</a> <span class="anchor" id="line-207"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add accept_ra_defrtr sysctl: This controls whether we accept default router information in RAs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=65f5c7c1143fb8eed5bc7e7d8c926346e00fe3c0">(commit)</a> <span class="anchor" id="line-208"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add accept_ra_rtr_pref sysctl <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=930d6ff2e2a5f1538448d3b0b2652a8f0c0f6cba">(commit)</a> <span class="anchor" id="line-209"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>DCCP <span class="anchor" id="line-210"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Initial feature negotiation implementation <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=afe00251dd9b53d51de91ff0099961f42bbf3754">(commit)</a> <span class="anchor" id="line-211"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Initial CCID2 (TCP-Like) implementation <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2a91aa3967398fb94eccc8da67c82bce9f67afdf">(commit)</a>, and make it the default as per the draft <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=93ce20928f6e197707add8f670ae0cd029107e8f">(commit)</a> <span class="anchor" id="line-212"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Introduce sysctls for the default features, in /proc/sys/net/dccp/default/*: /proc/sys/net/dccp/default/ack_ratio, /proc/sys/net/dccp/default/rx_ccid, /proc/sys/net/dccp/default/send_ackvec, /proc/sys/net/dccp/default/send_ndp, /proc/sys/net/dccp/default/seq_window, /proc/sys/net/dccp/default/tx_ccid <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e55d912f5b75723159348a7fc7692f869a86636a">(commit)</a> <span class="anchor" id="line-213"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Netfilter <span class="anchor" id="line-214"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add H.323 conntrack/NAT helper <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5e35941d990123f155b02d5663e51a24f816b6f3">(commit)</a> <span class="anchor" id="line-215"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nf_conntrack, support for layer 3 protocol load on demand <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b9f78f9fca626875af8adc0f7366a38b8e625a0e">(commit)</a> <span class="anchor" id="line-216"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Extend current iptables compatibility layer in order to get 32bit iptables to work on 64bit kernel <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2722971cbe831117686039d5c334f2c0f560be13">(commit)</a> <span class="anchor" id="line-217"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Unify IPv4/IPv6 multiport match. As a result, this adds support for inversion and port range match to IPv6 packets <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a89ecb6a2ef732d04058d87801e2b6bd7e5c7089">(commit)</a> <span class="anchor" id="line-218"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Unify IPv4/IPv6 esp match <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=dc5ab2faece3b7473931357db7f63f596678481d">(commit)</a> <span class="anchor" id="line-219"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Wireless <span class="anchor" id="line-220"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">WE-20, version 20 of the Wireless Extensions, it enables the full Wireless Extension API over Rtnetlink <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=711e2c33ac9221a419a9e28d05dd78a6a9c5fd4d">(commit)</a> <span class="anchor" id="line-221"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add the hardware independent software MAC layer <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=370121e5190a86a2d8a717ecd6f33028c7dc6fd4">(commit)</a> <span class="anchor" id="line-222"></span>
+                      </li>
+                      <li>
+                        <p class="line862">softmac: reduce default rate to 11Mbps <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2638fed7ccb07ff43cdc109dd78e821efb629995">(commit)</a> <span class="anchor" id="line-223"></span>
+                      </li>
+                      <li>
+                        <p class="line862">softmac: reduce scan dwell time <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=16f4352733d19c2d496f682c08cff368ba0495d0">(commit)</a> <span class="anchor" id="line-224"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add LEAP authentication type <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=24056bec086aaa99923b21c0e1a0e993bb1c7e2a">(commit)</a> <span class="anchor" id="line-225"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add flags for all geo channels <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d128f6c176bff9c4929476e13132804321a6d5c5">(commit)</a> <span class="anchor" id="line-226"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add spectrum management information <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7bd64366044565d6861783613db191c8aaec691e">(commit)</a> <span class="anchor" id="line-227"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add 802.11h information element parsing: Added default handlers for various 802.11h DFS and TPC <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d1b46b0fba8c1049135ee5d60910b04463dccc95">(commit)</a> and TIM <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=41a25c616b3140c388ff6009a1cb0b6b06a10f29">(commit)</a> <span class="anchor" id="line-228"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>BRIDGE <span class="anchor" id="line-229"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Use LLC to send STP <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=12ac84c4a9c505e3e30529563b04cc8f6d5ebbf3">(commit)</a> <span class="anchor" id="line-230"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Use LLC for the receive path of Spanning Tree Protocol packets (STP) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cf0f02d04a830c8202e6a8f8bb37acc6c1629a91">(commit)</a> <span class="anchor" id="line-231"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow show/store of group multicast address <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fda93d92d7824159d8532995072dde2bee4bc4b3">(commit)</a> <span class="anchor" id="line-232"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>X25 <span class="anchor" id="line-233"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Allow use of the optional user facility to insert ITU-T (<a class="http" href="http://www.itu.int/ITU-T/">http://www.itu.int/ITU-T/</a>) specified DTE facilities in call set-up x25 packets <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a64b7b936dcd926ace745c07c14f45ecfaddb034">(commit)</a> <span class="anchor" id="line-234"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow dte facility patch to use 32 64 bit ioctl conversion mechanism <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9a6b9f2e763a1d1492e164f13c13b995a9b98d78">(commit)</a> <span class="anchor" id="line-235"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow 32 bit x25 module structures to be passed to a 64 bit kernel via ioctl using the new compat_sock_ioctl registration mechanism <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1b06e6ba25a37fe1c289049d0e0300d71ae39eff">(commit)</a> <span class="anchor" id="line-236"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p class="line862">Add RFC2863 operstate <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b00055aacdb172c05067612278ba27265fcd05ce">(commit)</a> <span class="anchor" id="line-237"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Allow 32 bit socket ioctl in 64 bit kernel <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=89bbfc95d65839d6ae23ddab8a3cc5af4ae88383">(commit)</a> <span class="anchor" id="line-238"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Socket timestamp 32 bit handler for 64 bit kernel <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f0ac2614412e2b597e2d5bfbd3960b4f73718b41">(commit)</a> <span class="anchor" id="line-239"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IPSEC: Sync series - SA expires. This allows a user to insert SA expires <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=53bc6b4d29c07664f3abe029b7e6878a1067899a">(commit)</a> <span class="anchor" id="line-240"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IPSEC: Sync series - acquire insert <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=980ebd25794f0f87ac32844e2c73e9e81f0a72ba">(commit)</a> <span class="anchor" id="line-241"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TCP: MTU probing: Implementation of packetization layer path mtu discovery for TCP, based on the internet-draft <a class="http" href="http://www.ietf.org/internet-drafts/draft-ietf-pmtud-method-05.txt">http://www.ietf.org/internet-drafts/draft-ietf-pmtud-method-05.txt</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5d424d5a674f782d0659a3b66d951f412901faee">(commit)</a> <span class="anchor" id="line-242"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TCP/UDP getpeersec: Enable a security-aware application to retrieve the security context of an IPSec security association a particular TCP or UDP socket is using <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2c7946a7bf45ae86736ab3b43d0085e43947945c">(commit)</a> <span class="anchor" id="line-243"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TCP: sysctl to allow TCP window &gt; 32767 sans wscale <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=15d99e02babae8bc20b836917ace07d93e318149">(commit)</a> <span class="anchor" id="line-244"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Introduce tunnel4/tunnel6 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d2acc3479cbccd5cfbca6c787be713ef1de12ec6">(commit)</a> <span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">
+                <p class="line891"><strong>Drivers</strong> <span class="anchor" id="line-247"></span>
+                <ul>
+                  <li>
+                    <p class="line862">PCI: Scheduled removal of the obsolete PCI_LEGACY_PROC (/proc/pci) interface <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5eeca8e688b6affba4cd85262152fdd1b274ad33">(commit)</a> <span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span>
+                  </li>
+                  <li class="gap">ipmi <span class="anchor" id="line-250"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add full driver model support for the IPMI driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=50c812b2b9513e3df34eae8c30cb2c221b79b2cb">(commit)</a> <span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">Video: <span class="anchor" id="line-253"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">ATI RS350 support: <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9d1ef8a64e21e57109be45a7345b09cf913e4b0e">(commit)</a> <span class="anchor" id="line-254"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Enable VIA AGP driver on x86-64 for VIA P4 chipsets, needed for some newer EM64T systems <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9d1f6b28ee2429a1f94a9f7074ffae7f918d33be">(commit)</a> <span class="anchor" id="line-255"></span>
+                      </li>
+                      <li>
+                        <p class="line862">VIA PT880 Ultra AGP support <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7dd1d9b85cfb63eebf48fa13d3c5d25a3deb3a25">(commit)</a> <span class="anchor" id="line-256"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Rework radeon memory map <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d5ea702f1e8e3edeea6b673a58281bf99f3dbec5">(commit)</a> <span class="anchor" id="line-257"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Remove old radeon driver, which has been obsoleted by the new one since a few releases <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=39451a73a2d190763ba8a98f486cf23d63d22582">(commit)</a> <span class="anchor" id="line-258"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add all the r300 and r400 PCI ids from DRM CVS <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f3dd5c37382472a8b245ad791ed768771594e60c">(commit)</a> <span class="anchor" id="line-259"></span>
+                      </li>
+                      <li>
+                        <p class="line862">vgacon: Add support for soft scrollback <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=15bdab959c9bb909c0317480dd9b35748a8f7887">(commit)</a> <span class="anchor" id="line-260"></span>
+                      </li>
+                      <li>
+                        <p class="line862">fbdev: Support the framebuffer driver for the display controller in AMD Geode GX processors (Geode GX533, Geode GX500 etc) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fc4effc7a98d0d320e478d1d42bc4a8a64380150">(commit)</a> <span class="anchor" id="line-261"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nvidiafb: Add suspend and resume hooks <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7a07cd786dbd0111b9dd977e114438220cb4eee5">(commit)</a> <span class="anchor" id="line-262"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add ID for Quadro NVS280 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ed49843b897da9969e349c279ffc832efcb93213">(commit)</a> <span class="anchor" id="line-263"></span>
+                      </li>
+                      <li>
+                        <p class="line862">fbdev: add modeline for 1680x1050@60 for the Philips 200W display <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b0c87978216836455ef5fbcac6df1ce6679750b0">(commit)</a> <span class="anchor" id="line-264"></span>
+                      </li>
+                      <li>
+                        <p class="line862">au1200fb: Add support for Alchemy Au1200 framebuffer driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f95ec3c6df271ae4e6290cd6b95c18a009c76dc9">(commit)</a> <span class="anchor" id="line-265"></span>
+                      </li>
+                      <li>
+                        <p class="line862">w100fb: Add acceleration support in w100fb.c (i.e. ATI Imageons) for the copyarea and fillrect operations <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9b0e1c5dd2941aec566047e10a5cc929ca7f7d4f">(commit)</a> <span class="anchor" id="line-266"></span><span class="anchor" id="line-267"></span><span class="anchor" id="line-268"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">IDE <span class="anchor" id="line-269"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">ATI SB600 IDE support <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e89280184e4990f5ea80d2504af89b6099523c4">(commit)</a> <span class="anchor" id="line-270"></span>
+                      </li>
+                      <li>
+                        <p class="line862">ULI M-1573 south Bridge support <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0d8a95efd878920e7f791d5bcfb9b70f107aadda">(commit)</a> <span class="anchor" id="line-271"></span><span class="anchor" id="line-272"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">libata <span class="anchor" id="line-273"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Turn on ATAPI by default <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=418dc1f5a805822fcf1118804ddc689a4156db4a">(commit)</a> <span class="anchor" id="line-274"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add per-device max_sectors <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b00eec1d58ee71131375bfeb86e64bceec3f5618">(commit)</a> <span class="anchor" id="line-275"></span>
+                      </li>
+                      <li>
+                        <p class="line862">ahci: Now that libata is smart enough to handle both soft and hard resets, add softreset method <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4658f79bec0b51222e769e328c2923f39f3bda77">(commit)</a> <span class="anchor" id="line-276"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Promise Fasttrak TX4300/TX4310 4-port PCI SATA controllers based on the PDC40719 chip to sata_promise driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e1fd263c772e89706dee28aa794399ac4bd6b9c1">(commit)</a> <span class="anchor" id="line-277"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a new PCI ID for SiI 3124 to sata_sil24 driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4b9d7e04a8daaf3e5afe775ec9cbbfda5e32dd5b">(commit)</a> <span class="anchor" id="line-278"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add 6042 support to sata_mv driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e4e7b89280d1d666e2c09e5ad36cf071796c4c7e">(commit)</a> <span class="anchor" id="line-279"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Make per-dev transfer mode limits per-dev. Now that each ata_device has xfer masks, per-dev limits can be made per-dev instead of per-port <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5a529139554f12cb265715117a2153c936286294">(commit)</a> <span class="anchor" id="line-280"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Simplex and other mode filtering logic. This provides the needed framework to support all the mode rules found in the PATA world <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5444a6f405618706eddbe1605ef8533b1b655764">(commit)</a> <span class="anchor" id="line-281"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Remove E.D.D <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=aec5c3c1a929d7d79a420e943285cf3ba26a7c0d">(commit)</a> <span class="anchor" id="line-282"></span>
+                      </li>
+                      <li>
+                        <p class="line862">AHCI: add ATI SB600 PCI IDs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8b316a3973f05e572b4edeeda9072987f6bbaa44">(commit)</a> <span class="anchor" id="line-283"></span><span class="anchor" id="line-284"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">SCSI <span class="anchor" id="line-285"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Remove qlogicfc - all participants agree that qla2xxx can now successfully replace this <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=765fcab23d0a79ed7aab8da79766f5873d936f1b">(commit)</a> <span class="anchor" id="line-286"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Allow displaying and setting of cache type via sysfs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6bdaa1f17dd32ec62345c7b57842f53e6278a2fa">(commit)</a> <span class="anchor" id="line-287"></span>
+                      </li>
+                      <li>
+                        <p class="line862">sas: add support for enclosure and bad ID rphy attributes <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a012564136a665f8d63443c057ba368572b483df">(commit)</a> <span class="anchor" id="line-288"></span>
+                      </li>
+                      <li>
+                        <p class="line862">mptsas: add support for enclosure and bay identifier attributes <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e3094447e013a59ccedcf60f6055f18225bd8465">(commit)</a> <span class="anchor" id="line-289"></span>
+                      </li>
+                      <li>
+                        <p class="line862">qla2xxx: Add ISP54xx support, chip is similar in form to our ISP24xx offering <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=044cc6c8ec311c4ddeebfcc31c53dea282de70b7">(commit)</a> <span class="anchor" id="line-290"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add big endian support to 3ware 9000 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=75913d9bb8328c4eca54cad39a5fb665b48383eb">(commit)</a> <span class="anchor" id="line-291"></span>
+                      </li>
+                      <li>
+                        <p class="line862">lpfc: Add support for FAN <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5024ab179c13d763f95c8391f45f22309609f479">(commit)</a> <span class="anchor" id="line-292"></span>
+                      </li>
+                      <li>
+                        <p class="line862">lpfc: Add module parameter to limit number of outstanding commands per lpfc HBA <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b28485acb930f67c014024bc3b9c01129124e566">(commit)</a> <span class="anchor" id="line-293"></span>
+                      </li>
+                      <li>
+                        <p class="line862">mptspi: Add transport class Domain Validation <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c92f222e1f14588171e63b550ca8c85fa9130061">(commit)</a> <span class="anchor" id="line-294"></span>
+                      </li>
+                      <li>
+                        <p class="line862">qla2xxx: Add VPD sysfs attribute <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6f6417905cf272337a9762e1f92a1fffa651fcd3">(commit)</a> <span class="anchor" id="line-295"></span><span class="anchor" id="line-296"></span><span class="anchor" id="line-297"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">Input devices <span class="anchor" id="line-298"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add support for Braille devices <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b9ec4e109d7a342e83e1210e05797222e36555c3">(commit)</a> <span class="anchor" id="line-299"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add SNES mouse support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b157d55eef38f014015b8058a9f733d1c1c49cb4">(commit)</a> <span class="anchor" id="line-300"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Fujitsu N3510 device in the wistron driver <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e2aa507a837cbaa376faa3d9f8448ff569d34ccf">(commit)</a> <span class="anchor" id="line-301"></span><span class="anchor" id="line-302"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">USB devices <span class="anchor" id="line-303"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Unified USB touchscreen driver. It currently supports eGalax Touchkit, Panjit Touchset, 3M/Microtouchand ITM Touchscreens <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1d3e20236d7a5678d44602171bbd153c57c8c4bc">(commit)</a> <span class="anchor" id="line-304"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add OHCI support for AU1200 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d5fb7f1b5b832946eaf450b2a695ec3e7fd2d351">(commit)</a> <span class="anchor" id="line-305"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add EHCI support for AU1200 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=76fa9a240de4294a097235c9ddd470c21eb3449e">(commit)</a> <span class="anchor" id="line-306"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for OCHI on AT91rm9200 based boards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=39a269c09f854d3d98cbb755b3568175f04efa10">(commit)</a> <span class="anchor" id="line-307"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for AT91 (rm9200, eventually also sam9261 or uClinux) platforms <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=bae4bd848dc0b7e6defc7a5d62834a35d1eed06d">(commit)</a> <span class="anchor" id="line-308"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a new device ID to the cp2101 driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=59224f5352542b968c41200954e56c26c4f0a075">(commit)</a> <span class="anchor" id="line-309"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add Icom ID1 USB product and vendor ids to the ftdi_sio driver. The Icom ID-1 1.2 GHz band digital transceiver is a new radio that has a USB interface <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=bf58fbd5e86a43466e638407ff8a4eb7766a3b68">(commit)</a> <span class="anchor" id="line-310"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Papouch TMU (USB thermometer) <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=62a13db346bb6ef80c112d373733d3e873dad90b">(commit)</a> <span class="anchor" id="line-311"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Creativelabs Silvercrest USB keyboard <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2e56222ed52cec40427fa89f23b228232e3e327e">(commit)</a> <span class="anchor" id="line-312"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add navman GPS device driver (USB serial) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e9a66c64bb7033cb0180d419b2008acf7a141adc">(commit)</a> <span class="anchor" id="line-313"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Nokia ca42 version 2 cable to the cypress_m8 driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a5c44e29e5637b5e6fe59d225eb4f438688b3849">(commit)</a> <span class="anchor" id="line-314"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds Linksys USBVPN1 support (<a class="http" href="http://www1.linksys.com/Products/product.asp?prid=3D543&amp;scid=3D30">http://www1.linksys.com/Products/product.asp?prid=3D543&amp;scid=3D30</a>) to the pegasus driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=efafe6fb72b2bbab40080a08f7946f1eadb9bad9">(commit)</a> <span class="anchor" id="line-315"></span>
+                      </li>
+                      <li>
+                        <p class="line862">EHCI for Freescale 83xx. This driver supports both the Dual-Role (DR) controller and the Multi-Port-Host (MPH) controller present in the Freescale MPC8349 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=80cb9aee01245b38325dd84f1359b14a3f01f10d">(commit)</a> <span class="anchor" id="line-316"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a Video4linux2 driver for ZC0301 Image Processor and Control Chip.<a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=60f780528f3ae603eb169a221628b93b6c6929f9">(commit)</a> <span class="anchor" id="line-317"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds support for three USB peripheral controllers: &quot;musbhsfc&quot;, &quot;musbhdrc&quot; and the full speed controller on the Freescale MPC8272 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1c05ad4447e4ecbd61647c102fb6f2f5a6634ff3">(commit)</a> <span class="anchor" id="line-318"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added support for OTi's DKU-5 clone cable to pl2303 driver <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e853bf4af372afdae732c48be04a6b154f2de3d4">(commit)</a> <span class="anchor" id="line-319"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Eclo COM to 1-Wire USB adapter <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7e1c0b86aca9d42fa4de3fdad17c57bb462fe1e2">(commit)</a> <span class="anchor" id="line-320"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for ASK RDR 400 series card reader <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7e0258fd28762c09b997edb56849ecfa29284b79">(commit)</a> <span class="anchor" id="line-321"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Adds support for iPlus USB modems <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=69737dfaacd000b10fc4a1e9eb518b630b43c3ad">(commit)</a> <span class="anchor" id="line-322"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add new iTegno usb CDMA 1x card support to pl2303 driver <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=58381719845d9ee19a321c2eb69cfa9b7886be9a">(commit)</a> <span class="anchor" id="line-323"></span><span class="anchor" id="line-324"></span><span class="anchor" id="line-325"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">Network devices <span class="anchor" id="line-326"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Driver for the Broadcom 43xx based wireless cards (from <a class="http" href="http://bcm43xx.berlios.de">http://bcm43xx.berlios.de</a>). This chip is embedded in lots of laptops: Apple (Airport Extreme), Acer, Asus, Dell, Compaq and <a class="http" href="http://linux-bcom4301.sourceforge.net/go/hardware">many others</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f222313a61a5e134de80767b35c672b91e78383c">(commit)</a> <span class="anchor" id="line-327"></span><span class="anchor" id="line-328"></span>
+                      </li>
+                      <li class="gap">ipw2100 <span class="anchor" id="line-329"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add LEAP authentication algorithm support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cbbdd03fadeddd02efec05ccfd4e6870ed913762">(commit)</a> <span class="anchor" id="line-330"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add generic geo information <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=be6b3b15b511aededd89d1ebbc7b25d0edd1ccd3">(commit)</a> <span class="anchor" id="line-331"></span><span class="anchor" id="line-332"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">ipw2200: <span class="anchor" id="line-333"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">switch to the new ipw2200-fw-3.0 image format. You will also need to upgrade your firmware image to the 3.0 version, available from <a class="http" href="http://ipw2200.sf.net/firmware.php">http://ipw2200.sf.net/firmware.php</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9006ea75cfaded82acbc34d03e9d4e86447f40a9">(commit)</a> <span class="anchor" id="line-334"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Support WE-18 WPA, used to advertise the WPA-related encryption options that it does really support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f1b50863aa6a96c61a57e3b3a5e76e67b38c5c3e">(commit)</a> <span class="anchor" id="line-335"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add LEAP authentication algorithm support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3e234b4e5768b4f783fc45f20be8c6515b875f17">(commit)</a> <span class="anchor" id="line-336"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Bluetooth coexistence support. It adds a new module param &quot;bt_coexist&quot; which defaults to OFF <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=810dabd466fe70869b66ab64dd326b6153cef645">(commit)</a> <span class="anchor" id="line-337"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add module parameter to enable/disable roaming <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4bfdb91dcff0dd4b70922de263ccffffb8fb1d16">(commit)</a> <span class="anchor" id="line-338"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Enable the &quot;slow diversity&quot; algorithm. This forces one antenna or the other, if the background noise is significantly quieter in one than the other <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=71de1f3dd14e3e39cef929506a9526779f5a447d">(commit)</a> <span class="anchor" id="line-339"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Wireless extension sensitivity threshold support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=651be26f2daf31e61faf4b55ada709cf39ec76a2">(commit)</a> <span class="anchor" id="line-340"></span><span class="anchor" id="line-341"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">TG3 <span class="anchor" id="line-342"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add support for 5714S and 5715S <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d4d2c558fd3e1f5e386b153f194aa8f0be496c77">(commit)</a> <span class="anchor" id="line-343"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add support for new chip 5755 which is very similar to 5787 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=af36e6b6d7f4ad7a5ccfd14dfa71ec941255f93d">(commit)</a> <span class="anchor" id="line-344"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add 5755 nvram support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d3c7b886978bef42f5ea487dec376c482d3cd7e3">(commit)</a> <span class="anchor" id="line-345"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add basic support for 5787 and 5754 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d9ab5ad12b0d865bdb1b750d81192d34465541e9">(commit)</a> <span class="anchor" id="line-346"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Support additional nvrams and new nvram format for 5787 and 5754 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1b27777a9b9b2b6d1c06000b7a31262d198b4238">(commit)</a> <span class="anchor" id="line-347"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Support 5787 hardware TSO <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5a6f3074c2ea5a7b4ff5b18f0e1fd9b1257e1a29">(commit)</a> and ipv6 checksum support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9c27dbdf64cba05d0cacc343118a7fd01d4b82f7">(commit)</a> <span class="anchor" id="line-348"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Support one-shot MSI on 5787 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fcfa0a32c767219c1bdad621ef4a3aff1904cbbd">(commit)</a> <span class="anchor" id="line-349"></span><span class="anchor" id="line-350"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">Forcedeth <span class="anchor" id="line-351"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Let FORCEDETH no longer depend on EXPERIMENTAL <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=827700866ad0996e8c0f5ce75d1c01ae9b034cd6">(commit)</a> <span class="anchor" id="line-352"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add support for vlan stripping/inserting in hardware <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ee407b02f3f1992bc746876c26f8175c8783562b">(commit)</a> <span class="anchor" id="line-353"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add highdma support for tx/rx rings <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0832b25a75d128e4f9724156380ba071c4f3f20d">(commit)</a> <span class="anchor" id="line-354"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add support for MSI/MSIX interrupts <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d33a73c81241e3d9ab8da2d0558429bdd5b4ef9a">(commit)</a> <span class="anchor" id="line-355"></span><span class="anchor" id="line-356"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">e1000 <span class="anchor" id="line-357"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add support for ESB2 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6418ecc68e1d9416451b6f78ebb2c0b077e0abf2">(commit)</a> <span class="anchor" id="line-358"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Add TSO workaround for 82573 controller support: <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9f68788856b134f93d9d10b19aa902924c61fc02">(commit)</a> <span class="anchor" id="line-359"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Added a performance enhancement - prefetch <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=30320be88fb9cae888eacf1f1eaae95a03720128">(commit)</a> <span class="anchor" id="line-360"></span><span class="anchor" id="line-361"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">sky2 <span class="anchor" id="line-362"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add MSI support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fb2690a9bfa330aff3de29cbdde526591ac90dce">(commit)</a> <span class="anchor" id="line-363"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Remove support for untested Yukon EC/rev 0, the Yukon EC/rev0 (A1) chipset requires a bunch of workarounds <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=290d4de5b71f60bb5853a7ef9f0e8c817cd26892">(commit)</a> <span class="anchor" id="line-364"></span><span class="anchor" id="line-365"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">Airo <span class="anchor" id="line-366"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Cache wireless scans <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9e75af30d529d54fc650586776c100d0665c0c93">(commit)</a> <span class="anchor" id="line-367"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Adds IWENCODEEXT and IWAUTH support for WEP and unencrypted operation, but no WPA <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4be757dd4c00ddabff2d6faf639466bb5d76bc79">(commit)</a> <span class="anchor" id="line-368"></span><span class="anchor" id="line-369"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">S2io <span class="anchor" id="line-370"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Large Receive Offload (LRO) feature(v2) for Neterion 10GbE Xframe PCI-X and PCI-E NICs. More details in the commit <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7d3d0439f574a4857c97b3ad2e63b082b7382d7e">(commit)</a> <span class="anchor" id="line-371"></span><span class="anchor" id="line-372"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">
+                        <p class="line862">BNX2: Add ETHTOOL_GREGS support (ethtool -d support) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=244ac4f446ac6a19caf5eb692c4844f29e6478bf">(commit)</a> <span class="anchor" id="line-373"></span><span class="anchor" id="line-374"></span>
+                      </li>
+                      <li class="gap">natsemi <span class="anchor" id="line-375"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Converts the driver to use NAPI <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b27a16b7c4738ea16f6f0730caf382a3f57317bb">(commit)</a> <span class="anchor" id="line-376"></span>
+                          </li>
+                          <li>
+                            <p class="line862">Support oversized EEPROMs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a8b4cf42cf57e44e3c4a585e0f0a71e3a7efbf29">(commit)</a> <span class="anchor" id="line-377"></span><span class="anchor" id="line-378"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">
+                        <p class="line862">Starfire: Implement suspend and resume methods. It allows to put a computer with a starfire dual board into S4 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d4fbeabbc9e68c80738fe59135d201c3ed5fe40f">(commit)</a> <span class="anchor" id="line-379"></span><span class="anchor" id="line-380"></span>
+                      </li>
+                      <li class="gap">sb1250-mac <span class="anchor" id="line-381"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add support for the 4th port and other new features of the BCM1480 SOC <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f90fdc3cce3d8c8ed09615dc68cb789655078803">(commit)</a> <span class="anchor" id="line-382"></span><span class="anchor" id="line-383"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">pcnet_cs: <span class="anchor" id="line-384"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add new id (Logitec LPM-LN100TE):<a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c96a34ec3bad5ba37ee4da4a188ad534b2fa4321">(commit)</a> <span class="anchor" id="line-385"></span><span class="anchor" id="line-386"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">sis900: <span class="anchor" id="line-387"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">adm7001 PHY support: This is required to get a SIS964 based motherboard ethernet working (FSC D1875) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=494aced2cda34c186083f7d53c419426eea3d584">(commit)</a> <span class="anchor" id="line-388"></span><span class="anchor" id="line-389"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">spidernet: <span class="anchor" id="line-390"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Enable tx checksum offloading by default <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8dfc914a3f2ae4e303e2bff89f28fc14cee8a9a6">(commit)</a> <span class="anchor" id="line-391"></span><span class="anchor" id="line-392"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">axnet_cs.c <span class="anchor" id="line-393"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Add hardware multicast support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b8ab2dc3e1a7c525ca73ba0af3518ec0b7654b3b">(commit)</a> <span class="anchor" id="line-394"></span><span class="anchor" id="line-395"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">bonding <span class="anchor" id="line-396"></span>
+                        <ul>
+                          <li>
+                            <p class="line862">Support carrier state for master <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ff59c4563a8d1b39597aab4917959146c61f09b0">(commit)</a> <span class="anchor" id="line-397"></span><span class="anchor" id="line-398"></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="gap">
+                        <p class="line862">Remove broken and unmaintained Sangoma drivers. Sangoma offers out-of-tree drivers, and prefers to provide them as a separate installation package <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8db60bcf3021921e2d10d158641792d640e52fe8">(commit)</a> <span class="anchor" id="line-399"></span><span class="anchor" id="line-400"></span>
+                      </li>
+                      <li class="gap">
+                        <p class="line862">Add drivers for the Siemens Gigaset 3070 family of ISDN DECT PABXes. These drivers have been developed over the last four years within the project <a class="http" href="http://sourceforge.net/projects/gigaset307x">http://sourceforge.net/projects/gigaset307x</a> . <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=drivers/isdn/gigaset">Source code</a> <span class="anchor" id="line-401"></span><span class="anchor" id="line-402"></span><span class="anchor" id="line-403"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">ALSA <span class="anchor" id="line-404"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Driver for Adlib FM cards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cf40a310a7aaf1944eea3e01e9c120b31850c3b6">(commit)</a> <span class="anchor" id="line-405"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Make procfs &amp; OSS plugin code optional (CONFIG_SND_VERBOSE_PROCFS, CONFIG_SND_PCM_OSS_PLUGINS) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=21a3479a0b606d36fe24093f70a1c27328cec286">(commit)</a> <span class="anchor" id="line-406"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add Zoom Video support in the ES18xx driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=95b712965f0a50365cc0128dacc27acf562f2ff1">(commit)</a> <span class="anchor" id="line-407"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for EDIROL UM-3ex <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e03173fce2f2c233b755f2d668d6d4247a717453">(commit)</a> <span class="anchor" id="line-408"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add Leadtek Winfast tv 2000xp delux to whitelist in the bt848 driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=abf58f095525c0e46b4ee64a4f9c2084b4c08f4c">(commit)</a> <span class="anchor" id="line-409"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support of Prodigy-7.1LT to the ice1724 driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=45fe722ba814dc50410729a473022c550dd96910">(commit)</a> <span class="anchor" id="line-410"></span>
+                      </li>
+                      <li>
+                        <p class="line862">ac97: Added a codec patch for LM4550 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ba22429d3ea3b9945735b88d4dde74711171ffab">(commit)</a> <span class="anchor" id="line-411"></span>
+                      </li>
+                      <li>
+                        <p class="line862">via82xx - Add dxs entry for FSC Amilo L7300 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=bd84b0cc99d267d6512f01a55af7dbb673f784af">(commit)</a> <span class="anchor" id="line-412"></span>
+                      </li>
+                      <li>
+                        <p class="line862">ac97: Add entry for VIA VT1618 codec <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=73864fc634932bc827f852557f637fade0227381">(commit)</a> <span class="anchor" id="line-413"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add default entry for CTL Travel Master U553W <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c1fc8047310c9d3147f9521af651a5823a72d218">(commit)</a> <span class="anchor" id="line-414"></span>
+                      </li>
+                      <li>
+                        <p class="line862">emu10k1 - Add the entry for Audigy4 SB0400 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4fcf0117d599965a5916985c9923776628e16779">(commit)</a> <span class="anchor" id="line-415"></span>
+                      </li>
+                      <li>
+                        <p class="line862">via82xx - Add dxs entry for ASRock mobo <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=42611c02ac31e44abd53893209460ce60205cb8e">(commit)</a>, add support for VIA VT8251 <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8263c65fbee1347b2ab1d8c9380946808d09f579">(commit)</a>, and a dxs entry for EPoX EP-8KRAI <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c04d092bde6a5dce632dec595f3974a35ed2cc2a">(commit)</a> <span class="anchor" id="line-416"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a dxs entry for ECS k8t890-a <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a26e9d9dc710dd157beca914bb56d2fed8a29d60">(commit)</a> <span class="anchor" id="line-417"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add more PCI subsystem IDs of DVB cards to the blacklist of cards to the bt87x driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0110f50b6eb7a833f0e1e4e9a58d04a03d58939c">(commit)</a> <span class="anchor" id="line-418"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add snd-als300 driver for Avance Logic ALS300/ALS300+ soundcards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b3a70d5ece60684c00d7d94ccc42741efdf99336">(commit)</a> <span class="anchor" id="line-419"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add a mixer control which allows the user to switch the Aux playback between the internal Aux jack, Wavetable, and Rear Line-In on Aureon Universe cards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=af9b70ac0044d126b28d28894cd890447c0a9dc1">(commit)</a> <span class="anchor" id="line-420"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add snd-riptide driver for Conexant Riptide chip <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=109a9638f0fe38915838b7b9acd98e7cfa91797f">(commit)</a> <span class="anchor" id="line-421"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add snd-miro driver for miroSOUND PCM <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1841f613fd2e73f09d3fa2beeccf2f8d978ec2db">(commit)</a> <span class="anchor" id="line-422"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support of LG LW20 laptop with ALC880 codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d681518a56d25d21d73a421174d189242adc68c7">(commit)</a> <span class="anchor" id="line-423"></span>
+                      </li>
+                      <li>
+                        <p class="line862">hda-codec: Add PCM for 2nd ADC on ALC260 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4c5186ed6b25278df595edf2d355ee87b00c4426">(commit)</a>, missing model entries for Intel 945 boards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=353b9e667042d6faa15a41df022bf38c949a7b2f">(commit)</a>, a new model 'laptop-eapd' to AD1986A codec for Samsung R65 and ASUS A6J laptops <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=825aa97241b46d2819c1db984c86a1a9df41b8e1">(commit)</a>, a model entry for Aopen i915GMm-HFS mobo with ALC880 codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ede3531e8ce2deb81e477e18d72ef10efeb20ebe">(commit)</a>, support for VAIO FE550G and SZ110 laptops with Sigmatel codec (7661) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=db064e503419c32df463326a3891a973bb30582e">(commit)</a>, model entry for FIC P4M-915GD1 with ALC880 codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a12606cff106335650f0e9382e87b0fb08733eff">(commit)</a>, support ASUS P4GPL-X with ALC880 codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=84f3430c7255668a0298d166605d27e3c96b5de4">(commit)</a>, a HP model <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=18a815d7426986890b88078ea63b77732baca0b5">(commit)</a>, lg model for LG laptop (m1 express dual) with ALC880 codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ae6b813a4dbba2713df497c032798b845289653f">(commit)</a>, support for HP nx9420 (Angelfire) laptop with AD1981HD codec <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b2c2844c5a486020e5d564870d114a7f4cd5ea4f">(commit)</a>, support on ATI SB600 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=89be83f8eef781a801898c08a5317ed463fe872f">(commit)</a>, support of ASUS U5A with AD1986A codec <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e09222831336a6ae53ea09076d113a58931950cf">(commit)</a>, support HP Compaq Presario B2800 laptop with AD1986A codec <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=be28e7ccd34efff2160ab7d6712d248053c36461">(commit)</a>, codec id for the AD1988 chip <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=71b2ccc3a2fd6c27e3cd9b4239670005978e94ce">(commit)</a>, support for Intel d945pvs board <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a29b6c8895edbd9921837b592bcd125cee64fc84">(commit)</a>, another HP laptop with AD1981HD <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f556e6f6ef55d343727372e4ab35adb716c2bb4e">(commit)</a>, support for the Asus Z62F laptop <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e0292bdd306a7e1ef7a681350cf0427688a2791d">(commit)</a>, Asus M9 laptop <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=61a7454a229d3516492fc3ff3adddf9f5ac0d396">(commit)</a>, Epox EP-5LDA+ GLi <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=531213a93f0e75b934471bf5567babad4da1ff70">(commit)</a>, add 'acer' models <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0bfc90e95946ac420e2de049707232ce18ddeba9">(commit)</a> <span class="anchor" id="line-424"></span><span class="anchor" id="line-425"></span>
+                      </li>
+                      <li class="gap">
+                        <p class="line862">usb-audio: Add a quirk entry for the Edirol PC-50 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=415b09e4559b0c95666af3cebe918386212aef98">(commit)</a>, Miditech Play'n Roll support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b2b8229dde970b95e407d90a140e8a8753e1f0f6">(commit)</a>, Roland G-70 support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cdca881d79dc4133b35db5c855b688ee9cba12a9">(commit)</a>, support for the Yamaha MDP-5 and EZ-J24 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4ccb4a4387b3ed8c5a03862ef1e6f7be484ade25">(commit)</a>, quirk for the Casio AP-80R <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0243ef71acc0b5bd734b511ae6d9b4b481c1dc5e">(commit)</a>, mixer control names for the Audiotrak Maya44 USB <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c7a93b852bf9ffcf466b304fa3cfac8823f9b932">(commit)</a>, quirk entry for the Casio PL-40R. <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9808dc962f6780ce7eac47c82400fede7f4a08b3">(commit)</a>, <span class="anchor" id="line-426"></span><span class="anchor" id="line-427"></span><span class="anchor" id="line-428"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">V4L/DVB <span class="anchor" id="line-429"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Add new internal VIDIOC_INT commands for setting the tuner mode, for putting a chip into standby mode and to set/get the routing of inputs/outputs of audio or video of a chip. These new commands will replace older commands that are no longer up to the task <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=757d250518c4905c5d13c8974446e08a2e3cf244">(commit)</a> <span class="anchor" id="line-430"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add IR support to KWorld DVB-T (cx22702-based) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=28ecc4490100488663f1a978846632800ab198d5">(commit)</a> <span class="anchor" id="line-431"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add standard for South Korean NTSC-M using A2 audio, South Korea uses NTSC-M but with A2 audio instead of BTSC and several audio chips need this information in order to set the correct audio processing registers <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d97a11e091a0bf40f1cfb0bbf443ddd7b455b133">(commit)</a> <span class="anchor" id="line-432"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Hauppauge Grey Remote support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=bf47e4e43e4dcf88fef61b1b4139ce2da20e1f73">(commit)</a> <span class="anchor" id="line-433"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added terratec hybrid xs and kworld 2800rf support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4d17d0834a2e6a5cba096ea09592a4a096183300">(commit)</a> <span class="anchor" id="line-434"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Support for Galaxis DVB-S rev1.3 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8bd6301c2a33271b629ac1ef2088e110624d5665">(commit)</a> <span class="anchor" id="line-435"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Hauppauge HVR 900 Composite support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a94e95b443811c127734ef10f3b7d2220532c1d2">(commit)</a> <span class="anchor" id="line-436"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Avermedia 777 DVB-T card <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a78d0bfabda67dd40a5a97ba4c24265e1820e7ea">(commit)</a> <span class="anchor" id="line-437"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added signal detection support to tvp5150 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=19d7509c0531b0e08f52ab93070569e0aba54cdf">(commit)</a> <span class="anchor" id="line-438"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add initial support for KWorld HardwareMpegTV XPert <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=44256de13ecc72291b616fda5f2c7ca8b110feec">(commit)</a> <span class="anchor" id="line-439"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added support for the Tevion DVB-T 220RF, an analog/digital hybrid card <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3dfb729f4513184d06a0c618179489ac7bb277e0">(commit)</a> <span class="anchor" id="line-440"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add filtered Composite2 input to Pinnacle PCTV 40i: add filtered Composite2 input. This improves video quality for Composite signals on the S-Video connector of the card <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cb46e3c28ef8055e82dfbc64ba64dda123833036">(commit)</a> <span class="anchor" id="line-441"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for ELSA EX-VISION 700TV, which is the ELSA Japan's flagship model of the software encoding TV capture card <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d0456d1d67044ff2987190d0d8148a88f1a775af">(commit)</a> <span class="anchor" id="line-442"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Terratec Prodigy XS <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=282b7cb3e03d9ada4067083e61919d74197a1e5a">(commit)</a> <span class="anchor" id="line-443"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add radio support for KWorld HardwareMpegTV XPert <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e2798212e3ce0057336bc0807beb3213de1dc5be">(commit)</a> <span class="anchor" id="line-444"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Lifeview FlyDVB-T LR301 card <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3d8466ece44c70555a101da73845955c443f4d18">(commit)</a> <span class="anchor" id="line-445"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add DVB-T support for the Lifeview DVB Trio PCI card: only DVB-T support, no DVB-S yet <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=420f32fe4e3eed466a6563e15a89f4688134cc98">(commit)</a> <span class="anchor" id="line-446"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for xc3028 analogue tuner (Hauppauge HVR900, Terratec Hybrid XS) to v4l <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0004fd59d57a5875db8897966c414a88b5dad481">(commit)</a> <span class="anchor" id="line-447"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Kworld ATSC110 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3e1410adc7cc9e8511327179b5b86864be17b7f9">(commit)</a> <span class="anchor" id="line-448"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add cpia2 camera support <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ab33d5071de7a33616842882c11b5eb52a6c26a1">(commit)</a> <span class="anchor" id="line-449"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the FE6600 tuner used on the DViCO FusionHDTV DVB-T Hybrid board, and add support for the Zarlink ZL10353 DVB-T demodulator, which supersedes the MT352, used on the DViCO FusionHDTV DVB-T Hybrid and later model Plus boards <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=780dfef37e2c941985b708f67aa0074edc922bea">(commit)</a> <span class="anchor" id="line-450"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for Satelco Easywatch DVB-S light <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=36f4f334a169e5d42721d74b5d92fda89f792b06">(commit)</a> <span class="anchor" id="line-451"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for remote control in Lifeview FlyDVB-T Duo <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a8029170b907e7bfac5f6ea3fcd5d076e90beaf3">(commit)</a> <span class="anchor" id="line-452"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for AVerMedia A169 Dual Analog tuner card (dual saa7134 decoders - only 1 working right now) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=68593af311aadb541b3b70acea175dea8e9cf7ca">(commit)</a> <span class="anchor" id="line-453"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added ID entries for the Genius Videowonder DVB-T and the Lifeview FlyTV Platinum Gold <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=42e6b3b476f89b08232d1c1efd2327665b9050c8">(commit)</a> <span class="anchor" id="line-454"></span>
+                      </li>
+                      <li>
+                        <p class="line862">There seems to be a new version of the USB DVB-T stick from Wideview with a new demod-revision inside and thus a new firmware. This patch enables support for that <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d46e6451956df4bee829dfebd5b521d0ee4868d1">(commit)</a> <span class="anchor" id="line-455"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added support for the new Lifeview hybrid cardbus modules <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d95b8942eed310759bc866a2a4c0f110578aaa69">(commit)</a> <span class="anchor" id="line-456"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Added keycodes for the DViCO FusionHDTV portable remote control in Cxusb driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c150178bff4ae76635ccb06abd5258933379ecc6">(commit)</a> <span class="anchor" id="line-457"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Remove VIDIOC_S_AUDIO from tvaudio: no longer used <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=11cda1075d8c40e536b77fce6dbf4cdbf8f77736">(commit)</a> <span class="anchor" id="line-458"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the Wolfson Microelectronics WM8739 stereo A/D converter from the ivtv driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=75c4570ca4849b089c4edfc14bf02b4720087aba">(commit)</a> <span class="anchor" id="line-459"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Cx88 default picture controls values <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9f9c907fdc331fc6062d758f46f65cb0d2dd11be">(commit)</a> <span class="anchor" id="line-460"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add PAL / SECAM support to LG TALN series <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f3629be8388a679590eb919919ee63e2715ec25e">(commit)</a> <span class="anchor" id="line-461"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Add support for the uPD6408x NEC Electronics 3-Dimensional Y/C separation i2c device <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=add953cecba870f4ad7730bd0a6d5eaaabeac3bc">(commit)</a> <span class="anchor" id="line-462"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Creates a virtual video device driver. The Virtual Video Device Driver (aka vivi) is a device that can be used to test core v4l functionalities or be a prototype for newer development. When loaded, it provides a video device that generates a standard color bar, with a timestamp placed at top left corner <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1e6dd65e17b8b584026334b16485365bab486422">(commit)</a> <span class="anchor" id="line-463"></span><span class="anchor" id="line-464"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">Infiniband: <span class="anchor" id="line-465"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">Pathscale Infinipath Verbs Driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cd5e25d93e6efeb93db7b6731b0a674495270621">(commit)</a> <span class="anchor" id="line-466"></span>
+                      </li>
+                      <li>
+                        <p class="line862">Various updates <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=064c94f9da8845f12446ab37142aa10f3c6f66ac">(commit)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ace48471736a4b00753c74633f430c4a3a7d89cb">(commit)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=52aef8183fbedb0232b20127b089e85e7aa095e3">(commit)</a> <span class="anchor" id="line-467"></span><span class="anchor" id="line-468"></span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="gap">IRDA <span class="anchor" id="line-469"></span>
+                    <ul>
+                      <li>
+                        <p class="line862">TOIM3232 dongle support: Here goes a patch for supporting TOIM3232 based serial IrDA dongles <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0ac81ae34ec8898e7eb1388fe21e3cee7b626a88">(commit)</a> <span class="anchor" id="line-470"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nsc-ircc: support for yet another Thinkpad IrDA chipset, a variation of the nsc-ircc PC8739x chipset, found in some IBM Thinkpad laptops <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0ed79c9b7dea5cd9a55589a495cf96f00cd037d9">(commit)</a> <span class="anchor" id="line-471"></span>
+                      </li>
+                      <li>
+                        <p class="line862">nsc-ircc: Enable PnP support for the nsc-ircc chipset <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ec4f32d550b94b4b66c9c7689bc09c6b32c8e82e">(commit)</a> <span class="anchor" id="line-472"></span><span class="anchor" id="line-473"></span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">i2c <span class="anchor" id="line-474"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add support for the CS5535/CS5536 in the scx200_acb driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=16ffc5c99554bc1630bc3939e0950a75b2b1c811">(commit)</a> <span class="anchor" id="line-475"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add Broadcom HT-1000 south bridge's PCI ID to i2c-piix driver. Note that at least on Supermicro H8SSL it uses non-standard SMBHSTCFG = 3 and standard values like 0 or 9 causes hangup <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5f7ea3c58c9aa571617a9d77dd2fbd4bd81cc50a">(commit)</a> <span class="anchor" id="line-476"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add the DS2482 I2C-to-w1 bridge driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=baf12ae29ab4cc6381e21b2e1a3af75a6a8f7566">(commit)</a> <span class="anchor" id="line-477"></span><span class="anchor" id="line-478"></span><span class="anchor" id="line-479"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">acpiphp <span class="anchor" id="line-480"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add dock event handling <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=20416ea54087c25502d6fb973b8e119973e16341">(commit)</a> <span class="anchor" id="line-481"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add new bus to acpi <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=15a1ae74879925d0d3f71ebc3f56d0a2c5db393a">(commit)</a> <span class="anchor" id="line-482"></span><span class="anchor" id="line-483"></span><span class="anchor" id="line-484"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">hwmon <span class="anchor" id="line-485"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add support for the Intel Pentium M series to the hwmon-vid driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4c537fb287e68b84df685f4730348e83a163367b">(commit)</a> <span class="anchor" id="line-486"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for the Winbond W83687THF chip to the w83627hf hardware monitoring driver. This new chip is almost similar to the already supported W83627THF chip, except for VID and a few other minor changes <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c2db6ce14a743ac5f8973124272cf425c4f86b90">(commit)</a> <span class="anchor" id="line-487"></span><span class="anchor" id="line-488"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">pcmcia <span class="anchor" id="line-489"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add support for Possio GCC AKA PCMCIA Siemens MC45 <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=30bac7aa0e3678c79ff00fc9372f34712eeb34fc">(commit)</a> <span class="anchor" id="line-490"></span>
+                  </li>
+                  <li>
+                    <p class="line862">AT91RM9200 Compact Flash driver: This patch adds support for the Compact Flash controller integrated in he Atmel AT91RM9200 processor <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2c1f3b7a30286c16ba151fadb0abf0b20e2a1e45">(commit)</a> <span class="anchor" id="line-491"></span><span class="anchor" id="line-492"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">Serial: <span class="anchor" id="line-493"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add rs422 support to the Altix ioc4 serial driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=64b91379439ff0fb007bde90eb496299c14a9b2a">(commit)</a> <span class="anchor" id="line-494"></span>
+                  </li>
+                  <li>
+                    <p class="line862">serial_cs: Add Merlin U630 IDs <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=1de9cedfbdff1d8adb662cd3afc5bda66e393351">(commit)</a> <span class="anchor" id="line-495"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Allow 8250 PCI, PNP, GSC and HP300 support to be disabled with EMBEDDED enabled <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0cff260a42c051ee64c184ed05d96d18d243f7f6">(commit)</a> <span class="anchor" id="line-496"></span><span class="anchor" id="line-497"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">dm/md: <span class="anchor" id="line-498"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Raid5 reshaping support <a class="http" href="http://lwn.net/Articles/169140/">(LWN article)</a> <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ccfcc3c10b2a5cb8fd3c918199a4ff904fc6fb3e">(commit)</a> <span class="anchor" id="line-499"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Infrastructure to allow normal IO to continue while array is expanding <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=7ecaa1e6a1ad69862e9980b6c777e11f26c4782d">(commit)</a> <span class="anchor" id="line-500"></span>
+                  </li>
+                  <li>
+                    <p class="line862">syfs completeness <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=f165921df46a977e3561f1bd9f13a348441486d1">(commit)</a>, <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5463c7904c952aa6b6804dd902c72a5332fa5221">(commit)</a> <span class="anchor" id="line-501"></span><span class="anchor" id="line-502"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">LED <span class="anchor" id="line-503"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Adds an LED driver for LEDs exported by the Sharp LOCOMO chip as found on some models of Sharp Zaurus <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4d3cb35476903768541f79e61f171e79e6065098">(commit)</a> <span class="anchor" id="line-504"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add NAND MTD activity LED trigger <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8fe833c1b010489b71b082e553b1dfa80ef81061">(commit)</a> <span class="anchor" id="line-505"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Adds LED drivers for LEDs found on the Sharp Zaurus c7x0 (corgi, shepherd, husky) and cxx00 (akita, spitz, borzoi) models <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3179108daaaccbf28b17d6d8b0e06abf0eee6d9f">(commit)</a> <span class="anchor" id="line-506"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add an LED trigger for IDE disk activity to the ide-disk driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2bfb646cdf348cb77c572f06d5b9d17ea205c7e2">(commit)</a> <span class="anchor" id="line-507"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add an LED trigger for the charger status as found on the Sharp Zaurus series of devices <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=181bf8aa68a1d062d7f98abb0f1cb8871910320c">(commit)</a> <span class="anchor" id="line-508"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Adds LED drivers for LEDs found on the Sharp Zaurus c6000 model (tosa) <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6d0cf3e0480f6be9232854387794443d1a904d6d">(commit)</a> <span class="anchor" id="line-509"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add GPIO LED support for Samsung S3C24XX SoC series processors <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=54bdc470100b9d8ffd349a3ebe23013c25affddf">(commit)</a> <span class="anchor" id="line-510"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for the LED(s) on the AT91RM9200-based boards <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cc2832a1313340ff1de55f15fac5b7fe48fa2a72">(commit)</a> <span class="anchor" id="line-511"></span>
+                  </li>
+                  <li>
+                    <p class="line862">LED: class documentation <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=75c1d31d9ea71025b73430c696b727e8aa15872d">(commit)</a> <span class="anchor" id="line-512"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add LED class <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c72a1d608dd0eb3d553a08bfdf1c0041bebaa8a0">(commit)</a> <span class="anchor" id="line-513"></span>
+                  </li>
+                  <li>
+                    <p class="line862">add LED device support for ixp4xx devices <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6a0c51bfce5ae4058366017d861aea6564d25aee">(commit)</a> <span class="anchor" id="line-514"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for LED triggers to the LED subsystem <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c3bc9956ec52fb2c70f29aa894d8eec766116584">(commit)</a> <span class="anchor" id="line-515"></span><span class="anchor" id="line-516"></span>
+                  </li>
+                </ul>
+              </li>
+              <li class="gap">Various stuff: <span class="anchor" id="line-517"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add driver support for general purpose I/O feature of the Synclink GT adapters <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0080b7aae88c75e2a6b38dfcb228b0f239e18e3c">(commit)</a> <span class="anchor" id="line-518"></span>
+                  </li>
+                  <li>
+                    <p class="line862">WATCHDOG at91_wdt.c Watchdog driver for the Atmel AT91RM9200 processor <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=853807fb500a9442d88646b7be92bfa51334f8e8">(commit)</a> <span class="anchor" id="line-519"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Remove blkmtd driver <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=acc8dadc0b3f007e6e60da77feb2efe2a19c5cda">(commit)</a> <span class="anchor" id="line-520"></span>
+                  </li>
+                  <li>
+                    <p class="line862">hdaps: support new Lenovo machines <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0f6c840d774d669baf4727c0499ab0674826429f">(commit)</a> and Thinkpad R52 <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=653edba1a8b2ed018bdfb078131324dfbfe1dd6a">(commit)</a> <span class="anchor" id="line-521"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IRDA: Support for Sigmatel STIR421x chip <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=137dc0233fba0bfa19679bdd96eb104f0e659c5a">(commit)</a> <span class="anchor" id="line-522"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SD/MMC support for i.MX/MX1 <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=56ca904053ab14ba4067a72b69a5edf246771209">(commit)</a> <span class="anchor" id="line-523"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for the MMC/SD card interface on the Atmel AT91RM9200 processor <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=65dbf34393f7b3d20e993d9651a825df0fa5376b">(commit)</a> <span class="anchor" id="line-524"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Support for next-generation TPM chips <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=27084efee0c3dc0eb15b5ed750aa9f1adb3983c3">(commit)</a> <span class="anchor" id="line-525"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>mmc <span class="anchor" id="line-526"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Secure Digital Host Controller Interface driver: Driver for the Secure Digital Host Controller Interface specification <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=d129bceb1d44ed3c23b99164849193703372bab4">(commit)</a> <span class="anchor" id="line-527"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add OMAP MMC host driver <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=730c9b7e6630f786fcec026fb11d2e6f2c90fdcb">(commit)</a> <span class="anchor" id="line-528"></span>
+                  </li>
+                  <li>
+                    <p class="line862">udf: fix uid/gid options and add uid/gid=ignore and forget options <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=0e6b3e5e97e2e8a25bcfc528dad94edf5220dfeb">(commit)</a> <span class="anchor" id="line-529"></span>
+                  </li>
+                  <li>
+                    <p class="line862">aoe: support dynamic resizing of AoE devices <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=3ae1c24e395b2b65326439622223d88d92bfa03a">(commit)</a> <span class="anchor" id="line-530"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Generic RTC subsystem: This allows users to plug one or more RTCs to the system <a class="http" href="http://kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=tree;f=drivers/rtc">(code)</a>. This removes a number of drivers under drivers/i2c which are implemented in this new subsystem <a class="http" href="http://www.kernel.org/git/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6fc7f10cee28c7fa190920fefda8c696d5bf3074">(commit)</a>. <span class="anchor" id="line-531"></span>
+                  </li>
+                </ul>
+            </ul><span class="anchor" id="bottom"></span>
+          </div>
+          <!-- End of page contents -->
+          <div class="clearfix"></div>
+
+        </div> <!-- /#contentbox -->
+        <!-- End of content body -->
+      </div> <!-- /.container, #pagebox -->
+    </div> <!-- /#outbox -->
+
+    <!-- pageinfo -->
+    <div id="pageinfo-container">
+      <div class="container">
+        <p id="pageinfo" class="info" lang="en" dir="ltr">KernelNewbies: Linux_2_6_17 (last edited 2017-12-30 01:30:03 by <span title="??? @ localhost[127.0.0.1]">localhost</span>)</p>
+
+      </div>
+    </div>
+    <!-- End of pageinfo -->
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container text-right text-muted">
+        <ul id="credits">
+          <li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li>
+          <li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li>
+          <li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li>
+          <li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+        </ul>
+
+
+
+      </div> <!-- /.container -->
+    </div> <!-- /#footer -->
+    <!-- End of footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/moin_static199/memodump/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/moin_static199/memodump/js/bootstrap.min.js"></script>
+    <!-- toggle.js by dossist -->
+    <script src="/moin_static199/memodump/js/toggle.js"></script>
+    <!-- Custom script -->
+
+    <script>
+      + function($) {
+        // Toggle minified navbar under mobile landscape view
+        $('.navbar-collapse').on('show.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('show');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('hide');
+        });
+
+        //Scroll position fix for hash anchors
+        var mdAnchorFix = {
+          escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+          escape: function(str) {
+            return str.replace(mdAnchorFix.escapeRe, '\\$&');
+          },
+          rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+          isTransparent: function(rgbstr) {
+            if (rgbstr === 'transparent') {
+              return true;
+            }
+            rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+            if (rgbMatch) {
+              return (Number(rgbMatch[2]) ? false : true);
+            }
+            return false;
+          },
+          navbarHeight: function() {
+            var height = 0;
+            var $navbar = $('.navbar');
+            if (!mdAnchorFix.isTransparent($navbar.css('background-color')) &&
+              ($navbar.css('display') !== 'none') &&
+              ($navbar.css('visibility') !== 'hidden')) {
+              height = $navbar.height();
+            }
+            return height;
+          },
+          jump: function() {
+            origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+            offset = mdAnchorFix.navbarHeight() + 15;
+            setTimeout(function() {
+              window.scrollTo(0, origin - offset);
+            }, 1);
+          },
+          clickWrapper: function() {
+            if (($(this).attr('href') === location.hash) ||
+              !('onhashchange' in window.document.body)) {
+              setTimeout(function() {
+                $(window).trigger("hashchange");
+              }, 1);
+            }
+          },
+        };
+        $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+        $(window).on("hashchange", mdAnchorFix.jump);
+        if (location.hash) setTimeout(function() {
+          mdAnchorFix.jump();
+        }, 100);
+      }(jQuery);
+    </script>
+
+    <!-- End of JavaScript -->
+  </body>
+
+</html>

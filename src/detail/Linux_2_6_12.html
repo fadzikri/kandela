@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="Linux, Kernel, Operative System, Linus Torvalds, Open Source, drivers">
+    <meta name="description" content="Summary of the changes and new features merged in the Linux Kernel during the 2.6.12 development">
+    <meta name="robots" content="index,nofollow">
+
+    <title>Linux_2_6_12 - Linux Kernel Newbies</title>
+    <script type="text/javascript" src="/moin_static199/common/js/common.js"></script>
+
+    <script type="text/javascript">
+      <!--
+      var search_hint = "Search";
+      //
+      -->
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/memodump.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/moinizer.css">
+
+    <!-- css only for MS IE6/IE7 browsers -->
+    <!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+    <link rel="alternate" title="Linux Kernel Newbies: Linux_2_6_12" href="/Linux_2_6_12?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Linux_2_6_12&amp;ddiffs=1" type="application/rss+xml">
+
+
+    <link rel="Start" href="/Linux_Kernel_Newbies">
+    <link rel="Alternate" title="Wiki Markup" href="/Linux_2_6_12?action=raw">
+    <link rel="Alternate" media="print" title="Print View" href="/Linux_2_6_12?action=print">
+    <link rel="Search" href="/FindPage">
+    <link rel="Index" href="/TitleIndex">
+    <link rel="Glossary" href="/WordIndex">
+    <link rel="Help" href="/HelpOnFormatting">
+  </head>
+
+  <body lang="en" dir="ltr">
+
+    <div id="outbox" class="sidebar-toggle">
+      <!-- Bootstrap navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+        <div class="container">
+
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <!-- Sidebar toggler -->
+            <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+              <span class="sr-only">Toggle sidebar</span>
+              <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+            </button>
+            <!-- Button to show navbar controls when collapsed -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Sitename -->
+
+            <div class="navbar-brand-wrapper">
+              <a class="navbar-brand" href="/Linux_Kernel_Newbies"><img src="/moin_static199/kn-icon.png" alt="KernelNewbies"></a>
+            </div>
+
+          </div> <!-- /.navbar-header -->
+
+          <!-- Body of navbar -->
+          <div class="collapse navbar-collapse">
+
+            <!-- Navbar elements -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- Comment toggle button -->
+
+              <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+                <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onClick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                  <span class="hidden-sm">Comments</span>
+                </a>
+              </li>
+
+              <!-- Edit button -->
+
+              <li class="disabled">
+                <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+              </li>
+
+              <!-- Search form -->
+
+              <li>
+                <div class="navbar-form">
+                  <form class="form-search" role="search" id="searchform" method="get" action="/Linux_2_6_12">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <div class="form-group">
+                      <label class="sr-only" for="searchinput">Search:</label>
+                      <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value" value="">
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Menu -->
+
+              <li class="dropdown">
+                <!-- Menu button -->
+                <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                  Menu<span class="padding"></span><span class="caret"></span>
+                </a>
+                <!-- Dropdown contents -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Navigation</li>
+                  <li><a href="/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                  <li><a href="/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                  <li><a href="/Linux_2_6_12?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Help</li>
+                  <li><a href="/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                  <li><a href="/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Display</li>
+                  <li><a href="/Linux_2_6_12?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                  <li><a href="/Linux_2_6_12?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                  <li><a href="/Linux_2_6_12?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                  <li><a href="/Linux_2_6_12?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Edit</li>
+                  <li><a href="/Linux_2_6_12?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                  <li><a href="/Linux_2_6_12?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+                </ul>
+              </li> <!-- /dropdown -->
+
+              <!-- Login user -->
+
+              <li>
+                <a class="menu-nav-login" href="/Linux_2_6_12?action=login" rel="nofollow">Login</a>
+              </li>
+
+
+            </ul> <!-- /.navbar-right -->
+
+          </div> <!-- /.collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+      <!-- End of navbar -->
+
+      <div class="container no-padding" id="pagebox">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar-toggle" id="sidebar-curtain">
+          <div class="sidebar-toggle" id="sidebar-mover">
+            <div class="sidebar-toggle" id="sidebar" role="navigation">
+              <!-- SideBar contents -->
+              <div class="sidebar clearfix">
+                <div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+                  <span class="anchor" id="SideBar.line-1"></span>
+                  <p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Community <span class="anchor" id="SideBar.line-17"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">References <span class="anchor" id="SideBar.line-23"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/RecentChanges">Recent Changes</a> <span class="anchor" id="SideBar.line-29"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-30"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-31"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span>
+                    </li>
+                  </ul><span class="anchor" id="SideBar.bottom"></span>
+                </div>
+              </div>
+              <!-- End of SideBar contents -->
+
+              <div>
+                <h4>Navigation</h4>
+                <ul id='navibar'>
+                  <li class="wikilink"><a href="/RecentChanges">RecentChanges</a></li>
+                  <li class="wikilink"><a href="/FindPage">FindPage</a></li>
+                  <li class="wikilink"><a href="/HelpContents">HelpContents</a></li>
+                </ul>
+              </div>
+
+
+            </div> <!-- /#sidebar -->
+          </div> <!-- /#sidebar-mover -->
+        </div>
+        <div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+          <div id="location">
+            <span id="interwiki"><a href="/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+            <ul id="pagelocation">
+              <li><a href="/Linux_2_6_12">Linux_2_6_12</a></li>
+            </ul>
+
+            <span class="lastupdate">Last updated at 2019-05-27 20:08:47</span>
+          </div>
+
+
+          <!-- Page contents -->
+          <div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+            <span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span>
+            <p class="line862">2.6.12 was released June 17, 2005. <a class="http" href="http://www.kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.12">Changelog</a>. <span class="anchor" id="line-6"></span>
+            <ul>
+              <li>
+                <p class="line862">Cpusets: Cpusets provide a way to manage subsets of CPUs and Memory Nodes for scheduling and memory placement, via a new virtual file system, usually mounted at /dev/cpuset. Manipulation of cpusets can be done directly via this file system, from the shell. <a class="http" href="http://lwn.net/Articles/127936/">(LWN article)</a> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=794c8de9b9ae014f9d48583fb996cdcd135a2d6e">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3a978e558a32b51d03809f7d72b6c68d1a46d953">commit</a> <span class="anchor" id="line-7"></span>
+              </li>
+              <li>
+                <p class="line862">Device mapper multipath support <a class="http" href="http://lwn.net/Articles/124703/">(LWN article)</a> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d6d16564cfcf7f5331bc36fdb00388801344be37">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8f494a8028cf63a2fcfa7a9ba0706ca188dad83a">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=aa9384a41fbce65f06b85ca3596f5af858ca7e67">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=593c9debb12b512ec1fc4ff01a8ed2a99a9dd61e">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=797c85d8fbca80e472ea9b63dc58e5e56a235b34">commit</a> <span class="anchor" id="line-8"></span>
+              </li>
+              <li>
+                <p class="line862">Annotate <tt>/proc/&lt;PID&gt;/maps</tt> with [heap]/[stack]/[vdso] markers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1ca551265942666ce638441de5fbdb6cee5fd078">commit</a> <span class="anchor" id="line-9"></span>
+              </li>
+              <li>
+                <p class="line862">Add timing information to printk messages <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=abbaf4f16cb54b73a644a2fcaa96c4103e99b374">commit</a> <span class="anchor" id="line-10"></span>
+              </li>
+              <li>
+                <p class="line862">posix-timers: high-resolution CPU clocks for POSIX clock_* syscalls <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a78331f2168ef1e67b53a0f8218c70a19f0b2a4c">commit</a> <span class="anchor" id="line-11"></span>
+              </li>
+              <li>
+                <p class="line862">posix-timers: CPU clock support for POSIX timers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2c3871a8f5244025fe9d846f76994251319e23e4">commit</a> <span class="anchor" id="line-12"></span>
+              </li>
+              <li>
+                <p class="line862">Make RLIMIT_CPU/SIGXCPU, ITIMER_PROF, ITIMER_VIRTUAL, ITIMER_REAL per-process <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9046dd435b58f6118d9fa5a9ab2e51ba4e0e9c93">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d80d30ff8b9122aa51135e942e35566904f32ee5">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c1dcd6c2d9b7478baf876725bd356f1b19eeaa65">commit</a> <span class="anchor" id="line-13"></span>
+              </li>
+              <li>
+                <p class="line862">Show <tt>RLIMIT_SIGPENDING</tt> usage in <tt>/proc/PID/status</tt> and set limit based on <tt>RLIMIT_NPROC</tt> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=98e4b451306be8eb831c9ed102cf34c54ef358ea">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a36e7143a21007aee0dac83952ca02a64e5fd5a2">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bb5b29911b8c7ad7041c4e1a15b0e9b19c7f97da">commit</a> <span class="anchor" id="line-14"></span>
+              </li>
+              <li>
+                <p class="line862">Add <tt>RLIMIT_NICE</tt> and <tt>RLIMIT_RTPRIO</tt> to allow non-root tasks to raise nice and rt priorities. Defaults to traditional behavior <a class="http" href="http://lwn.net/Articles/134460/">(LWN article)</a> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e43379f10b42194b8a6e1de342cfb44463c0f6da">commit</a> <span class="anchor" id="line-15"></span>
+              </li>
+              <li>
+                <p class="line862">loglevel boot option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6a9dafd11fa87413451b862db59757b8593c51f9">commit</a> <span class="anchor" id="line-16"></span>
+              </li>
+              <li>
+                <p class="line862">seccomp: secure computing support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d949d0ec9c601f2b148bed3cdb5f87c052968554">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b053dc29dcde8ec09e85fc71633f5b881d06cc09">commit</a> <span class="anchor" id="line-17"></span>
+              </li>
+              <li>
+                <p class="line862">Address space randomization: each process's stack will begin at a random location, and the beginning of the memory area used for mmap(2) (which is where shared libraries go, among other things) will be randomized as well <a class="http" href="http://lwn.net/Articles/121845/">(LWN article)</a>. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=818bcba580bbe96829fe776de526125205eb8c8b">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=967423e87f9979166e815f9c281943325637b05e">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c518b108234a2418fb65a09e6219202eda316d6c">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ccc875c1d2fe18b50020d501f1005ef46fc55fed">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2fd350176e16d49d64b4131b20ee3e686402d8ba">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3f06ae033fc51fd6163445f7bee505f0095404ec">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8ec0defa78358ecae2b24146666e384af30950b5">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bf57909ff72b7e1481b38590edd036c1ef5991e9">commit</a> <span class="anchor" id="line-18"></span>
+              </li>
+              <li>
+                <p class="line862">Introduce the CONFIG_BASE_SMALL flag <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=eef2fd1db423e00de3b936d637177c1a5058cbd1">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=79d22ee86a32cb00096fdad4510dd7656faf401c">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=65f6018777a8e027d7494540caccce8b0e3d27f7">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=731184f54cc774f11e7569877c00102ad5bdc6f8">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c4c62e9417148d205a0de3e18d26cffd4b9678a3">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7ad226a285b751f486b657b2ab16204c2a33e925">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6843d7f3b76eafee419a29068880322f1714cf1a">commit</a> <span class="anchor" id="line-19"></span>
+              </li>
+              <li>
+                <p class="line862">Speed up <tt>/proc/pid/maps</tt> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d6b7a781c51c91dd054e5c437885205592faac21">commit</a> <span class="anchor" id="line-20"></span>
+              </li>
+              <li>
+                <p class="line862">class core: export MAJOR/MINOR to the hotplug env <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=aac136f255575f8bdfb97b63d27525bcc5620938">commit</a> <span class="anchor" id="line-21"></span>
+              </li>
+              <li>
+                <p class="line862">block core: export MAJOR/MINOR to the hotplug env <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3d2f23a779740f233a2cc077c7dc728bbbfc27c4">commit</a> <span class="anchor" id="line-22"></span>
+              </li>
+              <li>
+                <p class="line862">Driver core: add &quot;bus&quot; symlink to class/block devices <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4564909bcd6d50b9fd245655518bad2b7c1e7dd0">commit</a> <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">IPV6: no longer considered EXPERIMENTAL. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5dccd6be6725f8d51d8c6efeebb3d0234f214080">commit</a> <span class="anchor" id="line-25"></span>
+              </li>
+              <li>
+                <p class="line862">IPv4: equal cost multipath with caching support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=59b51e70e85997a24a744f895255760894fac171">commit</a> <span class="anchor" id="line-26"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4: Make multipath algs into true drivers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ded97b801515e8a9c0c32000880fc865a0d2c6d3">commit</a> <span class="anchor" id="line-27"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Extended Matches API <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b55d24379c528deb43e78a9197e3829417407622">commit</a> <span class="anchor" id="line-28"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Simple comparison ematch (cmp) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=580eb91a2b53c00a3530b27a488ef3aef2121fdf">commit</a> <span class="anchor" id="line-29"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Multi byte comparison ematch (nbyte) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e29bf325f17d784a519646c490c3aad39ad1739a">commit</a> <span class="anchor" id="line-30"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: u32 hasing key ematch <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a7d8d82ef5275ee2e573632165165ba39542ff07">commit</a> <span class="anchor" id="line-31"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Metadata ematch (meta) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=660976037056efe042b5885c18d8dd5da5c06b98">commit</a> <span class="anchor" id="line-32"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Basic classifier <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5e30b1ddf685b7596d8fb43a4d6335b69d5bd15b">commit</a> <span class="anchor" id="line-33"></span>
+              </li>
+              <li>
+                <p class="line862">IPV6: match TCP port selection behavior with ipv4 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bb41d2ff99ab1c37d8bff8615b59bf0d51e2e43b">commit</a> <span class="anchor" id="line-34"></span>
+              </li>
+              <li>
+                <p class="line862">IPV6: ROUTE: Add <tt>gc_min_interval_ms</tt> sysctl. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bbeface4f7cb1d117901695e35e2391073ce0ba3">commit</a> <span class="anchor" id="line-35"></span>
+              </li>
+              <li>
+                <p class="line862">IPV6: NDISC: NEWLINK notification on change of Reachable Time <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=328bb78cd178784b01b3d1e4b76298336eaa4283">commit</a> <span class="anchor" id="line-36"></span>
+              </li>
+              <li>
+                <p class="line862">NET: NEIGHBOUR: Add <tt>retrans_time_ms</tt> and <tt>reachable_time_ms</tt> sysctls. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=42ed4aad9878f50397b7d32adebd61b76308c451">commit</a> <span class="anchor" id="line-37"></span>
+              </li>
+              <li>
+                <p class="line862">NEIGH: Provide number of probes to userspace <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6a1b925ddace110c6f91df7df0c725faba63d8ab">commit</a> <span class="anchor" id="line-38"></span>
+              </li>
+              <li>
+                <p class="line862">NETFILTER: Restore ports module parameter for ip_nat_{ftp,irq} <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6b93b017d9c2e87376a70bf8e14ef3b0b88a0ee2">commit</a> <span class="anchor" id="line-39"></span>
+              </li>
+              <li>
+                <p class="line862">NET: Allow dumping of application specific statistics if no primary TLV is used <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=80458f046daa6dd6f9a0f8cd2b6a5d3ac766cd28">commit</a> <span class="anchor" id="line-40"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Introduce simple actions. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=db7530797992bb2be703f9f3cc69b1a578f812f8">commit</a> <span class="anchor" id="line-41"></span>
+              </li>
+              <li>
+                <p class="line862">BRIDGE: features change notification <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d8a33ac435c43a1a404b2ec560ef1d1536710c36">commit</a> <span class="anchor" id="line-42"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4: Primary and secondary addresses <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8f937c6099858eee15fae14009dcbd05177fa91d">commit</a> <span class="anchor" id="line-43"></span>
+              </li>
+              <li>
+                <p class="line862">NET: Add ethtool support for NETIF_F_HW_CSUM. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=69f6a0fafcdf0bfe85af182695d6d38f80f9d549">commit</a> <span class="anchor" id="line-44"></span>
+              </li>
+              <li>
+                <p class="line862">NET: Allow controlling NAPI device weight with sysfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=699a411451a32cc111410f44f172b265f6d679c8">commit</a> <span class="anchor" id="line-45"></span>
+              </li>
+              <li>
+                <p class="line862">SCTP: Support <tt>SO_BINDTODEVICE</tt> socket option on incoming packets. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0fd9a65a76e883b7d16e72dde3f8bf20ebc1e82a">commit</a> <span class="anchor" id="line-46"></span>
+              </li>
+              <li>
+                <p class="line862">SCTP: Extend the info exported via /proc/net/sctp to support netstat for SCTP. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bca735bd0d5969497704a125b05344b92155172f">commit</a> <span class="anchor" id="line-47"></span>
+              </li>
+              <li>
+                <p class="line862">SCTP: Add support for ip_nonlocal_bind sysctl &amp; IP_FREEBIND socket option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cdac4e07748934e37e415437055ed591aed9eb21">commit</a> <span class="anchor" id="line-48"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4: Sysctl configurable icmp error source address. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1c2fb7f93cb20621772bf304f3dba0849942e5db">commit</a> <span class="anchor" id="line-49"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Allow socket attributes to be matched on via meta ematch <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4890062960cbc4d3cebdbd8261a68bc85efcf5d4">commit</a> <span class="anchor" id="line-50"></span>
+              </li>
+              <li>
+                <p class="line862">PKT_SCHED: Dump classification result for basic classifier <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e1e284a4bd827db2288af9536664b44590e419eb">commit</a> <span class="anchor" id="line-51"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: Add support for updating Windows NT times/dates (part 1) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=427621d00a60f107eb32f4ac122015c320984564">commit</a> <span class="anchor" id="line-52"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: Display pool sizes in cifs stats <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=44d355b6a96b7ac1206bc35cd723a11a8bfc2de5">commit</a> <span class="anchor" id="line-53"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: add generic readv/writev and aio support. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9b33f1b1dba16e4a49a6e38e02577ab5bb197752">commit</a> <span class="anchor" id="line-54"></span>
+              </li>
+              <li>
+                <p class="line862">cifs: add support for chattr/lsattr in new CIFS POSIX extensions <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f654bac2227adc5c6956405290eeb4f81f09e9ff">commit</a> <span class="anchor" id="line-55"></span>
+              </li>
+              <li>
+                <p class="line862">cifs: Enable ioctl support in POSIX extensions to handle lsattr <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c67593a03129967eae8939c4899767182eb6d6cd">commit</a> <span class="anchor" id="line-56"></span>
+              </li>
+              <li>
+                <p class="line862">cifs: Add new mount parm mapchars <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6a0b48245a135cd132e747815854e3999967f8a7">commit</a> <span class="anchor" id="line-57"></span>
+              </li>
+              <li>
+                <p class="line862">cifs: character mapping of special characters <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=737b758c965a9b223ac1243ab38d9e507ac86c64">commit</a> <span class="anchor" id="line-58"></span>
+              </li>
+              <li>
+                <p class="line862">JFS: allow iocharset=none mount option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8c0405f90c97d9c7c68372ddc2e7a56b2267bd06">commit</a> <span class="anchor" id="line-59"></span>
+              </li>
+              <li>
+                <p class="line862">FAT: add AIO and the <tt class="backtick">-o&nbsp;sync'&nbsp;and&nbsp;</tt>-o dirsync' supports to fatfs. If user specified that option, the fatfs does traditional ordered updates by using synchronous writes <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b53beffbb9ea45ca0c55ecde456819551e8a37da">commit</a> <span class="anchor" id="line-60"></span>
+              </li>
+              <li>
+                <p class="line862">Handle MS_SYNCHRONOUS flag in FAT: FAT filesystem has been ignoring the &quot;sync&quot; mount option for ages. This patches fixes this, but (obviously) degrades performance unless you mount your FAT filesystem as asynchronous (&quot;async&quot; mount option) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8b6225bb5a6adea64439a7dcae938057be769cf4">commit</a> <span class="anchor" id="line-61"></span>
+              </li>
+              <li>
+                <p class="line862">CRYPTO: Add Tiger digest algorithms. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a1b4c3d46cd400a0ee45080f2ea1a959a53018e3">commit</a> <span class="anchor" id="line-62"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: ioctl support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7af6ca6462b75196d1db64b7a12a0e7f9873f079">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=82925e160695ce7c71b73b65f59caa1a2200fd8e">commit</a> <span class="anchor" id="line-63"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: recognize <tt>nouser_xattr</tt> and <tt>user_xattr</tt> mount options (default is still xattr enabled if built with xattr support) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=96dd7dbd1f8ecbf136c4a573abd4b94f63ea777f">commit</a> <span class="anchor" id="line-64"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: Add support for setting timestaps by handle for NT4 servers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c763ee48a4616d87a07503378d511d2db75f8d3c">commit</a> <span class="anchor" id="line-65"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: add new statfs call for posix extensions <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cc18e059c260b3ea0e881b9746621ab2360f2b28">commit</a> <span class="anchor" id="line-66"></span>
+              </li>
+              <li>
+                <p class="line862">CIFS: statfs protocol extensions <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0684ae4af87608010fcfe86ceb8e205b75aa9580">commit</a> <span class="anchor" id="line-67"></span>
+              </li>
+              <li>
+                <p class="line862">XFS: Provide a mechanism for reporting ihashsize defaults via /proc/mounts. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6bec228f339b7f77e606af9ec9d557d16e42d33c">commit</a> <span class="anchor" id="line-68"></span>
+              </li>
+              <li>
+                <p class="line862">XFS: Make trivial extension to sync flag to implement dirsync, instead of silently ignoring it. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ce327920dcaad0b263b2afa0c117e3b44b16c7cb">commit</a> <span class="anchor" id="line-69"></span>
+              </li>
+              <li>
+                <p class="line862">Updated FAT attributes: This updates the FAT attributes as well as corrects the handling of VFAT ctime <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a48736ed6549608dca6223add76b1680eec3294b">commit</a> <span class="anchor" id="line-70"></span>
+              </li>
+              <li>
+                <p class="line862">JFS: Support page sizes greater than 4K <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7fab479bebb96b1b4888bdae9b42e1fa9c5d3f38">commit</a> <span class="anchor" id="line-71"></span>
+              </li>
+              <li>
+                <p class="line862">reiserfs: make resize option auto-get new device size <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9a3bb3017383fbb6fe56431d17f60bd0d50f0717">commit</a> <span class="anchor" id="line-72"></span>
+              </li>
+              <li>
+                <p class="line862">ext3 writeback &quot;nobh&quot; option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3406d7beb747a164f6d4dc819dc9df5d13c96340">commit</a> <span class="anchor" id="line-73"></span>
+              </li>
+              <li>
+                <p class="line862">hfs: add nls support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=61e76bc2799e5836f81019224757ac15a8455d0d">commit</a> <span class="anchor" id="line-74"></span>
+              </li>
+              <li>
+                <p class="line862">hfs: unicode decompose support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d239a0c8b99541b47eb9239396dc8420f0e218b7">commit</a> <span class="anchor" id="line-75"></span>
+              </li>
+              <li>
+                <p class="line862">Block I/O barrier rewrite (enables full barrier support on serial ATA drives) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e18e923a3cbae899248430b52fc761ce6e7f6ef0">commit</a> <span class="anchor" id="line-76"></span>
+              </li>
+              <li>
+                <p class="line862">NFS: Add emulation of BSD flock() in terms of POSIX locks on the server <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2c485f63fd9d70aa6950a2c64aaf21787268b153">commit</a> <span class="anchor" id="line-77"></span>
+              </li>
+              <li>
+                <p class="line862">RPC: remove broken_suid mount option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=388a910da2a61717581135118611340a086aadb5">commit</a> <span class="anchor" id="line-78"></span>
+              </li>
+              <li>
+                <p class="line862">Add selinux support for reiserfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=415b536d1338a7b636f6c3866ba208c402168f47">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9993be5c50189f6a3366abe058d2dcf8bb451029">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0bf0b7bc87b078e1cd9f0baa2db30a991c4a285c">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=24a4286fc41bfaf74460c90630a7ff9212bbf43a">commit</a> <span class="anchor" id="line-79"></span>
+              </li>
+              <li>
+                <p class="line862">kbuild: Introdude <tt>KBUILD_NOCMDDEP</tt> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c4df7a0366781bb9fd01a198de1f55ccb27ad9a9">commit</a> <span class="anchor" id="line-80"></span>
+              </li>
+              <li>
+                <p class="line862">readahead: improve sequential read detection <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=671ccb4b50a6ef21e8c0ed0ef9070098295e1e61">commit</a> <span class="anchor" id="line-81"></span>
+              </li>
+              <li>
+                <p class="line862">Pageout throttling: With silly pageout testcases it is possible to place huge amounts of memory under I/O. This means that all memory is pinned and unreclaimable and the VM gets upset and goes oom. This patch limits the amount of memory which is under pageout writeout to be a little more than the amount of memory at which balance_dirty_pages() callers will synchronously throttle. This means that heavy pageout activity can starve heavy writeback activity completely, but heavy writeback activity will not cause starvation of pageout <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=26eecbf3543b7a57699ce5b0bed82b84d3b61705">commit</a> <span class="anchor" id="line-82"></span>
+              </li>
+              <li>
+                <p class="line862">Speed freeing memory for suspend. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5d5d36943259171d2a90f2499541c8a8f4e90d54">commit</a> <span class="anchor" id="line-83"></span>
+              </li>
+              <li>
+                <p class="line862">Properly share process and session keyrings with CLONE_THREAD <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f6480aaa10f6a4bdcf1b52b0d101cda725b8a177">commit</a> <span class="anchor" id="line-84"></span>
+              </li>
+              <li>
+                <p class="line862">swsusp: enable resume from initrd <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1026f161d01dc816be109869ac6c557ff4370c92">commit</a> <span class="anchor" id="line-85"></span>
+              </li>
+              <li>
+                <p class="line862">Allow admin to enable only some of the Magic-Sysrq functions <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=03b734f799ce03d90b3b12b994761d7d21577094">commit</a> <span class="anchor" id="line-86"></span>
+              </li>
+              <li>
+                <p class="line862">SELinux: audit unrecognized netlink messages <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=da47ed8be39b7169ced8e16d383a8c56f0e47a29">commit</a> <span class="anchor" id="line-87"></span>
+              </li>
+              <li>
+                <p class="line862">SELinux: add support for NETLINK_KOBJECT_UEVENT <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0c9b79429c83a404a04908be65baa9d97836bbb6">commit</a> <span class="anchor" id="line-88"></span>
+              </li>
+              <li>
+                <p class="line862">SELinux: enhanced MLS support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d75f9d53dcd74638f4650a41179b78afd56641c2">commit</a> <span class="anchor" id="line-89"></span>
+              </li>
+              <li>
+                <p class="line862">SELinux: add finer grained permissions to Netlink audit processing <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b207a290ea7dc83dba02e40b81cc8a29415a9c60">commit</a> <span class="anchor" id="line-90"></span>
+              </li>
+              <li>
+                <p class="line862">make sysrq-F call oom_kill() <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1cdac7692c722e09f65e223f152624eaced547c5">commit</a> <span class="anchor" id="line-91"></span>
+              </li>
+              <li>
+                <p class="line862">Add audit uid to netlink credentials <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c94c257c88c517f251da273a15c654224c7b6e21">commit</a> <span class="anchor" id="line-92"></span>
+              </li>
+              <li>
+                <p class="line862">Kconfig i18n support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3b9fa0931dd86a1fe5507311ee8031650f5d0e8c">commit</a> <span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Drivers &amp; architectures <span class="anchor" id="line-96"></span>
+                <ul>
+                  <li>
+                    <p class="line862">ARM: Remove PrPMC1100 platform <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6bb7f913151b402beb3b0f5b6893a74a1de4a68e">commit</a> <span class="anchor" id="line-97"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: S3C2440 - camera interface device <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6d5611bb064c3d80984f8aaa865730e239732b47">commit</a> <span class="anchor" id="line-98"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: base support for poodle machine <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=357867277a0c7ab984dd2c2babaa3542f685e7dd">commit</a> <span class="anchor" id="line-99"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: !SMDK2440 - base machine support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=141146803bcc48276807a6bb9294392b4404a1ab">commit</a> <span class="anchor" id="line-100"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: S3C2410 - add Acer n30 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=56b5054febf9c5c40b69602220aa802135ad9bec">commit</a> <span class="anchor" id="line-101"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: Sharp SCOOP - Add mutliple device support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=deecd43353bb49ae8f97a483d2659798130044fa">commit</a> <span class="anchor" id="line-102"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: OMAP 32KHz timer and 64-bit sched_clock, take 3 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ea3cfbd3d4d3166a7cc7b2126bc649925b7a660c">commit</a> <span class="anchor" id="line-103"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: S3C2410 - s3c2400 uart support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=93db938e21a9444cf30977c60ba42a4027c35093">commit</a> <span class="anchor" id="line-104"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: S3C2410 - OTOM1.1 and Nexcoder 2440 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dac5e7e93dc65e36e8d4dd190fd726167eb0dfab">commit</a> <span class="anchor" id="line-105"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: ptrace support for accessing iWMMXt regs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=59d1b9e1a1ccc222b5cbcd21dc537a2e0356971b">commit</a> <span class="anchor" id="line-106"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: OMAP: Add boards <a class="nonexistent" href="/VoiceBlue">VoiceBlue</a> and <a class="nonexistent" href="/NetStar">NetStar</a> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6884922417aba6f3a87bc9e34929fb53199b6102">commit</a> <span class="anchor" id="line-107"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ARM: kernel helpers for NPTL support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2d2669b62984b8d76b05a6a045390a3250317d21">commit</a> <span class="anchor" id="line-108"></span>
+                  </li>
+                  <li>
+                    <p class="line862">mips: add TANBAC TB0219 base board driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7c751453da9f53fff644bc49578f9a2930279c68">commit</a> <span class="anchor" id="line-109"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PA-RISC PDC stable storage driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dadfb8032cc1bf3fedd3220220949315023aff4a">commit</a> <span class="anchor" id="line-110"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA Harmony sound driver for PA-RISC <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=317e45504bf740fa99c82ff0e43229f59046e509">commit</a> <span class="anchor" id="line-111"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Add PCI bus support for Freescale MPC52xx <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=de518a531a2e61ff63c59bd6de2d1e345f43ed3f">commit</a> <span class="anchor" id="line-112"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Add VIA IDE support to MPC8555 CDS platform <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ed36959621451da7195be83b87878b060ce64724">commit</a> <span class="anchor" id="line-113"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Support for 82xx PQII on-chip PCI bridge <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a6dbba77a9d4b47c60d60c4f07fa79b3ca93a1d5">commit</a> <span class="anchor" id="line-114"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Add pegasos ethernet support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3f1ce6af95b6ea3d94d9ed710fc6cb86b0000013">commit</a> <span class="anchor" id="line-115"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: add support for Sky Computers HDPU Compute blade <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=178d9f1c4b575b3b846ac97160ffb7446823aa14">commit</a> <span class="anchor" id="line-116"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: PowerQUICC II Pro subarch support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f57efe0f1dcb3998153b7fad27add388ca678733">commit</a> <span class="anchor" id="line-117"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: support OpenBIOS/U-Boot for Ebony <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=74d11d4cff06003317580e824b182700763725d2">commit</a> <span class="anchor" id="line-118"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Add support for the Dallas 1553 RTC/NVRAM <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5dbab45d23a0d0184b6cbfac8adfddebb0ca60da">commit</a> <span class="anchor" id="line-119"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Add support to use the DS1553 RTC/NVRAM on MPC8555 CDS system <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b72cc82edc1626e812d82b1854f9e46752ad5e16">commit</a> <span class="anchor" id="line-120"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: add Radstone PPC7D platform support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8cd213647a38e979029e0872a318790e825d55b7">commit</a> <span class="anchor" id="line-121"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: Support 36-bit physical addressing on e500 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f50b153b1966230e78034d5ab1641ca4bb5db56d">commit</a> <span class="anchor" id="line-122"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc32: add sound support for Mac Mini <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1f7b49d042abfbda71f41b8aff6e1bf7685c1f00">commit</a> <span class="anchor" id="line-123"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: add PT_NOTE section to vDSO <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1b29f9d13e3cf0fe86bf7f82a3399c9e3caf58e5">commit</a> <span class="anchor" id="line-124"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: collect and export low-level cpu usage statistics <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8e9014435180c54811db0ad446941bb33b1e5e26">commit</a> <span class="anchor" id="line-125"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: allow xmon=on,off,early <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a3c03becb4ffc9ab78733b35f091e0ef8cb0a4eb">commit</a> <span class="anchor" id="line-126"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Implement a vDSO and use it for signal trampoline <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=054eb7153aeb84cc92da84210cf93b0e2a34811b">commit</a> <span class="anchor" id="line-127"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: generic hotplug cpu support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4d1c8cd737fd7835f57c228d8c696f0b18f68ee1">commit</a> <span class="anchor" id="line-128"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: new machine definitions <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6e1995d26cbe998a17e109de5276540b7af00928">commit</a> <span class="anchor" id="line-129"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Add IDE-pmac support for new &quot;Shasta&quot; chipset <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d6bf4cce48665ef340dc59853b5b9b5727d123bf">commit</a> <span class="anchor" id="line-130"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Add basic support for the SMU chip in iMac G5 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=10563ff4f63903a3ecedcf8375d766149c31111e">commit</a> <span class="anchor" id="line-131"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PPC64 Implement non-executable stacks <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cae15a8550bdc6186a5b1ac6dfb7b3dbd9511670">commit</a> <span class="anchor" id="line-132"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: thermal control for Xserve <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2226501f30a97a236353e63b6ed632be94e07fb6">commit</a> <span class="anchor" id="line-133"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Add mem=X boot command line option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=34f96943a4eb7e3074a91ad847d8ca6ad4a2e97c">commit</a> <span class="anchor" id="line-134"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: very basic desktop g5 sound support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7bbd827750e630003896c96d0212962276ee5d91">commit</a> <span class="anchor" id="line-135"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sh64: Initial checkstack port <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3fc9272d17629b1979d1781f0ffd8507391dc308">commit</a> <span class="anchor" id="line-136"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sh64: module support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=601f593c4caf3e35f6458e1fa4fa146032cc5587">commit</a> <span class="anchor" id="line-137"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64 SGI: altix: tioca chip driver (agp) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9c90bdde77f7b7a42f7ebb900275d459ce2bac05">commit</a> <span class="anchor" id="line-138"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64 SGI: Altix SN topology support for new chipsets and pci topology <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4a5c13c7eb0d55bfd2cf3100c55f1e3d8df37576">commit</a> <span class="anchor" id="line-139"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64: SGI Altix cross partition functionality <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b0d82bd5df874f7dadbeced1b0163473387da37c">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=89eb8eb927e324366c3ac0458998aaf9953fc5cd">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a2d974da0afe659cff98913184a97c0ee686d02b">commit</a> <span class="anchor" id="line-140"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64 SGI: New chipset support for SN platform <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8223648fd1f8e9d49649728d427fcbeac591c274">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=217907ba12bb5dfb7a05d8f0559556abdf1667ee">commit</a> <span class="anchor" id="line-141"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64: Add config SCHED_SMT <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7a9bdd8842d0847f3b15068550a3632a2d259057">commit</a> <span class="anchor" id="line-142"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64 SGI: Bus driver for the CX port of SGI's TIO chip. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e1e19747ecce9117610b8f3b57a3e95734230319">commit</a> <span class="anchor" id="line-143"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64: multi-core/multi-thread identification <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e927ecb05e1ce4bbb1e10f57008c94994e2160f5">commit</a> <span class="anchor" id="line-144"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64: vector sharing (Large I/O system support) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=24eeb568aeeaee771b9f0a6fd6f5d01040a887da">commit</a> <span class="anchor" id="line-145"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i386: add kstack=N option (from x86_64) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fa156cb39edd0e101610883614fc81d94571bf57">commit</a> <span class="anchor" id="line-146"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i386/x86-64 vDSO: add PT_NOTE segment <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c97db4a0a7d4d5be8c64a8d649a4425ee195b05c">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e09b8c0b2006f5e6b543f7458b684d6ebd99e271">commit</a> <span class="anchor" id="line-147"></span>
+                  </li>
+                  <li>
+                    <p class="line862">x86_64: add support for Intel dual-core detection and displaying <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3dd9d514846cdca1dcef2e4fce666d85e199e844">commit</a> <span class="anchor" id="line-148"></span>
+                  </li>
+                  <li>
+                    <p class="line862">x86_64: Final support for AMD dual core <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=635186447d0e6f3b35895fda993a266a1315d2a7">commit</a> <span class="anchor" id="line-149"></span>
+                  </li>
+                  <li>
+                    <p class="line862">x86_64: Add acpi_skip_timer_override option <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=229992446b12fbc755825b6a9f38fc6a273e1f19">commit</a> <span class="anchor" id="line-150"></span>
+                  </li>
+                  <li>
+                    <p class="line862">x86_64: Add pmtimer support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=312df5f1a1da780e084b328bcabb02a6dcd044c3">commit</a> <span class="anchor" id="line-151"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Support for Cyrix MediaGX (aka GEODE) CPUs. Linux and GCC treat this chip as a 586TSC with some extended instructions and alignment requirements <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8a59ebd473267e48b525b62256efdfe42cbc7cab">commit</a> <span class="anchor" id="line-152"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Altix: ioc4 serial driver support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7c58d9bf44b89eac1971473636d573dfa4f5e578">commit</a> <span class="anchor" id="line-153"></span>
+                  </li>
+                  <li>
+                    <p class="line862">uml: &quot;Hardware&quot; random number generator <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=df3090645f1d92ec40c42e6d73f0e5a6a360af33">commit</a> <span class="anchor" id="line-154"></span>
+                  </li>
+                  <li>
+                    <p class="line862">uml: support AES i586 crypto driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c45166be3cc666ce88fe623ad79276c943e74eff">commit</a> <span class="anchor" id="line-155"></span>
+                  </li>
+                  <li>
+                    <p class="line862">uml: finish cross-build support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fd7aab9c1a4705ed45fe01a7ff108ce9823b0830">commit</a> <span class="anchor" id="line-156"></span>
+                  </li>
+                  <li>
+                    <p class="line862">uml: Remove ubd-mmap support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7b9014c1da380384efe7752db38a0253a74d0238">commit</a> <span class="anchor" id="line-157"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC64: Make PAGE_SIZE configurable. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=eb3f51c6ee5fc40af739b497239f9e8d9127902f">commit</a> <span class="anchor" id="line-158"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC64: Support &gt;=cheetah+ dual-dtlbs properly. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=caf2fc1287688db6dfd3521c95c3b41858dbeb84">commit</a> <span class="anchor" id="line-159"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC64: Add UltraSPARC-IV cpu ids. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3ba0b95cc23fc34a76dc6a0bec1ff2664af07ced">commit</a> <span class="anchor" id="line-160"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC64: Add boot option to force UltraSPARC-III P-Cache on. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=816242da3735957bee99aeba40aa60c4f120a101">commit</a> <span class="anchor" id="line-161"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC: Provide generic ioctls in Sparc RTC driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b4bca26c0160f48b4eb04f21d31a229832732013">commit</a> <span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span>
+                  </li>
+                  <li class="gap">
+                    <p class="line862">ALSA: AC'97 Audio support for Intel ICH7 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=787b7befd17d69969544d00cc3d4bd903b8d8050">commit</a> <span class="anchor" id="line-165"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add support for Chaintech 9CJS <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=86f4e0e4e8e932d97c329c37a6bb389ac7445d5e">commit</a> <span class="anchor" id="line-166"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Enable HP jack sense for FSC Scenic-W <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e775f763b0631243ee752f42477d3377abd25d10">commit</a> <span class="anchor" id="line-167"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add Intel HDA driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7440c4f24be0200b1a8e91536c4eb6ea7e993e5d">commit</a> <span class="anchor" id="line-168"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Novation and MOTU USB MIDI support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=079508e7dcf3a895ba7076e8966c3ab783f76d3f">commit</a> <span class="anchor" id="line-169"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: MPU-401 PnP support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7d177fdd768fd9552e81f49bdf4b8154f70f0878">commit</a> <span class="anchor" id="line-170"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: add 96Khz support and setting sample rate for direct SPDIF output <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6d92388b61cca79b3443f5a8a48b0c7e0866c278">commit</a> <span class="anchor" id="line-171"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: add STAC9708 output bias mixer control <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f2e84c94d02414f35a9deadb46da8c3035be41fe">commit</a> <span class="anchor" id="line-172"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Added support for Terratec PHASE 22 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=755bd547ce54dd277e56f156c3503d418afe9d8e">commit</a> <span class="anchor" id="line-173"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add support for Audigy2LS on MSI motherboard <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fcaa569883ba47e5aa6d9473bfbe290c0cf44be0">commit</a> <span class="anchor" id="line-174"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Enables SPDIF output on the Audigy2 Value <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6b40a47989a8a676995881b32362ab3fc5eaab9b">commit</a> <span class="anchor" id="line-175"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Added ICE1724 - ESI Juli@ code (not complete) + AK4114 code + AK4358 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e81585354771a1862e0013ec9a205810fa5c6558">commit</a> <span class="anchor" id="line-176"></span>
+                  </li>
+                  <li>
+                    <p class="line862">mv643xx: Add support for PHYs/boards that don't support autonegotiation. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bc50683bf8b460d626e9c6afbca9298d46da5db5">commit</a> <span class="anchor" id="line-177"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Adds a <tt>disable_irm</tt> option to ieee1394.ko which disables all Isochronous Resource Manager functionality, useful to work around certain problems, e.g. iPod detection. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=772137b4b6d183f026e0e3eac947778e8e2a6974">commit</a> <span class="anchor" id="line-178"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SCSI: Add device io statistics <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1e076baeca6e94f633748b663c9ba7c0955555da">commit</a> <span class="anchor" id="line-179"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ACPI: Add ACPI-based memory hot plug driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=300d31b9613e71217758f105bad3ff71755a223b">commit</a> <span class="anchor" id="line-180"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: This patch adds support to uinput for Linux's force feedback interface. With these changes, it's possible to write drivers for force feedback joysticks and similar devices in userspace. It also adds a way to set the physical path of devices created via uinput <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=72457fd43538d03738b7d5bc4892fb396da00941">commit</a> <span class="anchor" id="line-181"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for Logitech MX300 mouse in PS/2 mode. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=927484d0db5a51b16124e289ddb1e72936850cd0">commit</a> <span class="anchor" id="line-182"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for the Logitech MX1000 mouse in PS/2 mode. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4b3cd06899f31ab20c64a4b04dd56908105f558f">commit</a> <span class="anchor" id="line-183"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for Sharp Zaurus SL-C7cc Corgi keyboards. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=020684ab9534d093bac27ec7706a0702ca8dcae6">commit</a> <span class="anchor" id="line-184"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for Sharp SL-C7xx touchscreen (Corgi). <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cf81d0bdef7adcfff440192c656e193157e13de0">commit</a> <span class="anchor" id="line-185"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: New driver for ICS MicroClock MK712 TouchScreens <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bb2741a384bf45e58bf38bd86236a3d88126aeea">commit</a> <span class="anchor" id="line-186"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: HP HIL support (from PARISC Linux tree). <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8ea0d85ca18a2e932bfc6862488d96b124ba5a5a">commit</a> <span class="anchor" id="line-187"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: This patch adds support for a Wacom new tablet, Intuos3, and its associated tools. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2105c4f61cdb892ec987fe2b4355e5a626699e28">commit</a> <span class="anchor" id="line-188"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add a new ID to the Logitech ForceFeedback joystick driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ceeb2f7790c1e250c3a5e78fe39d573054016822">commit</a> <span class="anchor" id="line-189"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for serial ELO touchscreens, including Elo <a class="nonexistent" href="/IntelliTouch">IntelliTouch</a>, <a class="nonexistent" href="/AccuTouch">AccuTouch</a> and <a class="nonexistent" href="/SecureTouch">SecureTouch</a>. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=314375b64e8205ecb9628fda092fa07dae5a566f">commit</a> <span class="anchor" id="line-190"></span>
+                  </li>
+                  <li>
+                    <p class="line862">mv643xx: Add ethtool support to the mv643xx ethernet driver. Initially, we add statistics and link status reporting. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b974b6e86479b248bef428eaa7a41e776c1b0413">commit</a> <span class="anchor" id="line-191"></span>
+                  </li>
+                  <li>
+                    <p class="line862">AGPGART: Drop the Intel-mch AGP driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=36f93dfcce6a1a9157ff9725fd9fca2944b43668">commit</a> <span class="anchor" id="line-192"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add support for less usual ALPS touchpads <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cfac99f238d7d22ea583b414b98e492dc9abc09d">commit</a> <span class="anchor" id="line-193"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add more PnP IDs to i8042 PnP probe table <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3ecaa6a5aaa05ee9d129d36e099fcabec6e6e92a">commit</a> <span class="anchor" id="line-194"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add MicroTouch (3M) serial touchscreen driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=573147c557c6202eec1dcb1932fcf706734fe006">commit</a> <span class="anchor" id="line-195"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: Add the option to use cooked coordinates in MicroTouch USB touchscreen driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c096e841d74fee11635c0026d706b4d2bd737536">commit</a> <span class="anchor" id="line-196"></span>
+                  </li>
+                  <li>
+                    <p class="line862">input: This patch is for the keyboard on Sharp Zaurus collie and poodle models (SL5000, SL5500, and SL5600) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=13f139772a0c8354dc43d1a12ff9292ed405e667">commit</a> <span class="anchor" id="line-197"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Input: export psmouse module parameters via sysfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c10b5f89465c543eb8fdfc78d1f452ee2e606ddb">commit</a> <span class="anchor" id="line-198"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: add fscpos chip driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bcc32d2245b3f674e99fca61514ad80cafad28f5">commit</a> <span class="anchor" id="line-199"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: Enable w83781d and w83627hf temperature channels <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bbb7e78c3000fec73b2db86bbed0c1525cc15167">commit</a> <span class="anchor" id="line-200"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: add ST <a class="nonexistent" href="/M41T00">M41T00</a> I2C RTC chip driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4315f2edf1660c11807f9c696982bf77505eab9b">commit</a> <span class="anchor" id="line-201"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: New chip driver: sis5595 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5196cea7854b23cf885da15610c9dd5870c36c58">commit</a> <span class="anchor" id="line-202"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: add Marvell mv64xxx i2c driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=460698873c9556ce3d315f7c2a5ca2bd8dff8b90">commit</a> <span class="anchor" id="line-203"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: add GL520SM Sensor Chip driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7f01d23dabbbb76c097951932fced7bfdb57259f">commit</a> <span class="anchor" id="line-204"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C i2c-nforce2: add support for nForce4 (patch against 2.6.11-rc4) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9962e88327fdb4ec6dc92efeb6d25019a15b350e">commit</a> <span class="anchor" id="line-205"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: emu10k1 driver - add multichannel device hw:x,3 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3acd4a9a940177d89b5831582ac7392d9948f52d">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=27ae958cf6816e7f973d7de57af9876fb483dbde">commit</a> <span class="anchor" id="line-206"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA emu10k1 - add 'voices' /proc entry for debugging the voice allocator <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=607a44535941987b3d281cb6e0cd88f41d393cb2">commit</a> <span class="anchor" id="line-207"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: add code to dump packets <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c6d76f09b6cd84efd40e2b297283491e2859eccd">commit</a> <span class="anchor" id="line-208"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: add support for Emagic USB MIDI interfaces <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d63bda498062e8877efeb3c11b782003e45b9394">commit</a> <span class="anchor" id="line-209"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: ALC882 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=34d146d48ccb2603dd3348316f21e07fe1ab68c1">commit</a> <span class="anchor" id="line-210"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: add Roland FANTOM-X support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=28a49f5131a15e6014404af5848193dc056221d7">commit</a> <span class="anchor" id="line-211"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add mixer controls to intel8x0m <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6e4544b00591cc9d13163d677c2e7202394b3b74">commit</a> <span class="anchor" id="line-212"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sis900.c net poll support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a0dcd22945ee78a5d308f0b4e02489f7401b1143">commit</a> <span class="anchor" id="line-213"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add OMAP support to smc91x Ethernet driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4ceb33e3c5a9bfe6e8d5394ad0b55d32512c0c9a">commit</a> <span class="anchor" id="line-214"></span>
+                  </li>
+                  <li>
+                    <p class="line862">wireless: atmel: Add support LG LW2100N WLAN PCMCIA card <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=317b42fdcf19f001ef2f75263d2d78ca406793db">commit</a> <span class="anchor" id="line-215"></span>
+                  </li>
+                  <li>
+                    <p class="line862">mii: add GigE support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c817c3f85c544452a060c0002363330dd2e7b60a">commit</a> <span class="anchor" id="line-216"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IB/mthca: implement query of device caps <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3af2e092ba3eeef04e9e03fea0bcb195eb3a06df">commit</a> <span class="anchor" id="line-217"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add ATP88x support to the ATP870U driver (Vendor patch) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2d978494df4141c5e7760fc03ff38575853fbd1f">commit</a> <span class="anchor" id="line-218"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Restore PWC driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5f0a6f863e098fdefe705fc9e5215caa75ac0415">commit</a> <span class="anchor" id="line-219"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add SiS USB2VGA kernel driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=eb42ab39de37199e08a5f1f44445baea37b1e130">commit</a> <span class="anchor" id="line-220"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: Add USBAT02 storage support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1c5e06502df9a2b732200ac47780c552af6a8eb7">commit</a> <span class="anchor" id="line-221"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: Add USBAT-based <a class="nonexistent" href="/CompactFlash">CompactFlash</a> storage support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=22b8ec4d0dc567efe1ee71c2718660616774e755">commit</a> <span class="anchor" id="line-222"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB ftdi_sio: an rs485 adaptor from 4n-galaxy.de <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=36b7c128cde3bf9c667d260df190f2e4a246da90">commit</a> <span class="anchor" id="line-223"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add 'distrust_firmware' option to ohci <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1318d0e449959d9d9bf4fdbbd0c421053a2f1457">commit</a> <span class="anchor" id="line-224"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: wacom tablet driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7b900ed5114ffaad57382020ac9cfbcaee959de7">commit</a> <span class="anchor" id="line-225"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: Add ASIX AX88772 10/100 Ethernet support to usbnet <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d91cf50d6c4a79d477140d251c7e8d7dd2059f04">commit</a> <span class="anchor" id="line-226"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add usbmon, a USB monitoring framework <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0bcdd9489f3c853cdb38291f1d5385f6ab660223">commit</a> <span class="anchor" id="line-227"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB Storage: Unusual_devs entry for Nikon DSC D70 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9c66f8b2e7d9bac6ef3efbd7e3b3d7460da400bc">commit</a> <span class="anchor" id="line-228"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add zd1201 wireless lan driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1dafc7a8bc1ac2c801674d5f72eff42fbe9d4167">commit</a> <span class="anchor" id="line-229"></span>
+                  </li>
+                  <li>
+                    <p class="line862">remove drivers/char/tpqic02.c <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ee05e0b0a30a5e1965d1baeadaa3b534ad7a1686">commit</a> <span class="anchor" id="line-230"></span>
+                  </li>
+                  <li>
+                    <p class="line862">OSS Support for AC97 low power codecs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=69bfca0e64ca97d1a3063687e26fa0191ae3ddfd">commit</a> <span class="anchor" id="line-231"></span>
+                  </li>
+                  <li>
+                    <p class="line862">serial: add NEC VR4100 series serial support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=26e25c95e30faaa235f7d783adae797a21fa7392">commit</a> <span class="anchor" id="line-232"></span>
+                  </li>
+                  <li>
+                    <p class="line862">serial: add the output interface control to VR41xx SIU driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=de1e6c0ea7150bd2b9b9d22d286b081cbbbe233f">commit</a> <span class="anchor" id="line-233"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Implement quota reading and writing functions for UFS. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ad87b3750efcaf5ceffd82d10dbf4bc1d267d69e">commit</a> <span class="anchor" id="line-234"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add TPM hardware enablement driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4aea4047d75a0677a1a151c678ca236573aac795">commit</a> <span class="anchor" id="line-235"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add <a class="nonexistent" href="/SuperHyway">SuperHyway</a> bus subsystem <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8414a60dbedd9862ee51ab2c6936504890d2b7bc">commit</a> <span class="anchor" id="line-236"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i4l: HFC-4S and HFC-8S driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5b4c9f7c60d0ff38972c320648f04f7a76b9ac0a">commit</a> <span class="anchor" id="line-237"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Removing Auvertech TurboPAM ISDN driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cbd24e681028a12fef694e6152aa1f0a8845b9f3">commit</a> <span class="anchor" id="line-238"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Hotplug parallel ports <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ad1aa7145a35803f94a991bf145785eb6d9ae3be">commit</a> <span class="anchor" id="line-239"></span>
+                  </li>
+                  <li>
+                    <p class="line862">cciss: new controller support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=feb46ab0c5494133b650774da686eb9e6ff36617">commit</a> <span class="anchor" id="line-240"></span>
+                  </li>
+                  <li>
+                    <p class="line862">cciss: support for more than 8 controllers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=71d2385e1299de679c7d191d631f6c0ed3e866bb">commit</a> <span class="anchor" id="line-241"></span>
+                  </li>
+                  <li>
+                    <p class="line862">cciss: per disk queue support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d53a4c72ef3c4b95f590a1b6986c3d47346707ad">commit</a> <span class="anchor" id="line-242"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Ressurrect the esp serial driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ec567d00cfd3dce033124249a2d40ef69e493f8c">commit</a> <span class="anchor" id="line-243"></span>
+                  </li>
+                  <li>
+                    <p class="line862">intelfb: Add partial support 915G chipset <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=089d5f720f0645d44762134e985e9e9b505ca410">commit</a> <span class="anchor" id="line-244"></span>
+                  </li>
+                  <li>
+                    <p class="line862">geodefb: Add Geode framebuffer driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3dcf65069f8dc8f601dbc4ccb8a008a334992d9c">commit</a> <span class="anchor" id="line-245"></span>
+                  </li>
+                  <li>
+                    <p class="line862">nvidiafb: Add update framebuffer driver for nVidia chipsets <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8e0de75e775cd97d9234bdea41b428a85e3ede42">commit</a> <span class="anchor" id="line-246"></span>
+                  </li>
+                  <li>
+                    <p class="line862">fbdev: Add mode changing via sysfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8c91d5e9882cb6206ee1443d6b395c1281998a8c">commit</a> <span class="anchor" id="line-247"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ide: generic Power Management for IDE devices <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d1c1bba5adc3cbdf3917322149d059b1baea9dcc">commit</a> <span class="anchor" id="line-248"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IRDA: support NSC PC8738x <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7680d6fde1553a7df91d3d7e462981e6089009ed">commit</a> <span class="anchor" id="line-249"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add AD1986 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=65b709f4cc9e4ce324301c6f618b9b3ad9c3df57">commit</a> <span class="anchor" id="line-250"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add PCI ids for ICH6/7 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a8b0a6291b9061d15a52b7bfd7e76434495d16d7">commit</a> <span class="anchor" id="line-251"></span>
+                  </li>
+                  <li>
+                    <p class="line862">AGP support for powermac G5 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=91105f2f8dc9d3956b2133aff28c6df4356b05ad">commit</a> <span class="anchor" id="line-252"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: AC97 wm9713 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4eaf05ae2cba578ce00d92c1c274d18d256bc919">commit</a> <span class="anchor" id="line-253"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IA64: Add HP zx2 chipset identifier <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=72af864e1225d5a6ce67bbefe6e82a2eeed12ede">commit</a> <span class="anchor" id="line-254"></span>
+                  </li>
+                  <li>
+                    <p class="line862">AGPGART: SGI TIO support. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5f7435968f50615831b44ea5c1b5034a3e407d32">commit</a> <span class="anchor" id="line-255"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pcmcia: yenta_socket - ti4150 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3a1bd22430d1d6a6d73e25ce1dcc14a143e107dd">commit</a> <span class="anchor" id="line-256"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pcmcia: rsrc_nonstatic: sysfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a071032271f8e8a54287e939125bb4686efdb547">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=650f2fe623218979f305f9ba04b1281625d8dda3">commit</a> <span class="anchor" id="line-257"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pcmcia: per-device sysfs output <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=97e7cd85558a555b917c570afadb82721831918a">commit</a> <span class="anchor" id="line-258"></span>
+                  </li>
+                  <li>
+                    <p class="line862">v4l2 api: mpeg encoder support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=32ecb127185101e58f6efc001c1965e686ce621a">commit</a> <span class="anchor" id="line-259"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: add or51132 driver (atsc demodulator) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1313943fe6c479a1df61e7c19cb01fe7abdace87">commit</a> <span class="anchor" id="line-260"></span>
+                  </li>
+                  <li>
+                    <p class="line862">v4l: cx88 driver update <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e44d520eae58003b0c21a7fa80a775457d1fb0ae">commit</a> <span class="anchor" id="line-261"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sym2 version 2.2.0 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=473c67f96e064428787e0252c3bd68010ce9af79">commit</a> <span class="anchor" id="line-262"></span>
+                  </li>
+                  <li>
+                    <p class="line862">remove drivers/mtd/maps/ich2rom.c <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=304aa41113fd649eb84ae008424ce036695e4204">commit</a> <span class="anchor" id="line-263"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pcxx: Remove obsolete driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a42a35704cc0130e2417dbb45a021d0d1320edc5">commit</a> <span class="anchor" id="line-264"></span>
+                  </li>
+                  <li>
+                    <p class="line862">kill IPHASE5526 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ebc4a2dfe3f22d29794dd30b4bf43e45953dc829">commit</a> <span class="anchor" id="line-265"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ipr: New adapter support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=619c4e95de187b46888c62218b612e34510f5361">commit</a> <span class="anchor" id="line-266"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ipr: Send uevent change notifications <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8f99d13814be4ab34af9cfc001eb932e7a56fc3a">commit</a> <span class="anchor" id="line-267"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ipr: Fast failure module options <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fe60e694d115728601f9b6301b07fae6b7da62df">commit</a> <span class="anchor" id="line-268"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add statistics to generic transport class <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bd210e30da74cd7e156bcac85388642fab2aea2c">commit</a> <span class="anchor" id="line-269"></span>
+                  </li>
+                  <li>
+                    <p class="line862">target code updates to support scanned targets <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=eec217ebb1a7a2f6ced0d6871b741df878985c51">commit</a> <span class="anchor" id="line-270"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add at91_udc recognition <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fd4068e5dce5dc9b83f689325a0ca3ecb57fe3dd">commit</a> <span class="anchor" id="line-271"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: usbnet gets status polling, uses for CDC Ethernet <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dab9770ef4f0161b53d0c4c729a062561283465c">commit</a> <span class="anchor" id="line-272"></span>
+                  </li>
+                  <li>
+                    <p class="line862">emi26: add another product ID for the Emi2|6/A26 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4fc04a7c59c8ac32478632e2a33a38b107654c47">commit</a> <span class="anchor" id="line-273"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: Support for new ipod mini (and possibly others) + usb <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=164a31d0cb669095d11d24d3478582806b663453">commit</a> <span class="anchor" id="line-274"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB unusual_devs: Add another Tekom entry <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f1c7f7c20d1235891f4616c7b934018bb2254bf3">commit</a> <span class="anchor" id="line-275"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB unusual_devs: add another datafab device <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5f7539f6b5f4b3fd9345e877ad8bdc0faad4d7d3">commit</a> <span class="anchor" id="line-276"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Bluetooth: Support HCI Extensions in BCSP driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8542242e9097d8122fb151def4146af7aa21aeee">commit</a> <span class="anchor" id="line-277"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SERIAL: new hp diva console port <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ad3f9f285b0cf47e37e412bcb740abb0bd99ffb2">commit</a> <span class="anchor" id="line-278"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SERIAL: sealevel 8 port RS-232/RS-422/RS-485 board <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=beb44089f1adb0e634caeb7c352e77b608a76d99">commit</a> <span class="anchor" id="line-279"></span>
+                  </li>
+                  <li>
+                    <p class="line862">MMC: SD support : protocol <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=68d10ae631a4ee0aa08d9551b1a792588e16ef2d">commit</a> <span class="anchor" id="line-280"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add DXS support for MSI K8T Neo2-FI <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a6dfbe4479681c47cd82bf2dffdbea3930fe133a">commit</a> <span class="anchor" id="line-281"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: emu10k1 - add support for p16v chip (24-bit playback) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ae661ef27ca702bba34ee68f1138975da0b2113f">commit</a> <span class="anchor" id="line-282"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add new C-Media 9880 codec ID <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f76dc2baa866ca61baeb0107fbb08fff278e3201">commit</a> <span class="anchor" id="line-283"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add framework for better audigy sound card capabilities selection <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=039adca725809ae52b9a08aa9e28fab88eff3bef">commit</a> <span class="anchor" id="line-284"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add AD1986A support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=33d43a3ff79ec843e728a882b7140f1c3502b6f5">commit</a> <span class="anchor" id="line-285"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ALSA: Add Mono volume controls for ALC260 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1dfdb44c161d0b6bc804942f640df304ec51bf11">commit</a> <span class="anchor" id="line-286"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add fossil watch ids to the visor driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=74ddde7d85d5b246b47e971780a826131f7dc71f">commit</a> <span class="anchor" id="line-287"></span>
+                  </li>
+                  <li>
+                    <p class="line862">DVD-RAM support for pktcdvd <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fe3ae97549bc8417f9fc25b198fef36f6448b183">commit</a> <span class="anchor" id="line-288"></span>
+                  </li>
+                  <li>
+                    <p class="line862">serial: Digi Neo driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f8ddabd480cb2a8fefb6b69e4c2adc8570dbb11c">commit</a> <span class="anchor" id="line-289"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Netmos parallel/serial/combo support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1f8b061050c7f12da0a9435604ef6cab700a7dac">commit</a> <span class="anchor" id="line-290"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support Activy Budget card <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1778e17d857486eb3f46f98b593fc4b2e1d9b303">commit</a> <span class="anchor" id="line-291"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: dibusb: support Hauppauge WinTV NOVA-T USB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d200712f1024c330904bbaf23af8fb15a245853b">commit</a> <span class="anchor" id="line-292"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: nxt2002: QAM64/256 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=eee5001d6101d121d7e5b8497546a06398c9399c">commit</a> <span class="anchor" id="line-293"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support KWorld/ADSTech Instant DVB-T USB2.0 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e0aad13d5f6e4d7c5b23f0c988490e5e90be6354">commit</a> <span class="anchor" id="line-294"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support pcHDTV HD2000 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c3ce808bd32ac94a5609ae293eda705141783d4c">commit</a> <span class="anchor" id="line-295"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: dibusb: support nova-t usb ir <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=00d62742591b856bfece1adc70ae5bd215251e08">commit</a> <span class="anchor" id="line-296"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: ttusb_dec: IR support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=506ab522b15d064ce3110841c9760f8f2a9511be">commit</a> <span class="anchor" id="line-297"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support for Technotrend PCI DVB-T <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=58e313c312ef83a005f32260b59a5307ab8d1190">commit</a> <span class="anchor" id="line-298"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: dibusb: support dtt200u (Yakumo/Typhoon/Hama) USB2.0 device <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cca0b5524bb30f8b5ab49fd305404e33935b98b2">commit</a> <span class="anchor" id="line-299"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support Nova-S rev 2.2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e93aac31fc87c6fee4752d1334bee889506c63cc">commit</a> <span class="anchor" id="line-300"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI: create PCI_DEBUG config option to make it easier for users to enable pci debugging <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=738684161f014713fee74436447f4836664ff933">commit</a> <span class="anchor" id="line-301"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add driver for CP2101/CP2102 RS232 adaptors <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c36b0103c30150487e17ba926361dc3220fa16d2">commit</a> <span class="anchor" id="line-302"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ftdi_sio: Support sysfs attributes for more chip <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=da043980723c7ee761ec107f9f7a4fe3bfc7bb2e">commit</a> <span class="anchor" id="line-303"></span>
+                  </li>
+                  <li>
+                    <p class="line862">atyfb: Add boot/module option to override composite sync <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a9a8095a147a93e259ef76615574402fdbaab6c0">commit</a> <span class="anchor" id="line-304"></span>
+                  </li>
+                  <li>
+                    <p class="line862">s1d13xxxfb: Add support for Epson <a class="nonexistent" href="/S1D13806">S1D13806</a> FB <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d763cbf630df86b4b194de89de581ff4da6430ca">commit</a> <span class="anchor" id="line-305"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: New lm92 chip driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c32de391c35d5f6da1e61f2b3f1648b3dd6b77ae">commit</a> <span class="anchor" id="line-306"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: group Intel on I2C Hardware Bus support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=723b671797aa735903e11c240e014beb50487481">commit</a> <span class="anchor" id="line-307"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i2c: new driver for ds1337 RTC <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9b3cc645c34014149c3c66bf38e6b6f715d345b2">commit</a> <span class="anchor" id="line-308"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i2c: add adt7461 chip support to lm90 driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9800e965a4fbe190a8b5bdb1b52b415564d67757">commit</a> <span class="anchor" id="line-309"></span>
+                  </li>
+                  <li>
+                    <p class="line862">I2C: Recognize new revision of the ADT7463 chip <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=939836f95cd1e78089f92c471c20b8d915a35a7f">commit</a> <span class="anchor" id="line-310"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pmac: sound support for latest laptops <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b75550e1bc6b3b2c80b628e68628fca015634071">commit</a> <span class="anchor" id="line-311"></span>
+                  </li>
+                  <li>
+                    <p class="line862">piix: IDE PATA patch for Intel ESB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d69332b875efb52ea5276d5638ce572fcd7375f2">commit</a> <span class="anchor" id="line-312"></span>
+                  </li>
+                  <li>
+                    <p class="line862">intel8x0: AC'97 audio patch for Intel ESB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c4c8ea948aa21527d502e87227b2f1d951bc506d">commit</a> <span class="anchor" id="line-313"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ata_piix: IDE mode SATA patch for Intel ESB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c368ca4ef471aa8e82ee1de7086cb7ef5053cb95">commit</a> <span class="anchor" id="line-314"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ahci: AHCI mode SATA patch for Intel ESB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=680d32357a0235fbadfba8e52dd40e80f55b6b05">commit</a> <span class="anchor" id="line-315"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i2c-i801: I2C patch for Intel ESB2 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b0a70b57f909647d79e0cc30772a0664fbf9830a">commit</a> <span class="anchor" id="line-316"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IB/mthca: add support for new MT25204 HCA <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=68a3c21203b73696769dfdceb68d2d7f5d3c20a0">commit</a> <span class="anchor" id="line-317"></span>
+                  </li>
+                  <li>
+                    <p class="line862">zfcp: add point-2-point support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=91bbfbda8d41f834c70c47d6f8c95245c90019e5">commit</a> <span class="anchor" id="line-318"></span>
+                  </li>
+                  <li>
+                    <p class="line862">qla2xxx: remove /proc interface <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6721d2c809f4537ae01757a2297f2ced338826c1">commit</a> <span class="anchor" id="line-319"></span>
+                  </li>
+                  <li>
+                    <p class="line862">aic7xxx: add support for the SPI transport class <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=92d161c373b45be158b73a162bedebb5293a73d3">commit</a> <span class="anchor" id="line-320"></span>
+                  </li>
+                  <li>
+                    <p class="line862">lpfc: add Emulex FC driver version 8.0.28 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dea3101e0a5c897d2c9351a7444e139db9f40247">commit</a> <span class="anchor" id="line-321"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add new visor id for Treo 650 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ac21e9ff08db3d6fac41d356c77fcb531c2e03e1">commit</a> <span class="anchor" id="line-322"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB Storage unusual_dev.h 07c4:a10b Datafab Systems, Inc. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d6427cf7ea5dc75be26074a573b25d5906c992bd">commit</a> <span class="anchor" id="line-323"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: new SIS device id <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7ab7c34c90797b9df52720720ab5d5e9edd05114">commit</a> <span class="anchor" id="line-324"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: usbnet and zaurus zl-5600 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a2fe20129e2d87dc5c4e5c850b41b5b0b47cfd08">commit</a> <span class="anchor" id="line-325"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: OHCI on Compaq Aramada 7400 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0e4987639a774d08b69c1c58774f3430f6083d4f">commit</a> <span class="anchor" id="line-326"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: pl2303 new vendor/model ids <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=acbb36f116243bed515357264ecbb6ff9c6d2a5b">commit</a> <span class="anchor" id="line-327"></span>
+                  </li>
+                  <li>
+                    <p class="line862">add TIMEOUT to firmware_class hotplug event <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6897089c5f7989603ccb9c696050470ba1dbd262">commit</a> <span class="anchor" id="line-328"></span>
+                  </li>
+                  <li>
+                    <p class="line862">aoe 11/12: add support for disk statistics <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=0c6f0e7920f39b28bdbe5f134f3e592542332d87">commit</a> <span class="anchor" id="line-329"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: add basic bcm5752 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2052da946096590035438626afbc7f329d2549d8">commit</a> <span class="anchor" id="line-330"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: add support for bcm5752 rev a1 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=053d78000be4906fac6446ad517ca3897dc6cd84">commit</a> <span class="anchor" id="line-331"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add GPIO3 for 5752 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3e7d83bc96d59013792e5546e7832668d3adbce7">commit</a> <span class="anchor" id="line-332"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add nvram detection for 5752 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=361b4ac29bc651c7612d4bf21434ae6fe06b78e4">commit</a> <span class="anchor" id="line-333"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add nvram lock-out support for 5752 TPM <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e6af301be3c129adbc8a7c8ffb76e62533ad9575">commit</a> <span class="anchor" id="line-334"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add msi support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=88b06bc26b87cf0490b0e3faea7fefc7549dd75d">commit</a> <span class="anchor" id="line-335"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add HP49G+ Calculator USB Serial support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=36045fb77cb8b4043063ea54067907a1afd317b4">commit</a> <span class="anchor" id="line-336"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: new SiS device id <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cef11127ea59cc5ac8fb956c355727999c6796dc">commit</a> <span class="anchor" id="line-337"></span>
+                  </li>
+                  <li>
+                    <p class="line862">irq and pci_ids for Intel ICH7DH &amp; ICH7-M DH <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4d24a439a6b2280357d62fb30a73350cf253bdb7">commit</a> <span class="anchor" id="line-338"></span>
+                  </li>
+                  <li>
+                    <p class="line862">hda_intel: Intel ESB2 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2f1b381825411fd3d5c8323dd1be77438e19e192">commit</a> <span class="anchor" id="line-339"></span>
+                  </li>
+                  <li>
+                    <p class="line862">saa7134: Add OEM version of already supported card <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=10e92060295ded7b8feac1ee57bb2135ea9ac207">commit</a> <span class="anchor" id="line-340"></span>
+                  </li>
+                  <li>
+                    <p class="line862">imxfb: Add Freescale i.MX framebuffer driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7c2f891cb64b0b9c8d389da97c221ee4288f1307">commit</a> <span class="anchor" id="line-341"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add a driver for the <a class="nonexistent" href="/AirPrime">AirPrime</a> CDMA Wireless PC card. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3b86b2028c4de998978baae780edfc36995bebc5">commit</a> <span class="anchor" id="line-342"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: new usbnet device id <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b9ab0746a53b9cd5c64e179a1c13952f0ae80e64">commit</a> <span class="anchor" id="line-343"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: unusual_devs.h: atmel snd1 storage <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8af60be9a71d2c636cd800deab63a9fadf3aee96">commit</a> <span class="anchor" id="line-344"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: unusual_devs entry for Minolta Dimage Z10 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7b1cbebaa7ced7a2029cc5b50eab60c79b24cc10">commit</a> <span class="anchor" id="line-345"></span>
+                  </li>
+                  <li>
+                    <p class="line862">aoe: improve allowed interfaces configuration <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=03c41c434775c52092d17a5031ad8ebaaf555bc4">commit</a> <span class="anchor" id="line-346"></span>
+                  </li>
+                  <li>
+                    <p class="line862">aoe: add firmware version to info in sysfs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4613ed277ab8a41640434181898ef4649cc7301e">commit</a> <span class="anchor" id="line-347"></span>
+                  </li>
+                  <li>
+                    <p class="line862">DAC960: add support for Mylex AcceleRAID 4/5/600 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5b76ffd5d9f12ba850fc988188f55056204ad4e2">commit</a> <span class="anchor" id="line-348"></span>
+                  </li>
+                  <li>
+                    <p class="line862">video/tuner: add VIDEO_G_FREQUENCY and freq range to VIDIOC_G_TUNER <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c184ca3681ee9ae0bb63cb591e1e16f42536415c">commit</a> <span class="anchor" id="line-349"></span>
+                  </li>
+                  <li>
+                    <p class="line862">forcedeth: netpoll support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2918c35d311263bc313b3da272783860ce573189">commit</a> <span class="anchor" id="line-350"></span>
+                  </li>
+                  <li>
+                    <p class="line862">More ethtool support for sis900 and warning fix <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=da369b01d49b34803265096eb92a2d6da61cf0d0">commit</a> <span class="anchor" id="line-351"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ixgb: Support for ethtool -d <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5e3c30deb21d0eb0da44830fb1c1fc7054e54229">commit</a> <span class="anchor" id="line-352"></span>
+                  </li>
+                  <li>
+                    <p class="line862">tlan: restore deleted module parameters. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=15efa9bb2d4da7cd9feb1c67fcf3d9e0e1bd00c6">commit</a> <span class="anchor" id="line-353"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: cypress_m8: add support for the <a class="nonexistent" href="/DeLorme">DeLorme</a> Earthmate lt-20 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=25b6f08e3fa0d84e26a373a205cfdad208b54af7">commit</a> <span class="anchor" id="line-354"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add modalias sysfs file for usb devices <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=360b52b08972ada8fd4421e9a7bcbe1ea186c20e">commit</a> <span class="anchor" id="line-355"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI: add modalias sysfs file for pci devices <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9888549e0507cc95d1d7ade1595c00ff8e902659">commit</a> <span class="anchor" id="line-356"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI: add MODALIAS to hotplug event for pci devices <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d1ded203adf16b42ca90e9041120ae465ca5c4a6">commit</a> <span class="anchor" id="line-357"></span>
+                  </li>
+                  <li>
+                    <p class="line862">serio 'id' attributes <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=baae956100334ffbd101eea5eeea9a5ac9cf3abd">commit</a> <span class="anchor" id="line-358"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Intel 6300ESB TCO timer support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a123edab03ac39e08c2f9cb4fc1af07e099c68bc">commit</a> <span class="anchor" id="line-359"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: b2c2/flexcop driver refactoring part 2: add modular Flexcop driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2add87a95068d6457d4e5824d0417d39007665a4">commit</a> <span class="anchor" id="line-360"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: support for TT/Hauppauge Nexus-S Rev 2.3 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3dfaebdaa2a14c7ca1fbbafff08992489087e7f1">commit</a> <span class="anchor" id="line-361"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: add support for KNC-1 cards <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=2d4f2c2e15795b93fa4da7a7cfac5e82df51b1f1">commit</a> <span class="anchor" id="line-362"></span>
+                  </li>
+                  <li>
+                    <p class="line862">dvb: DST: add support for Twinhan 200103A <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e6ac699a4f991e84b4bcdc07d9dfa8e019cf6116">commit</a> <span class="anchor" id="line-363"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add tagged status support. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fac9b83ea79aa3112ed245d9a4fc2a5c3ec2b7ec">commit</a> <span class="anchor" id="line-364"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add sysfs support for the IPMI device interface <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=37e0915b701281182cea9fc90e894d10addf134a">commit</a> <span class="anchor" id="line-365"></span>
+                  </li>
+                  <li>
+                    <p class="line862">MMC: Proper MMC command classes support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=912490db699d83cb3d03570b63df7448677a3f56">commit</a> <span class="anchor" id="line-366"></span>
+                  </li>
+                  <li>
+                    <p class="line862">TG3: Add 5752M device ID. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d8659255c599ba497bcfb8b4abc187d9e0951d99">commit</a> <span class="anchor" id="line-367"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sata_sil: new ID 1002:437A for ATI IXP400 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=525a099771d348a25d12ef9c47aa8680c7317e35">commit</a> <span class="anchor" id="line-368"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sata_promise: add PCI ID for <a class="nonexistent" href="/FastTrak">FastTrak</a> TX2200 2-ports <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4c3a53d4108367f639e5e0fe9366dfd7679c5514">commit</a> <span class="anchor" id="line-369"></span>
+                  </li>
+                  <li>
+                    <p class="line862">BNX2: New Broadcom gigabit network driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b6016b767397258b58163494a869f8f1199e6897">commit</a> <span class="anchor" id="line-370"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add sl811_cs support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c6de2b64eb575a3f9326969ec5fcdc6032b38e42">commit</a> <span class="anchor" id="line-371"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: ftdi_sio: new PID for ELV UM100 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=47900743a56dc41a053107d64054aca3e1b42157">commit</a> <span class="anchor" id="line-372"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI: amd74xx patch for new NVIDIA device IDs <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=af00f9811e0ccbd3db84ddc4cffb0da942653393">commit</a> <span class="anchor" id="line-373"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: speedstep-centrino: Pentium 4 - M (HT) support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8282864a96ef0a7b88ee9e4b357e08504131394d">commit</a> <span class="anchor" id="line-374"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: AMD Elan SC520 cpufreq driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=bf6fc9fd2d848d06b8f6c4caccef1dba9ef8c4c6">commit</a> <span class="anchor" id="line-375"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: dual-core powernow-k8 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=065b807ca1f5bdbeb081e3cf75ac8de9be8ac212">commit</a> <span class="anchor" id="line-376"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: Conservative cpufreq governer <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b9170836d1aa4ded7cc1ac1cb8fbc7867061c98c">commit</a> <span class="anchor" id="line-377"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: Add support to cpufreq_ondemand to ignore 'nice' cpu time <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3d5ee9e55d13de28d2fa58d6e13f2e4d3a5f8b1a">commit</a> <span class="anchor" id="line-378"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: Allow ondemand stepping to be changed by user. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1206aaac285904e3e3995eecbf4129b6555a8973">commit</a> <span class="anchor" id="line-379"></span>
+                  </li>
+                  <li>
+                    <p class="line862">CPUFREQ: ondemand governor automatic downscaling <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c29f1403098135bdef75b190a5037db514701031">commit</a> <span class="anchor" id="line-380"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: Support multiply-LUN devices in ub <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f4800078d9ed4bd20b1b27f56e7b68cfa0d73038">commit</a> <span class="anchor" id="line-381"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add new wacom device to usb hid-core list <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5ce0482e18193a15223911515ee44373cffb35b8">commit</a> <span class="anchor" id="line-382"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add Vernier devices to HID blacklist <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4871d3be13ea2b33edc9ba6fbcc30fc047087be7">commit</a> <span class="anchor" id="line-383"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: add Option Card driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=58cfe9113e485f7e04bd0eac4fc4251b330af501">commit</a> <span class="anchor" id="line-384"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB Storage: Add unusual_devs for Trumpion Voice Recorder <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1724757e5ab5219b46876ac6e4e362a4b2dcfa86">commit</a> <span class="anchor" id="line-385"></span>
+                  </li>
+                  <li>
+                    <p class="line862">USB: CP2101 Add support for flow control <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=39a66b8d22a36cfa1a48f7f59c6a4639d9c99653">commit</a> <span class="anchor" id="line-386"></span>
+                  </li>
+                  <li>
+                    <p class="line862">i945G patch for agpgart <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d0de98fa16169562bd74913c6c9b3857f9065c79">commit</a> <span class="anchor" id="line-387"></span>
+                  </li>
+                  <li>
+                    <p class="line862">drm add i945G pci id <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e98ded32f37a538b906d98059b3db71be36405a7">commit</a> <span class="anchor" id="line-388"></span>
+                  </li>
+                </ul>
+            </ul><span class="anchor" id="bottom"></span>
+          </div>
+          <!-- End of page contents -->
+          <div class="clearfix"></div>
+
+        </div> <!-- /#contentbox -->
+        <!-- End of content body -->
+      </div> <!-- /.container, #pagebox -->
+    </div> <!-- /#outbox -->
+
+    <!-- pageinfo -->
+    <div id="pageinfo-container">
+      <div class="container">
+        <p id="pageinfo" class="info" lang="en" dir="ltr">KernelNewbies: Linux_2_6_12 (last edited 2019-05-27 20:08:47 by <span title="diegocalleja @ 46.red-79-147-184.dynamicip.rima-tde.net[79.147.184.46]"><a href="/diegocalleja" title="diegocalleja @ 46.red-79-147-184.dynamicip.rima-tde.net[79.147.184.46]">diegocalleja</a></span>)</p>
+
+      </div>
+    </div>
+    <!-- End of pageinfo -->
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container text-right text-muted">
+        <ul id="credits">
+          <li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li>
+          <li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li>
+          <li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li>
+          <li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+        </ul>
+
+
+
+      </div> <!-- /.container -->
+    </div> <!-- /#footer -->
+    <!-- End of footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/moin_static199/memodump/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/moin_static199/memodump/js/bootstrap.min.js"></script>
+    <!-- toggle.js by dossist -->
+    <script src="/moin_static199/memodump/js/toggle.js"></script>
+    <!-- Custom script -->
+
+    <script>
+      + function($) {
+        // Toggle minified navbar under mobile landscape view
+        $('.navbar-collapse').on('show.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('show');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('hide');
+        });
+
+        //Scroll position fix for hash anchors
+        var mdAnchorFix = {
+          escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+          escape: function(str) {
+            return str.replace(mdAnchorFix.escapeRe, '\\$&');
+          },
+          rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+          isTransparent: function(rgbstr) {
+            if (rgbstr === 'transparent') {
+              return true;
+            }
+            rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+            if (rgbMatch) {
+              return (Number(rgbMatch[2]) ? false : true);
+            }
+            return false;
+          },
+          navbarHeight: function() {
+            var height = 0;
+            var $navbar = $('.navbar');
+            if (!mdAnchorFix.isTransparent($navbar.css('background-color')) &&
+              ($navbar.css('display') !== 'none') &&
+              ($navbar.css('visibility') !== 'hidden')) {
+              height = $navbar.height();
+            }
+            return height;
+          },
+          jump: function() {
+            origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+            offset = mdAnchorFix.navbarHeight() + 15;
+            setTimeout(function() {
+              window.scrollTo(0, origin - offset);
+            }, 1);
+          },
+          clickWrapper: function() {
+            if (($(this).attr('href') === location.hash) ||
+              !('onhashchange' in window.document.body)) {
+              setTimeout(function() {
+                $(window).trigger("hashchange");
+              }, 1);
+            }
+          },
+        };
+        $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+        $(window).on("hashchange", mdAnchorFix.jump);
+        if (location.hash) setTimeout(function() {
+          mdAnchorFix.jump();
+        }, 100);
+      }(jQuery);
+    </script>
+
+    <!-- End of JavaScript -->
+  </body>
+
+</html>
