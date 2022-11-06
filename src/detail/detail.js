@@ -17,7 +17,7 @@ const createAllDetailHTML = () => {
 
                 console.log(`${name}.html berhasil diunduh!`);
             }).catch((error) => {
-                console.log("gagal");
+                console.log(error);
             });
         })
     })
