@@ -23,4 +23,45 @@ const createAllDetailHTML = () => {
     })
 }
 
-createAllDetailHTML();
+const createDetailJSON = () => {
+    fs.readdir(__dirname, (error, files) => {
+        if (error) return console.log(error);
+
+        const datas = new Array();
+
+        files.forEach((file) => {
+            const detail = new Object();
+            
+            if (/linux.*/i.test(file)) {
+                const $ = cheerio.load(fs.readFileSync(`${__dirname}/${file}`));
+
+                let name = file.replace("_", " ");
+                name = name.replace(".html", "")
+
+                let text = new String();
+                let regex = new RegExp(/^summary\:\s/i);
+
+                $("#content p").each((i, el) => {
+                    if (i == 1) {
+                        return text = $(el).text().trim();
+                    }
+                });
+
+                if (!regex.test(text)) {
+                    text = null
+                } else {
+                    text = text.replace(regex, "");
+                }
+
+                detail["version"] = name;
+                detail["summary"] = text;
+
+                datas.push(detail);
+            }
+        });
+
+        fs.writeFileSync(`${__dirname}/detail.json`, JSON.stringify(datas), "utf-8");
+    });
+}
+
+createDetailJSON();
