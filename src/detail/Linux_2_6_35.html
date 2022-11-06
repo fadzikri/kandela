@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="Linux, Kernel, Operative System, Linus Torvalds, Open Source, drivers">
+    <meta name="description" content="Summary of the changes and new features merged in the Linux Kernel during the 2.6.35 development cycle">
+    <meta name="robots" content="index,nofollow">
+
+    <title>Linux_2_6_35 - Linux Kernel Newbies</title>
+    <script type="text/javascript" src="/moin_static199/common/js/common.js"></script>
+
+    <script type="text/javascript">
+      <!--
+      var search_hint = "Search";
+      //
+      -->
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/memodump.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/moinizer.css">
+
+    <!-- css only for MS IE6/IE7 browsers -->
+    <!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+    <link rel="alternate" title="Linux Kernel Newbies: Linux_2_6_35" href="/Linux_2_6_35?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Linux_2_6_35&amp;ddiffs=1" type="application/rss+xml">
+
+
+    <link rel="Start" href="/Linux_Kernel_Newbies">
+    <link rel="Alternate" title="Wiki Markup" href="/Linux_2_6_35?action=raw">
+    <link rel="Alternate" media="print" title="Print View" href="/Linux_2_6_35?action=print">
+    <link rel="Search" href="/FindPage">
+    <link rel="Index" href="/TitleIndex">
+    <link rel="Glossary" href="/WordIndex">
+    <link rel="Help" href="/HelpOnFormatting">
+  </head>
+
+  <body lang="en" dir="ltr">
+
+    <div id="outbox" class="sidebar-toggle">
+      <!-- Bootstrap navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+        <div class="container">
+
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <!-- Sidebar toggler -->
+            <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+              <span class="sr-only">Toggle sidebar</span>
+              <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+            </button>
+            <!-- Button to show navbar controls when collapsed -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Sitename -->
+
+            <div class="navbar-brand-wrapper">
+              <a class="navbar-brand" href="/Linux_Kernel_Newbies"><img src="/moin_static199/kn-icon.png" alt="KernelNewbies"></a>
+            </div>
+
+          </div> <!-- /.navbar-header -->
+
+          <!-- Body of navbar -->
+          <div class="collapse navbar-collapse">
+
+            <!-- Navbar elements -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- Comment toggle button -->
+
+              <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+                <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onClick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                  <span class="hidden-sm">Comments</span>
+                </a>
+              </li>
+
+              <!-- Edit button -->
+
+              <li class="disabled">
+                <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+              </li>
+
+              <!-- Search form -->
+
+              <li>
+                <div class="navbar-form">
+                  <form class="form-search" role="search" id="searchform" method="get" action="/Linux_2_6_35">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <div class="form-group">
+                      <label class="sr-only" for="searchinput">Search:</label>
+                      <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value" value="">
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Menu -->
+
+              <li class="dropdown">
+                <!-- Menu button -->
+                <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                  Menu<span class="padding"></span><span class="caret"></span>
+                </a>
+                <!-- Dropdown contents -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Navigation</li>
+                  <li><a href="/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                  <li><a href="/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                  <li><a href="/Linux_2_6_35?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Help</li>
+                  <li><a href="/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                  <li><a href="/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Display</li>
+                  <li><a href="/Linux_2_6_35?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                  <li><a href="/Linux_2_6_35?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                  <li><a href="/Linux_2_6_35?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                  <li><a href="/Linux_2_6_35?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Edit</li>
+                  <li><a href="/Linux_2_6_35?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                  <li><a href="/Linux_2_6_35?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+                </ul>
+              </li> <!-- /dropdown -->
+
+              <!-- Login user -->
+
+              <li>
+                <a class="menu-nav-login" href="/Linux_2_6_35?action=login" rel="nofollow">Login</a>
+              </li>
+
+
+            </ul> <!-- /.navbar-right -->
+
+          </div> <!-- /.collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+      <!-- End of navbar -->
+
+      <div class="container no-padding" id="pagebox">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar-toggle" id="sidebar-curtain">
+          <div class="sidebar-toggle" id="sidebar-mover">
+            <div class="sidebar-toggle" id="sidebar" role="navigation">
+              <!-- SideBar contents -->
+              <div class="sidebar clearfix">
+                <div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+                  <span class="anchor" id="SideBar.line-1"></span>
+                  <p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Community <span class="anchor" id="SideBar.line-17"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">References <span class="anchor" id="SideBar.line-23"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/RecentChanges">Recent Changes</a> <span class="anchor" id="SideBar.line-29"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-30"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-31"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span>
+                    </li>
+                  </ul><span class="anchor" id="SideBar.bottom"></span>
+                </div>
+              </div>
+              <!-- End of SideBar contents -->
+
+              <div>
+                <h4>Navigation</h4>
+                <ul id='navibar'>
+                  <li class="wikilink"><a href="/RecentChanges">RecentChanges</a></li>
+                  <li class="wikilink"><a href="/FindPage">FindPage</a></li>
+                  <li class="wikilink"><a href="/HelpContents">HelpContents</a></li>
+                </ul>
+              </div>
+
+
+            </div> <!-- /#sidebar -->
+          </div> <!-- /#sidebar-mover -->
+        </div>
+        <div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+          <div id="location">
+            <span id="interwiki"><a href="/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+            <ul id="pagelocation">
+              <li><a href="/Linux_2_6_35">Linux_2_6_35</a></li>
+            </ul>
+
+            <span class="lastupdate">Last updated at 2017-12-30 01:29:51</span>
+          </div>
+
+
+          <!-- Page contents -->
+          <div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+            <span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span>
+            <p class="line862">Linux 2.6.35 <a class="http" href="http://lkml.org/lkml/2010/8/1/188">has been released</a> on 1 Aug, 2010. <span class="anchor" id="line-7"></span><span class="anchor" id="line-8"></span>
+            <p class="line867"><strong>Summary</strong>: Linux 2.6.35 includes support for transparent spreading of incoming network load across CPUs, Direct-IO support for Btrfs, an new experimental journal mode for XFS, the KDB debugger UI based on top of KGDB, improvements to 'perf', H.264 and VC1 video acceleration in Intel G45+ chips, support for the future Intel Cougarpoint graphic chip, power management for AMD Radeon chips, a memory defragmentation mechanism, support for the Tunneling Protocol version 3 (RFC 3931), support for multiple multicast route tables, support for the CAIF protocol used by ST-Ericsson products, support for the ACPI Platform Error Interface, and many new drivers and small improvements. <span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span>
+            <p class="line862">Note: Details on architecture-specific and driver changes have been moved to this page: <a href="/Linux_2_6_35-DriversArch">Linux_2_6_35-DriversArch</a> <span class="anchor" id="line-11"></span><span class="anchor" id="line-12"></span>
+            <p class="line867">
+            <div class="table-of-contents">
+              <p class="table-of-contents-heading">Contents
+              <ol>
+                <li>
+                  <a href="#Prominent_features_.28the_cool_stuff.29">Prominent features (the cool stuff)</a>
+                  <ol>
+                    <li>
+                      <a href="#Transparent_spreading_of_incoming_network_traffic_load_across_CPUs">Transparent spreading of incoming network traffic load across CPUs</a>
+                    </li>
+                    <li>
+                      <a href="#Btrfs_improvements">Btrfs improvements</a>
+                    </li>
+                    <li>
+                      <a href="#XFS_Delayed_logging">XFS Delayed logging</a>
+                    </li>
+                    <li>
+                      <a href="#KDB_kernel_debugger_frontend">KDB kernel debugger frontend</a>
+                    </li>
+                    <li>
+                      <a href="#perf_improvements">perf improvements</a>
+                    </li>
+                    <li>
+                      <a href="#Graphic_improvements">Graphic improvements</a>
+                    </li>
+                    <li>
+                      <a href="#Memory_compaction">Memory compaction</a>
+                    </li>
+                    <li>
+                      <a href="#Support_for_multiple_multicast_route_tables">Support for multiple multicast route tables</a>
+                    </li>
+                    <li>
+                      <a href="#L2TP_Version_3_.28RFC_3931.29_support">L2TP Version 3 (RFC 3931) support</a>
+                    </li>
+                    <li>
+                      <a href="#CAIF_Protocol_support">CAIF Protocol support</a>
+                    </li>
+                    <li>
+                      <a href="#ACPI_Platform_Error_Interface_support">ACPI Platform Error Interface support</a>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="#Various_core_changes">Various core changes</a>
+                </li>
+                <li>
+                  <a href="#Filesystems">Filesystems</a>
+                </li>
+                <li>
+                  <a href="#Block">Block</a>
+                </li>
+                <li>
+                  <a href="#Memory_management">Memory management</a>
+                </li>
+                <li>
+                  <a href="#Networking">Networking</a>
+                </li>
+                <li>
+                  <a href="#Tracing.2FProfiling">Tracing/Profiling</a>
+                </li>
+                <li>
+                  <a href="#Crypto">Crypto</a>
+                </li>
+                <li>
+                  <a href="#Virtualization">Virtualization</a>
+                </li>
+                <li>
+                  <a href="#MD">MD</a>
+                </li>
+                <li>
+                  <a href="#CPU_scheduler">CPU scheduler</a>
+                </li>
+                <li>
+                  <a href="#Cpufreq.2Fcpuidle">Cpufreq/cpuidle</a>
+                </li>
+                <li>
+                  <a href="#Security">Security</a>
+                </li>
+              </ol>
+            </div> <span class="anchor" id="line-13"></span>
+            <h1 id="Prominent_features_.28the_cool_stuff.29">1. Prominent features (the cool stuff)</h1>
+            <span class="anchor" id="line-14"></span>
+            <p class="line867">
+            <h2 id="Transparent_spreading_of_incoming_network_traffic_load_across_CPUs">1.1. Transparent spreading of incoming network traffic load across CPUs</h2>
+            <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span>
+            <p class="line862">Recommended LWN articles: <a class="http" href="http://lwn.net/Articles/362339/">&quot;Receive packet steering&quot;</a> and <a class="http" href="http://lwn.net/Articles/382428/">&quot;Receive flow steering&quot;</a> <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span>
+            <p class="line874">Network cards have improved the bandwidth to the point where it's hard for a single modern CPU to keep up. Two new features contributed by Google aim to spread the load of network handling across the CPUs available in the system: Receive Packet Steering (RPS) and Receive Flow Steering (RFS). <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span>
+            <p class="line862">RPS distributes the load of received packet processing across multiple CPUs. This solution allows protocol processing (e.g. IP and TCP) to be performed on packets in parallel (contrary to the previous code). For each device (or each receive queue in a multi-queue device) a hashing of the packet header is used to index into a mask of CPUs (which can be configured manually in /sys/class/net/&lt;device&gt;/queues/rx-&lt;n&gt;/rps_cpus) and decide which CPU will be used to process a packet. But there're also some heuristics provided by the RFS side of this feature. Instead of randomly choosing the CPU from a hash, RFS tries to use the CPU where the application running the recvmsg() syscall is running or has run in the past, to improve cache utilization. Hardware hashing is used if available. This feature effectively emulates what a multi-queue NIC can provide, but instead it is implement in software and for all kind of network hardware, including single queue cards and not excluding multiqueue cards. <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span>
+            <p class="line874">Benchmarks of 500 instances of netperf TCP_RR test with 1 byte request and response show the potential benefit of this feature, a e1000e network card on 8 core Intel server goes from 104K tps at 30% CPU usage, to 303K tps at 61% CPU usage when using RPS+RFS. A RPC test which is similar in structure to the netperf RR test with 100 threads on each host, but doing more work in userspace that netperf, goes from 103K tps at 48% of CPU utilization to 223K at 73% CPU utilization and much lower latency. <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/0a9627f2649a02bea165cfd529d7bcb625c2fcad">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/df3345457a7a174dfb5872a070af80d456985038">2</a>, <a class="http" href="http://git.kernel.org/linus/fec5e652e58fa6017b2c9e06466cb2a6538de5b4">3)</a> <span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span>
+            <p class="line867">
+            <h2 id="Btrfs_improvements">1.2. Btrfs improvements</h2>
+            <span class="anchor" id="line-27"></span>
+            <ul>
+              <li>
+                <p class="line862">Direct I/O support: Direct I/O is a technique used to bypass the filesystem cache. This harms performance, but it's widely used by high performance software like some databases, which like to implement their own cache. Code: <a class="http" href="http://git.kernel.org/linus/66f998f611897319b555364cefd5d6e88a205866">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/4b46fce23349bfca781a32e2707a18328ca5ae22">2)</a> <span class="anchor" id="line-28"></span>
+              </li>
+              <li>
+                <p class="line862">Complete -ENOSPC support: Linux 2.6.32 already added reliable -ENOSPC support for common filesystem usage, but some corner cases could still be hit in operations, like doing volume management operations. The -ENOSPC code added in this version handles all difficult corner cases like space balancing, drive management, fsync logging and many others. Code: <a class="http" href="http://git.kernel.org/linus/b742bb82f1676d50103ade0ba89bfb79debabe73">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/424499dbd0c4d88742bf581b5714b27fb44b9fef">2</a>, <a class="http" href="http://git.kernel.org/linus/5da9d01b66458b180a6bee0e637a1d0a3effc622">3</a>, <a class="http" href="http://git.kernel.org/linus/f0486c68e4bd9a06a5904d3eeb3a0d73a83befb8">4</a>, <a class="http" href="http://git.kernel.org/linus/a22285a6a32390195235171b89d157ed1a1fe932">5</a>, <a class="http" href="http://git.kernel.org/linus/0ca1f7ceb1991099ed5273885ebcf4323948c72e">6</a>, <a class="http" href="http://git.kernel.org/linus/8929ecfa50f266163832eeacfbc3642ed5eb83b6">7</a>, <a class="http" href="http://git.kernel.org/linus/d68fc57b7e3245cfacf2e3b47acfed1946a11786">8</a>, <a class="http" href="http://git.kernel.org/linus/4a500fd178c89b96fa166a2d9e7855df33429841">9</a>, <a class="http" href="http://git.kernel.org/linus/3fd0a5585eb98e074fb9934549c8d85c49756c0d">10</a> ,<a class="http" href="http://git.kernel.org/linus/efa56464562991b8c24f965199888806bd8c4b38">11)</a> <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h2 id="XFS_Delayed_logging">1.3. XFS Delayed logging</h2>
+            <span class="anchor" id="line-31"></span>
+            <p class="line862">This version adds a logging (journaling) mode called delayed logging, which is very briefly modeled after the journaling mode in the ext3/4 and reiserfs filesystems. It allows to accumulated multiple asynchronous transactions in memory instead of possibly writing them out many times. The I/O bandwidth used for the log decreases by orders of magnitude and performance on metadata intensive workloads increases massively. The log disk format is not changed, only the in-memory data structures and code. This feature is experimental, so it's not recommended for final users or production servers. Those who want to test it can enable it with the &quot;-o delaylog&quot; mount option. Code: <a class="http" href="http://git.kernel.org/linus/a9a745daadab26f13884ff26a50fa38247c11ce9">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/71e330b593905e40d6c5afa824d38ee02d70ce5f">2)</a> <span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span>
+            <p class="line867">
+            <h2 id="KDB_kernel_debugger_frontend">1.4. KDB kernel debugger frontend</h2>
+            <span class="anchor" id="line-35"></span>
+            <p class="line874">The Linux kernel has had a kernel debugger since 2.6.26, called Kgdb. But Kgdb is not the only linux kernel debugger, there is also KDB, developed years ago by SGI. The key difference between Kgdb and KDB is that using Kgdb requires an additional computer to run a gdb frontend, and you can do source level debugging. KDB, on the other hand, can be run on the local machine and can be used to inspect the system, but it doesn't do source-level debugging. What is happening in this version is that Jason Wessel, from Windriver, has ported KDB to work on top of the Kgdb core, making possible to use both interfaces. <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/5d5314d6795f3c1c0f415348ff8c51f7de042b77">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/67fc4e0cb931d6b4ccf21248e4199b154478ecea">2</a>, <a class="http" href="http://git.kernel.org/linus/dcc7871128e99458ca86186b7bc8bf27ff0c47b5">3</a>, <a class="http" href="http://git.kernel.org/linus/84c08fd61e2d21702337e9fe366e97cdf09bf797">4</a>, <a class="http" href="http://git.kernel.org/linus/ada64e4c98eb5f04a9ca223c5ff9e7ac22ce6404">5</a>, <a class="http" href="http://git.kernel.org/linus/f503b5ae53cb557ac351a668fcac1baab1cef0db">6</a>, <a class="http" href="http://git.kernel.org/linus/ba797b28131b1f1367b662936ea370239d603cff">7</a>, <a class="http" href="http://git.kernel.org/linus/4fe1da4ebc18c4c42fa56c228447f68033fce5f0">8)</a> <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span>
+            <p class="line867">
+            <h2 id="perf_improvements">1.5. perf improvements</h2>
+            <span class="anchor" id="line-41"></span>
+            <ul>
+              <li>
+                <p class="line862">perf-inject live mode. Until now, users had to run &quot;perf record&quot; and &quot;perf report&quot; in two different commands, perf inject introduces a 'live mode', which allows to record and report in the same command, for example <em>perf record -o - ./hackbench 10 | perf inject -v -b | perf report -v -i - </em>. But this is too complex for normal users, so support has been added to invoke live mode automatically if record/report is not specified, for example: <span class="anchor" id="line-42"></span>
+                <pre><span class="anchor" id="line-1"></span># perf trace rwtop 5 </pre>
+                <p class="line862"> Any of the scripts listed in 'perf trace -l' can now be used directly in live mode, with the expected arguments, by simply specifying the script and args to 'perf trace' [<a class="http" href="http://git.kernel.org/linus/454c407ec17a0c63e4023ac0877d687945a7df4a">http://git.kernel.org/linus/454c407ec17a0c63e4023ac0877d687945a7df4a</a> (commit 1], [<a class="http" href="http://git.kernel.org/linus/a0cccc2e8e9fb16cbed3a117b30e3fbac3092ee3">http://git.kernel.org/linus/a0cccc2e8e9fb16cbed3a117b30e3fbac3092ee3</a> 2)]<span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">perf kvm tool for monitoring guest performance from host <a class="http" href="http://git.kernel.org/linus/a1645ce12adb6c9cc9e19d7695466204e3f017fe">(commit)</a> <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">perf probe: Support accessing members in the data structures. With this, perf-probe accepts data-structure members (IOW, it now accepts dot '.' and arrow '-&gt;' operators) as probe arguments. Code <a class="http" href="http://git.kernel.org/linus/7df2f32956cf0f1a45df38cd0e0fe0c3467580e8">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/93ccae7a2227466a0d071fe52c51319f2f34c365">2)</a>. Examples: <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span>
+                <pre><span class="anchor" id="line-1-1"></span># perf probe --add 'schedule:44 rq-&gt;curr'</pre>
+                <p class="line862"> or <span class="anchor" id="line-49"></span>
+                <pre><span class="anchor" id="line-1-2"></span># perf probe --add 'vfs_read file-&gt;f_op-&gt;read file-&gt;f_path.dentry' </pre><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Improve --list to show current exist probes with line number and file name. This enables user easily to check which line is already probed. Code: <a class="http" href="http://git.kernel.org/linus/fb1587d869a399554220e166d4b90b581a8ade01">(commit)</a>. For example:<span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span>
+                <pre><span class="anchor" id="line-1-3"></span># perf probe --list
+<span class="anchor" id="line-2"></span>probe:vfs_read       (on vfs_read:8@linux-2.6-tip/fs/read_write.c) </pre><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Implement a console UI using newt <a class="http" href="http://git.kernel.org/linus/f9224c5c944b60cf709db4adf1f5195264b8d194">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/46e3e055ce69a00d735e458445ab1d24718ff751">2)</a> <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h2 id="Graphic_improvements">1.6. Graphic improvements</h2>
+            <span class="anchor" id="line-58"></span>
+            <p class="line874">This version carries a bunch of interesting improvements to the graphics stack. <span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span>
+            <ul>
+              <li>
+                <p class="line862">i915: Support for H.264 and VC1 hardware acceleration on G45+ <a class="http" href="http://git.kernel.org/linus/d1b851fc0d105caa6b6e3e7c92d2987dfb52cbe0">(commit)</a>, support for the graphics in the future Intel Cougarpoint chipset <a class="http" href="http://git.kernel.org/linus/3bad0781832e4e8c9a532f1169bfcd7257bcfd9e">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/8db9d77b1b14fd730561f64beea8c00e4478d7c5">2</a>, <a class="http" href="http://git.kernel.org/linus/0f229062a13204120dcd23168ad008e559bb1376">4</a>, <a class="http" href="http://git.kernel.org/linus/b3b095b3b2b052f3c665b0d9e3e551fb65062db3">5</a>, <a class="http" href="http://git.kernel.org/linus/e3421a189447c0b8cd0aff5c299f53b5ab7c38f6">6</a>, <a class="http" href="http://git.kernel.org/linus/14571b4c1ac9c109f5d6d6e95cfdb92339151fe0">7</a>, <a class="http" href="http://git.kernel.org/linus/461ed3caee9b615393eb5beb9a8148d230354b41">8)</a>, power monitoring support <a class="http" href="http://git.kernel.org/linus/7648fa99eb77a2e1a90b7beaa420e07d819b9c11">(commit)</a>, support of memory self-refresh on Ironlake <a class="http" href="http://git.kernel.org/linus/7f8a85698f5c8a981641ec0bdf9926768786db9d">(commit)</a> and support for interlaced display <a class="http" href="http://git.kernel.org/linus/734b4157b367d66405f7dab80085d17c9c8dd3b5">(commit)</a> <span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Radeon: Initial power management support <a class="http" href="http://git.kernel.org/linus/2031f77ca9c17133869b265210418959a909d259">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/a424816fb37f894a37585cf86dfdd6b8b1dc681f">2</a>, <a class="http" href="http://git.kernel.org/linus/78930b1c39dd4a5afd5aa873eec11b5bd7079866">3</a>, <a class="http" href="http://git.kernel.org/linus/536fcd5124df6af3b95f1bffc925d9ccb6d5b9df">4)</a>, simplification and improvement of the GPU reset handling <a class="http" href="http://git.kernel.org/linus/225758d8ba4fdcc1e8c9cf617fd89529bd4a9596">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/90aca4d2740255bd130ea71a91530b9920c70abe">2)</a>, implement several important pieces needed to support the Evergreen hardware <a class="http" href="http://git.kernel.org/linus/49f6598277635af13d60e7d2601963356bc48bd8">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/08c5c51507614ffd6fee8f3517c33ac5e1576e82">2</a>, <a class="http" href="http://git.kernel.org/linus/0fcdb61e78050f8f0b31029eeafa5ae013ce0f35">3</a>, <a class="http" href="http://git.kernel.org/linus/747943ea187e5acceb7ffc762ff2c84cb3449745">4</a>, <a class="http" href="http://git.kernel.org/linus/32fcdbf4084544c3d8fa413004d57e5dc6f2eefe">5</a>, <a class="http" href="http://git.kernel.org/linus/fe251e2fffa1ebc17c8e6e895b0374ae4e732fa5">6</a>, <a class="http" href="http://git.kernel.org/linus/45f9a39bedc3afab3fc85567792efc0103f34a55">7</a>, <a class="http" href="http://git.kernel.org/linus/0ca2ab52d451c25764e53d3d289e1be357c977d7">8</a>, <a class="http" href="http://git.kernel.org/linus/cb5fcbd540b438a5d311bd15dc910841d01ed140">9</a>, <a class="http" href="http://git.kernel.org/linus/7ac9aa5a1f1b87adb69bcbec2b89e228f074103a">10</a>, <a class="http" href="http://git.kernel.org/linus/9349d5cc920c10845693f906ebd67f394f1d0d04">11</a>, enable use of unmappable VRAM <a class="http" href="http://git.kernel.org/linus/6b8b1786a8c29ce6e32298b93ac8d4a18a2b11c4">12</a>, add polling support for when nothing is connected <a class="http" href="http://git.kernel.org/linus/5c4426a782bc9509573fc7958a786ebd14fafdf3">13</a>, <a class="http" href="http://git.kernel.org/linus/15a7df8db84e7a9d9915d879199ac4a870836c54">14</a>, <a class="http" href="http://git.kernel.org/linus/956ac86d9277b7142f0ad3f24f7fbd4beed0777d">15)</a> <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h2 id="Memory_compaction">1.7. Memory compaction</h2>
+            <span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span>
+            <p class="line862">Recommended LWN article: <a class="http" href="http://lwn.net/Articles/368869/">&quot;Memory compaction&quot;</a> <span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span>
+            <p class="line874">The memory compaction mechanism tries reduces external memory fragmentation in a memory zone by trying to move used pages to create a new big block of contiguous used pages. When compaction finishes, the memory zone will have a big block of used pages and a big block of free pages. This will make easier to allocate bigger chunks of memory. The mechanism is called &quot;compaction&quot; to distinguish it from other forms of defragmentation. <span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span>
+            <p class="line862">In this implementation, a full compaction run involves two <em>scanners</em> operating within a zone, a migration scanner and a free scanner. The migration scanner starts at the beginning of a zone and finds all used pages that can be moved. The free scanner begins at the end of the zone and searches for enough free pages to migrate all the used pages found by the previous scanner. A compaction run completes within a zone when the two scanners meet and used pages are migrated to the free blocks scanned. Testing has showed the amount of IO required to satisfy a huge page allocation is reduced significantly. <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span>
+            <p class="line874">Memory compaction can be triggered in one of three ways. It may be triggered explicitly by writing any value to /proc/sys/vm/compact_memory and compacting all of memory. It can be triggered on a per-node basis by writing any value to /sys/devices/system/node/nodeN/compact where N is the node ID to be compacted. When a process fails to allocate a high-order page, it may compact memory in an attempt to satisfy the allocation instead of entering direct reclaim. Explicit compaction does not finish until the two scanners meet and direct compaction ends if a suitable page becomes available that would meet watermarks. <span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span>
+            <p class="line862">Code: <a class="http" href="http://git.kernel.org/linus/3f6c82728f4e31a97c3a1b32abccb512fed0b573">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/67b9509b2c68ae38cecb83a239881cb0ddf087dc">2</a>, <a class="http" href="http://git.kernel.org/linus/7f60c214fd3a360461f3286c6908084f7f8b1950">3</a>, <a class="http" href="http://git.kernel.org/linus/e9e96b39f932a065e14f5d5bab0797ae261d03b5">4</a> ,<a class="http" href="http://git.kernel.org/linus/3fe2011ff51e92500010a495df4be86745fbbda9">5</a>, <a class="http" href="http://git.kernel.org/linus/a8bef8ff6ea15fa4c67433cab0f5f3484574ef7c">6</a>, <a class="http" href="http://git.kernel.org/linus/d7a5752c0c19750312efab3a2a80d350e11fa4a2">7</a>, <a class="http" href="http://git.kernel.org/linus/748446bb6b5a9390b546af38ec899c868a9dbcf0">8</a>, <a class="http" href="http://git.kernel.org/linus/f1a5ab1210579e2d3ac8c0c227645823af5aafb0">9</a>, <a class="http" href="http://git.kernel.org/linus/c175a0ce7584e5b498fff8cbdb9aa7912aa9fbba">10</a>, <a class="http" href="http://git.kernel.org/linus/76ab0f530e4a01d4dc20cdc1d5e87753c579dc18">11</a>, <a class="http" href="http://git.kernel.org/linus/ed4a6d7f0676db50b5023cc01f6cda82a2f2a307">12</a>, <a class="http" href="http://git.kernel.org/linus/5e7719058079a1423ccce56148b0aaa56b2df821">13</a>, <a class="http" href="http://git.kernel.org/linus/56de7263fcf3eb10c8dcdf8d59a9cec831795f3f">14</a>, <a class="http" href="http://git.kernel.org/linus/4f92e2586b43a2402e116055d4edda704f911b5b">15)</a> <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span>
+            <p class="line867">
+            <h2 id="Support_for_multiple_multicast_route_tables">1.8. Support for multiple multicast route tables</h2>
+            <span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span>
+            <p class="line862">Normally, a multicast router runs a userspace daemon and decides what to do with a multicast packet based on the source and destination addresses. This feature adds support for multiple independent multicast routing instances, so the kernel is able to take interfaces and packet marks into account and run multiple instances of userspace daemons simultaneously, each one handling a single table. Code: <a class="http" href="http://git.kernel.org/linus/f0ad0860d01e47a3ffd220564c5c653b3afbe962">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/d1db275dd3f6e4182c4c4b4a1ac6287925d60569">2</a>, <a class="http" href="http://git.kernel.org/linus/5b285cac3570a935aaa28312c1ea28f9e01c5452">3)</a> <span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span>
+            <p class="line867">
+            <h2 id="L2TP_Version_3_.28RFC_3931.29_support">1.9. L2TP Version 3 (RFC 3931) support</h2>
+            <span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span>
+            <p class="line862">This version adds support for Layer 2 Tunneling Protocol (L2TP) version 3, <a class="http" href="http://www.ietf.org/rfc/rfc3931.txt">RFC 3931</a>. L2TP provides a dynamic mechanism for tunneling Layer 2 (L2) &quot;circuits&quot; across a packet-oriented data network (e.g., over IP). L2TP, as originally defined in RFC 2661, is a standard method for tunneling Point-to-Point Protocol (PPP) [RFC1661] sessions. L2TP has since been adopted for tunneling a number of other L2 protocols, including ATM, Frame Relay, HDLC and even raw ethernet frames, this is the version 3. Code: <a class="http" href="http://git.kernel.org/linus/f7faffa3ff8ef6ae712ef16312b8a2aa7a1c95fe">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/e0d4435f93905f517003cfa7328a36ea19788147">2</a>, <a class="http" href="http://git.kernel.org/linus/0d76751fad7739014485ba5bd388d4f1b4fd4143">3</a>, <a class="http" href="http://git.kernel.org/linus/789a4a2c61d843df67988d69e7c3f3a4bca97e8e">4)</a> <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span>
+            <p class="line867">
+            <h2 id="CAIF_Protocol_support">1.10. CAIF Protocol support</h2>
+            <span class="anchor" id="line-87"></span>
+            <p class="line862">Support for the CAIF protocol. CAIF is a MUX protocol used by ST-Ericsson cellular modems for communication between Modem and host. The host processes can open virtual AT channels, initiate GPRS Data connections, Video channels and Utility Channels. The Utility Channels are general purpose pipes between modem and host. ST-Ericsson modems support a number of transports between modem and host. Currently, UART and Loopback are available for Linux <a class="http" href="http://git.kernel.org/linus/70596b612c04694806a31dd389bd796c035085fa">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/09009f30de188c847d72039e6250bfea56a0f887">2</a>, <a class="http" href="http://git.kernel.org/linus/f671c54207d8a47129f35a84569fdfda614d2439">3</a>, <a class="http" href="http://git.kernel.org/linus/2721c5b9dd2a56a9710021c00146bb26ba8dd7b3">4</a>, <a class="http" href="http://git.kernel.org/linus/b482cd2053e3b90a7b33a78c63cdb6badf2ec383">5</a>, <a class="http" href="http://git.kernel.org/linus/15c9ac0c80e390df09ce5730a7b08b13e07a8dd5">6</a>, <a class="http" href="http://git.kernel.org/linus/c72dfae2f77620e5b3fcee1beeee7e536a42b2ad">7</a>, <a class="http" href="http://git.kernel.org/linus/e6f95ec8db312491235b4f06343fbd991a82ce20">8</a>, <a class="http" href="http://git.kernel.org/linus/cc36a070b5901cd54386348b4d79d2daac91ce75">9</a>, <a class="http" href="http://git.kernel.org/linus/3908c6902372206cc582ecf459af889b09a150c9">10</a>, <a class="http" href="http://git.kernel.org/linus/edc7616c307ad315159a8aa050142237f524e079">11</a>, <a class="http" href="http://git.kernel.org/linus/9b27105b4a44c54bf91ecd7d0315034ae75684f7">12)</a> <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span>
+            <p class="line867">
+            <h2 id="ACPI_Platform_Error_Interface_support">1.11. ACPI Platform Error Interface support</h2>
+            <span class="anchor" id="line-91"></span>
+            <p class="line862">Support for the ACPI Platform Error Interface (APEI). This improves NMI handling especially. In addition it supports the APEI Error Record Serialization Table (ERST), the APEI Generic Hardware Error Source and APEI Error INJection (EINJ) and saving of MCE (Machine Check Exception) errors into flash. For more information about APEI, please refer to <a class="http" href="http://www.acpi.info/DOWNLOADS/ACPIspec40a.pdf">ACPI Specification version 4.0</a>, chapter 17. Code: <a class="http" href="http://git.kernel.org/linus/15651291a2f8c11e7e6a42d8bfde7a213ff13262">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/a643ce207f3e70030bdb431e2a363cc111a60c1a">2</a>, <a class="http" href="http://git.kernel.org/linus/9dc966641677795f4d6b0a9ba630d6a3a3e24a57">3</a>, <a class="http" href="http://git.kernel.org/linus/ea8c071cad789b1919355fc7a67182a5c9994e6b">4</a>, <a class="http" href="http://git.kernel.org/linus/e40213450b53157967a1f83eda50e9a941c13a08">5</a>, <a class="http" href="http://git.kernel.org/linus/affb72c3a8984ba55e055b0a0228c3ea1a056758">6</a>, <a class="http" href="http://git.kernel.org/linus/801eab8118f61255d8e2be35939c572042618742">7</a>, <a class="http" href="http://git.kernel.org/linus/fab1c23242528771a955c475ef23d99156a71a7f">8</a>, <a class="http" href="http://git.kernel.org/linus/d334a49113a4a33109fd24e46073280ecd1bea0d">9</a>, <a class="http" href="http://git.kernel.org/linus/06d65deade9aabba58e0518df86dcd324e86b832">10</a>, <a class="http" href="http://git.kernel.org/linus/a08f82d08053fb6e3aa3635c2c26456d96337c8b">11</a>, <a class="http" href="http://git.kernel.org/linus/482908b49ebfa453dd0455910c951c750567c05d">12</a>, <a class="http" href="http://git.kernel.org/linus/6e320ec1d98f9eb93d5b2a5d70e2f40dce923f1b">13)</a> <span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span>
+            <p class="line867">
+            <h1 id="Various_core_changes">2. Various core changes</h1>
+            <span class="anchor" id="line-95"></span>
+            <ul>
+              <li>
+                <p class="line862">Add a new configuration interface: make nconfig. Built on menuconfig, it implements a more modern look interface using ncurses and ncurses' satellite libraries (menu, panel, form) <a class="http" href="http://git.kernel.org/linus/692d97c380c6dce2c35a04c5dcbce4e831a42fa0">(commit)</a> <span class="anchor" id="line-96"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for in-kernel initramfs compressed with LZO <a class="http" href="http://git.kernel.org/linus/2a2a400f66e9e23eba960905c36dd37904bd9970">(commit)</a> <span class="anchor" id="line-97"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for shrinking and growing pipes via F_GETPIPE_SZ and F_SETPIPE_SZ fcntl() operations <a class="http" href="http://git.kernel.org/linus/35f3d14dbbc58447c61e38a162ea10add6b31dc7">(commit)</a> <span class="anchor" id="line-98"></span>
+              </li>
+              <li>
+                <p class="line862">IPC: solve a spinlock contention problem found in some big databases <a class="http" href="http://git.kernel.org/linus/fd5db42254518fbf241dc454e918598fbe494fa2">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/0a2b9d4c79671b05956806ede5d054e03ae56280">2</a>, <a class="http" href="http://git.kernel.org/linus/31a7c4746e9925512afab30557dd445d677cc802">3</a>, <a class="http" href="http://git.kernel.org/linus/c5cf6359ad1d322c16e159011247341849cc0d3a">4)</a> <span class="anchor" id="line-99"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for <a class="http" href="http://lwn.net/Articles/388118/">augmented rbtrees</a>, a modification of regular rbtrees which allows to speedup some kinds of searches (<a class="http" href="http://lwn.net/Articles/388118/">recommended LWN article</a>) <a class="http" href="http://git.kernel.org/linus/17d9ddc72fb8bba0d4f67868c9c612e472a594a9">(commit)</a> <span class="anchor" id="line-100"></span>
+              </li>
+              <li>
+                <p class="line862">Implement sysfs tagged directory support to allow network namespaces in sysfs <a class="http" href="http://git.kernel.org/linus/3ff195b011d7decf501a4d55aeed312731094796">(1</a>, <a class="http" href="http://git.kernel.org/linus/a1b3f594dc5faab91d3a218c7019e9b5edd9fe1a">2)</a> <span class="anchor" id="line-101"></span>
+              </li>
+              <li>
+                <p class="line862">fuse: splice() support <a class="http" href="http://git.kernel.org/linus/ce534fb052928ce556639d7ecf01cbf4e01321e1">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/c3021629a0d820247ee12b6c5192a1d5380e21c6">2</a>, <a class="http" href="http://git.kernel.org/linus/dd3bb14f44a6382de2508ec387c7e5569ad2d4f1">3)</a> <span class="anchor" id="line-102"></span>
+              </li>
+              <li>
+                <p class="line862">Add devname module aliases to allow module on-demand auto-loading <a class="http" href="http://git.kernel.org/linus/578454ff7eab61d13a26b568f99a89a2c9edc881">(commit)</a> <span class="anchor" id="line-103"></span>
+              </li>
+              <li>
+                <p class="line862">crc32: major optimization <a class="http" href="http://git.kernel.org/linus/836e2af92503f1642dbc3c3281ec68ec1dd39d2e">(commit)</a> <span class="anchor" id="line-104"></span>
+              </li>
+              <li>
+                <p class="line862">char drivers: RAM oops/panic logger <a class="http" href="http://git.kernel.org/linus/56d611a04fb2db77334e06274de4daed92e2c626">(commit)</a> <span class="anchor" id="line-105"></span>
+              </li>
+              <li>
+                <p class="line862">SFI: add sysfs interface /sys/firmware/sfi/tables/ for SFI tables, analogous to ACPI's /sys/firmware/acpi/tables/... <a class="http" href="http://git.kernel.org/linus/dce80a56268fffd6b5ea57b3f6ba3d027a68f05e">(commit)</a> <span class="anchor" id="line-106"></span>
+              </li>
+              <li>
+                <p class="line862">fault-injection: add CPU notifier error injection module <a class="http" href="http://git.kernel.org/linus/c9d221f86e43d9fb16260fe18a8cd6767f36c8a5">(commit)</a> <span class="anchor" id="line-107"></span>
+              </li>
+              <li>
+                <p class="line862">devtmpfs: support !CONFIG_TMPFS <a class="http" href="http://git.kernel.org/linus/da5e4ef7fdb8f2fb0878dee3bd9d4dd10cea8cf1">(commit)</a> <span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Filesystems">3. Filesystems</h1>
+            <span class="anchor" id="line-111"></span>
+            <ul>
+              <li>OCFS2 <span class="anchor" id="line-112"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Implement allocation reservations, which reduces fragmentation significantly <a class="http" href="http://git.kernel.org/linus/d02f00cc057809d96c044cc72d5b9809d59f7d49">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/4fe370afaae49c57619bb0bedb75de7e7c168308">2</a>, <a class="http" href="http://git.kernel.org/linus/e3b4a97dbe9741a3227c3ed857a0632532fcd386">3</a>, <a class="http" href="http://git.kernel.org/linus/6b82021b9e91cd689fdffadbcdb9a42597bbe764">4</a>, <a class="http" href="http://git.kernel.org/linus/83f92318fa33cc084e14e64dc903e605f75884c1">5)</a>, <span class="anchor" id="line-113"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Optimize punching-hole code, speeds up significantly some rare operations <a class="http" href="http://git.kernel.org/linus/c1631d4a484fbb498e35d661f1aebd64c86b66bf">(commit)</a> <span class="anchor" id="line-114"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Discontiguous block groups, necessary to improve some kind of allocations. It is a feature that marks an incompatible bit, ie, it makes a forward-compatible change <a class="http" href="http://git.kernel.org/linus/798db35f4649eac2778381c390ed7d12de9ec767">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/4cbe4249d6586d5d88ef271e07302407a14c8443">2</a>, <a class="http" href="http://git.kernel.org/linus/1a934c3e57594588c373aea858e4593cdfcba4f4">3)</a> <span class="anchor" id="line-115"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Make nointr (&quot;don't allow file operations to be interrupted&quot;) a default mount option <a class="http" href="http://git.kernel.org/linus/4b37fcb7d41ce3b9264b9562d6ffd62db9294bd1">(commit)</a> <span class="anchor" id="line-116"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">Squashfs: XATTR support <a class="http" href="http://git.kernel.org/linus/67f66cc6c728de183d9d43c243cb163c1ebd8e04">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/f41d207cbedecd82f797adcce83890aa96f1c9e9">2</a>, <a class="http" href="http://git.kernel.org/linus/4b5397dc24ab12afaac85be3d0863b7f6eb8b0f0">3</a>, <a class="http" href="http://git.kernel.org/linus/01e5b4e4e897fce8c7e6236bc933c9721c7ee237">4)</a> <span class="anchor" id="line-117"></span>
+              </li>
+              <li>
+                <p class="line862">Ext2: Remove BKL from ext2 filesystem <a class="http" href="http://git.kernel.org/linus/e0a5cbac029db69032758000c67465c2ed7a5736">(commit)</a> <span class="anchor" id="line-118"></span>
+              </li>
+              <li>
+                <p class="line862">Ext4: check for a good block group before loading buddy pages (it speeds up allocations in some cases where partitions are relatively full) <a class="http" href="http://git.kernel.org/linus/8a57d9d61a6e361c7bb159dda797672c1df1a691">(commit)</a> <span class="anchor" id="line-119"></span>
+              </li>
+              <li>
+                <p class="line862">UFS: Support UFS Borderware variation <a class="http" href="http://git.kernel.org/linus/d27d7a9a7838587fcdcc6f2b042f5610eb4984a1">(commit)</a> <span class="anchor" id="line-120"></span>
+              </li>
+              <li>
+                <p class="line862">NILFS2: change default of 'errors' mount option to 'remount-ro' mode <a class="http" href="http://git.kernel.org/linus/277a6a34175dcb0ee98dceee619e0e3190347a25">(commit)</a> <span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Block">4. Block</h1>
+            <span class="anchor" id="line-123"></span>
+            <ul>
+              <li>
+                <p class="line862">laptop-mode: Make flushes per-device, to avoid waking up unnecessarily devices that have nothing to flush <a class="http" href="http://git.kernel.org/linus/31373d09da5b7fe21fe6f781e92bd534a3495f00">(commit)</a> <span class="anchor" id="line-124"></span>
+              </li>
+              <li>Block I/O controller (blkio) <span class="anchor" id="line-125"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add the following statistics: io_service_time, io_wait_time, io_serviced, io_service_bytes <a class="http" href="http://git.kernel.org/linus/303a3acb2362f16c7e7f4c53b40c2f4b396dc8d5">(commit)</a>, io_merged stat <a class="http" href="http://git.kernel.org/linus/812d402648f4fc1ab1091b2172a46fc1b367c724">(commit)</a> and, io_queued and avg_queue_size <a class="http" href="http://git.kernel.org/linus/cdc1184cf4a7bd99f5473a91244197accc49146b">(commit)</a> <span class="anchor" id="line-126"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add more debug-only per-cgroup stats (group_wait_time, empty_time, idle_time) <a class="http" href="http://git.kernel.org/linus/812df48d127365ffd0869aa139738f572a86759c">(commit)</a> <span class="anchor" id="line-127"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add a new interface &quot;weight_device&quot; for IO-Controller <a class="http" href="http://git.kernel.org/linus/34d0f179d6dd711d3fc13c0820a456c59aae8048">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/da69da184c06f365b335a0e013dc6360a82abe85">(commit)</a> <span class="anchor" id="line-128"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add a reset_stats interface to reset statistics <a class="http" href="http://git.kernel.org/linus/84c124da9ff50bd71fab9c939ee5b7cd8bef2bd9">(commit)</a> <span class="anchor" id="line-129"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">Generate &quot;change&quot; uevent for loop device <a class="http" href="http://git.kernel.org/linus/c3473c63542d53740f175f3a515257ae159e998b">(commit)</a> <span class="anchor" id="line-130"></span>
+              </li>
+              <li>
+                <p class="line862">brd: support discard request <a class="http" href="http://git.kernel.org/linus/b7c335713ea130d707c22d7f7c57a8eca75ded7e">(commit)</a> <span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Memory_management">5. Memory management</h1>
+            <span class="anchor" id="line-133"></span>
+            <ul>
+              <li>Memory resource controller <span class="anchor" id="line-134"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Userspace oom notifier <a class="http" href="http://git.kernel.org/linus/9490ff275606da012d5b373342a49610ad61cb81">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/3c11ecf448eff8f12922c498b8274ce98587eb74">2</a>, <a class="http" href="http://git.kernel.org/linus/dc98df5a1b7be402a0e1c71f1b89ccf249ac15ee">3)</a> <span class="anchor" id="line-135"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for moving charge of file pages, which include normal file, tmpfs file and swaps of tmpfs file. It's enabled by setting bit 1 of &lt;target cgroup&gt;/memory.move_charge_at_immigrate <a class="http" href="http://git.kernel.org/linus/87946a72283be3de936adc754b7007df7d3e6aeb">(commit)</a> <span class="anchor" id="line-136"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">page allocator: reduce fragmentation in buddy allocator by adding buddies that are merging to the tail of the free lists <a class="http" href="http://git.kernel.org/linus/6dda9d55bf545013597724bf0cd79d01bd2bd944">(commit)</a> <span class="anchor" id="line-137"></span>
+              </li>
+              <li>
+                <p class="line862">slab: add memory hotplug support <a class="http" href="http://git.kernel.org/linus/8f9f8d9e8080a2ff46caa7decef47810d093d252">(commit)</a> <span class="anchor" id="line-138"></span>
+              </li>
+              <li>
+                <p class="line862">percpu: implement kernel memory based chunk allocation for nommu SMP machines <a class="http" href="http://git.kernel.org/linus/b0c9778b1d07ed3aa7e411db201275553527b1b1">(commit)</a> <span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Networking">6. Networking</h1>
+            <span class="anchor" id="line-141"></span>
+            <ul>
+              <li>IPv6 <span class="anchor" id="line-142"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add GSO (&quot;Generic Segmentation Offload&quot;) support on IPv6 forwarding path <a class="http" href="http://git.kernel.org/linus/0aa68271510ae2b221d4b60892103837be63afe4">(commit)</a> <span class="anchor" id="line-143"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for the Generic TTL security mechanism (<a class="http" href="http://tools.ietf.org/html/rfc5082">RFC 5082</a>), equivalent to the IPv4 functionality merged in 2.6.34 <a class="http" href="http://git.kernel.org/linus/e802af9cabb011f09b9c19a82faef3dd315f27eb">(commit)</a> <span class="anchor" id="line-144"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Complete support of the IPV6_DONTFRAG socket option <a class="http" href="http://git.kernel.org/linus/4b340ae20d0e2366792abe70f46629e576adaf5e">(commit)</a> <span class="anchor" id="line-145"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>mac80211 (wireless stack) <span class="anchor" id="line-146"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add support for connection quality monitoring <a class="http" href="http://git.kernel.org/linus/1e4dcd012423b6a28f968a55886d2b27896a1586">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/a97c13c34509be460dea23c86f31c02daa2428b5">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/d6dc1a386358979e12366d1f35eeb68fc181e101">(commit)</a> <span class="anchor" id="line-147"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Enable QoS explicitly in AP mode <a class="http" href="http://git.kernel.org/linus/0af26b278bc1d747370b451595b7586cb7b3455c">(commit)</a> <span class="anchor" id="line-148"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Implement AP isolation support <a class="http" href="http://git.kernel.org/linus/7b7b5e56d7bdfdd0eb5ea13e6c9613b16b8eac46">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/fd8aaaf3519f3fd3c82594e90bc6808072b94d54">(commit)</a> <span class="anchor" id="line-149"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for offloading the channel switch operation to devices that support such operation <a class="http" href="http://git.kernel.org/linus/5ce6e438d5d9ed8ed775cd1e94f92002c8da2bad">(commit)</a> <span class="anchor" id="line-150"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Use different MAC addresses for virtual interfaces automatically <a class="http" href="http://git.kernel.org/linus/fa9029f8c34576e121a4b6ddbbd645081fe50c74">(commit)</a> <span class="anchor" id="line-151"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Allow controlling aggregation manually in debugfs <a class="http" href="http://git.kernel.org/linus/a75b4363eaafa99d909da4f1192322a78b074c73">(commit)</a> <span class="anchor" id="line-152"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>L2TP (Layer 2 Tunneling Protocol) <span class="anchor" id="line-153"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add netlink control API for L2TP <a class="http" href="http://git.kernel.org/linus/309795f4bec2d69cd507a631f82065c2198a0825">(commit)</a> <span class="anchor" id="line-154"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add L2TP ethernet pseudowire support <a class="http" href="http://git.kernel.org/linus/d9e31d17ceba5f0736f5a34bbc236239cd42b420">(commit)</a> <span class="anchor" id="line-155"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add debugfs files for dumping l2tp debug info <a class="http" href="http://git.kernel.org/linus/0ad6614048cf722e4d27909665b4846805357f1b">(commit)</a> <span class="anchor" id="line-156"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>Bridge <span class="anchor" id="line-157"></span>
+                <ul>
+                  <li>
+                    <p class="line862">per-cpu (scalable) packet statistics <a class="http" href="http://git.kernel.org/linus/14bb4789833a2e2610f30e2d3e1451701ac96ec1">(commit)</a> <span class="anchor" id="line-158"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IPv6 MLD snooping support. <a class="http" href="http://git.kernel.org/linus/08b202b6726459626c73ecfa08fcdc8c3efc76c2">(commit)</a> <span class="anchor" id="line-159"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>Bluetooth <span class="anchor" id="line-160"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add sockopt configuration for set/get transmission window size via sockopt on L2CAP <a class="http" href="http://git.kernel.org/linus/14b5aa71ec506f4e38ca6a1dc02ecd668ecfd902">(commit)</a> <span class="anchor" id="line-161"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add SOCK_STREAM support to L2CAP <a class="http" href="http://git.kernel.org/linus/bd3c9e255e76ae232d417e3914ca5d80ca3e9485">(commit)</a> <span class="anchor" id="line-162"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">9P: Add support for 9p2000.L protocol <a class="http" href="http://git.kernel.org/linus/9b6533c9b331ddbba9a40c972d82222ecffbc359">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/c56e4acf55c804cbeea0ddb696ef698c73d39826">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/4681dbdacb5cdc4d3273c3a97a1858d6e00a5fe7">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/bda8e7752063cdbdd1d308bc1705400a8cec1aeb">(commit)</a> <span class="anchor" id="line-163"></span>
+              </li>
+              <li>
+                <p class="line862">RDS: Enable per-cpu workqueue threads, which is more scalable <a class="http" href="http://git.kernel.org/linus/768bbedf9ca4cc4784eae2003f37abe0818fe0b0">(commit)</a> <span class="anchor" id="line-164"></span>
+              </li>
+              <li>
+                <p class="line862">netpoll: add generic support for bridge and bonding devices <a class="http" href="http://git.kernel.org/linus/0e34e93177fb1f642cab080e0bde664c06c7183a">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/c06ee961d3c0e51009cbd0e123b61fbb97f37d0b">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/f6dc31a85cd46a959bdd987adad14c3b645e03c1">(commit)</a> <span class="anchor" id="line-165"></span>
+              </li>
+              <li>
+                <p class="line862">Add netlink support for virtual port management (was iovnl) <a class="http" href="http://git.kernel.org/linus/57b610805ce92dbd79fc97509f80fa5391b99623">(commit)</a> <span class="anchor" id="line-166"></span>
+              </li>
+              <li>
+                <p class="line862">Implement sctp association probing module <a class="http" href="http://git.kernel.org/linus/787a51a0878f7bee3a9a83040077301e1556b69a">(commit)</a> <span class="anchor" id="line-167"></span>
+              </li>
+              <li>
+                <p class="line862">Microoptimize alloc_skb(), a critical fast path <a class="http" href="http://git.kernel.org/linus/ec7d2f2cf3a1b76202986519ec4f8ec75b2de232">(commit)</a> <span class="anchor" id="line-168"></span>
+              </li>
+              <li>
+                <p class="line862">Netfilter xtables: merge xt_CONNMARK into xt_connmark <a class="http" href="http://git.kernel.org/linus/b8f00ba27e4acc4a2224360ce3aa8a22354434c5">(commit)</a>, merge xt_MARK into xt_mark <a class="http" href="http://git.kernel.org/linus/28b949885f80efb87d7cebdcf879c99db12c37bd">(commit)</a>, inclusion of xt_TEE <a class="http" href="http://git.kernel.org/linus/e281b19897dc21c1071802808d461627d747a877">(commit)</a> <span class="anchor" id="line-169"></span>
+              </li>
+              <li>
+                <p class="line862">Add 64-bit userspace support for interface counters <a class="http" href="http://git.kernel.org/linus/10708f37ae729baba9b67bd134c3720709d4ae62">(commit)</a> <span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Tracing.2FProfiling">7. Tracing/Profiling</h1>
+            <span class="anchor" id="line-172"></span>
+            <ul>
+              <li>
+                <p class="line862">Implement Intel PEBS infrastructure, which is an alternative counter mode in which the counter triggers a hardware assist to collect information on events <a class="http" href="http://git.kernel.org/linus/ca037701a025334e724e5c61b3b1082940c8b981">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/caff2befffe899e63df5cc760b7ed01cfd902685">(commit)</a> <span class="anchor" id="line-173"></span>
+              </li>
+              <li>
+                <p class="line862">Implement initial P4 PMU driver, which implements a different way of doing performance monitoring in P4/Netburst processors <a class="http" href="http://git.kernel.org/linus/a072738e04f0eb26370e39ec679e9a0d65e49aea">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/d814f30105798b6677ecb73ed61d691ff96dada9">(commit)</a> <span class="anchor" id="line-174"></span>
+              </li>
+              <li>
+                <p class="line862">Change perf parameter --pid to process-wide collection instead of thread-wide <a class="http" href="http://git.kernel.org/linus/d6d901c23a9c4c7361aa901b5b2dda69703dd5e0">(commit)</a> <span class="anchor" id="line-175"></span>
+              </li>
+              <li>
+                <p class="line862">perf lock: Add &quot;info&quot; subcommand for dumping misc information <a class="http" href="http://git.kernel.org/linus/26242d859c9be9eea61f7f19514e9d272ae8ce26">(commit)</a> <span class="anchor" id="line-176"></span>
+              </li>
+              <li>
+                <p class="line862">perf probe: add --dry-run option <a class="http" href="http://git.kernel.org/linus/f4d7da499e4fc1fdff8f26fdeb1a058d475a7a6c">(commit)</a>, add --max-probes option <a class="http" href="http://git.kernel.org/linus/ef4a356574426877d569f8b6579325537eb7909b">(commit)</a> <span class="anchor" id="line-177"></span>
+              </li>
+              <li>
+                <p class="line862">scripting: Add rwtop and sctop scripts <a class="http" href="http://git.kernel.org/linus/47902f3611b392209e2a412bf7ec02dca95e666d">(commit)</a>, enable scripting shell scripts for live mode <a class="http" href="http://git.kernel.org/linus/00b21a01935892a2b97613f10300434998f45093">(commit)</a> <span class="anchor" id="line-178"></span>
+              </li>
+              <li>
+                <p class="line862">Reduce the size and memory footprint of tracepoints <a class="http" href="http://git.kernel.org/linus/8f0820183056ad26dabc0202115848a92f1143fc">(commit 1</a>, <a class="http" href="http://git.kernel.org/linus/38516ab59fbc5b3bb278cf5e1fe2867c70cff32e">2</a>, <a class="http" href="http://git.kernel.org/linus/2239291aeb0379fe47980b0e560e0eb9fd7e82ec">3</a>, <a class="http" href="http://git.kernel.org/linus/2e33af029556cb8bd22bf4f86f42d540249177ea">4</a>, <a class="http" href="http://git.kernel.org/linus/a9a5776380208a3e48a92d0c763ee1a3b486fb73">5</a>, <a class="http" href="http://git.kernel.org/linus/0405ab80aa94afb13bf9ac4a6fc9f2923d4b9114">6</a>, <a class="http" href="http://git.kernel.org/linus/80decc70afc57c87eee9d6b836aec2ecacba3457">7</a>, <a class="http" href="http://git.kernel.org/linus/32c0edaeaad74a7883e736ae0f3798784cfc2a80">8</a>, <a class="http" href="http://git.kernel.org/linus/553552ce1796c32cf4e3d4f45cd5b537de91dd1d">9)</a> <span class="anchor" id="line-179"></span>
+              </li>
+              <li>
+                <p class="line862">Delete the never used BTS-ptrace code <a class="http" href="http://git.kernel.org/linus/faa4602e47690fb11221e00f9b9697c8dc0d4b19">(commit)</a> <span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Crypto">8. Crypto</h1>
+            <span class="anchor" id="line-182"></span>
+            <ul>
+              <li>RPC crypto code <span class="anchor" id="line-183"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add support for triple-des encryption <a class="http" href="http://git.kernel.org/linus/4018bf3eec5ff6bf1234a602a4e72518757a7f55">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/958142e97e04d6c266ae093739bbbbd03afcd497">(commit)</a> <span class="anchor" id="line-184"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for AES encryption <a class="http" href="http://git.kernel.org/linus/de9c17eb4a912c9028f7b470eb80815144883b26">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/934a95aa1c9c6ad77838800b79c306e982437605">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/bf6d359c508cf83401c942262a9749752598394d">(commit)</a> <span class="anchor" id="line-185"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for arcfour-hmac encryption <a class="http" href="http://git.kernel.org/linus/8b23707612cffdba694dcd18aa8a018918aa86dc">(commit)</a> <span class="anchor" id="line-186"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add support for rc4-hmac encryption <a class="http" href="http://git.kernel.org/linus/fffdaef2eb4a7333952e55cf97f1fc0fcc35f981">(commit)</a> <span class="anchor" id="line-187"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">aesni-intel: Add AES-NI accelerated CTR mode <a class="http" href="http://git.kernel.org/linus/12387a46bb150f5608de4aa9a90dfdddbf991e3f">(commit)</a> <span class="anchor" id="line-188"></span>
+              </li>
+              <li>
+                <p class="line862">Add sha1 and hmac(sha1) async hash drivers <a class="http" href="http://git.kernel.org/linus/750052dd2400cd09e0864d75b63c2c0bf605056f">(commit)</a> <span class="anchor" id="line-189"></span>
+              </li>
+              <li>
+                <p class="line862">Add Niagara2 crypto driver <a class="http" href="http://git.kernel.org/linus/0a625fd2abaa0aa0a6852b153d429dbc784748cc">(commit)</a> <span class="anchor" id="line-190"></span>
+              </li>
+              <li>
+                <p class="line862">Add omap sha1 &amp; md5 driver <a class="http" href="http://git.kernel.org/linus/8628e7c89075834fc7b44629d09ff4f9043af114">(commit)</a> <span class="anchor" id="line-191"></span>
+              </li>
+              <li>
+                <p class="line862">talitos: add hash algorithms <a class="http" href="http://git.kernel.org/linus/497f2e6b8b21407625a4fb34bc04b50eff098085">(1</a>, <a class="http" href="http://git.kernel.org/linus/60f208d7836216885cdcd6f77a02f31dbc66f169">http://git.kernel.org/linus/60f208d7836216885cdcd6f77a02f31dbc66f169</a> 2)] <span class="anchor" id="line-192"></span><span class="anchor" id="line-193"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Virtualization">9. Virtualization</h1>
+            <span class="anchor" id="line-194"></span>
+            <ul>
+              <li>KVM <span class="anchor" id="line-195"></span>
+                <ul>
+                  <li>
+                    <p class="line862">SVM: Make lazy FPU switching work with nested svm <a class="http" href="http://git.kernel.org/linus/66a562f7e2576cde384ec813b481404d8f54f4c6">(commit)</a> <span class="anchor" id="line-196"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Support for tracing emulated instructions <a class="http" href="http://git.kernel.org/linus/e46479f852adab6027e4950d69400d967bf7bc6f">(commit)</a> <span class="anchor" id="line-197"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PPC: Add host MMU Support for 32 bit Book3S <a class="http" href="http://git.kernel.org/linus/d32154f1b8b748ea23edc90b06f640304a979012">(commit)</a> <span class="anchor" id="line-198"></span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p class="line862">virtio: Add disk identification ioctl <a class="http" href="http://git.kernel.org/linus/234f2725a5d03f78539f1d36cb32f2c4f9b1822c">(commit)</a>, <a class="http" href="http://git.kernel.org/linus/4cb2ea28c55cf5e5ef83aec535099ffce3c583df">(commit)</a> <span class="anchor" id="line-199"></span><span class="anchor" id="line-200"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="MD">10. MD</h1>
+            <span class="anchor" id="line-201"></span>
+            <ul>
+              <li>
+                <p class="line862">Add support for Raid0-&gt;Raid10 takeover <a class="http" href="http://git.kernel.org/linus/dab8b29248b3f14f456651a2a6ee9b8fd16d1b3c">(commit)</a> <span class="anchor" id="line-202"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for Raid0-&gt;Raid5 takeover <a class="http" href="http://git.kernel.org/linus/54071b3808ee3dc8624d9d6f1b06c4fd5308fa3b">(commit)</a> <span class="anchor" id="line-203"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for Raid5-&gt;Raid0 and Raid10-&gt;Raid0 takeover <a class="http" href="http://git.kernel.org/linus/9af204cf720cedf369cf823bbd806c350201f7ea">(commit)</a> <span class="anchor" id="line-204"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for Raid5-&gt;Raid4 takeover <a class="http" href="http://git.kernel.org/linus/a78d38a1a16c8e009aa512caa71d483757fefc1c">(commit)</a> <span class="anchor" id="line-205"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for Raid0-&gt;Raid4 takeover <a class="http" href="http://git.kernel.org/linus/f1b29bcae116409db5e543622aadab43041c9ae9">(commit)</a> <span class="anchor" id="line-206"></span>
+              </li>
+              <li>
+                <p class="line862">Add support for Raid4-&gt;Raid0 takeover <a class="http" href="http://git.kernel.org/linus/049d6c1ef983c9ac43aa423dfd752071a5b0002d">(commit)</a> <span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><span class="anchor" id="line-209"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="CPU_scheduler">11. CPU scheduler</h1>
+            <span class="anchor" id="line-210"></span>
+            <ul>
+              <li>
+                <p class="line862">The following features have no use today and are being removed: AFFINE_WAKEUPS <a class="http" href="http://git.kernel.org/linus/beac4c7e4a1cc6d57801f690e5e82fa2c9c245c8">(commit)</a>, ASYM_GRAN <a class="http" href="http://git.kernel.org/linus/13814d42e45dfbe845a0bbe5184565d9236896ae">(commit)</a>, avg_overlap <a class="http" href="http://git.kernel.org/linus/e12f31d3e5d36328c7fbd0fce40a95e70b59152c">(commit)</a>, avg_wakeup <a class="http" href="http://git.kernel.org/linus/b42e0c41a422a212ddea0666d5a3a0e3c35206db">(commit)</a>, FAIR_SLEEPERS feature <a class="http" href="http://git.kernel.org/linus/5ca9880c6f4ba4c84b517bc2fed5366adf63d191">(commit)</a>, NORMALIZED_SLEEPER <a class="http" href="http://git.kernel.org/linus/6bc6cf2b61336ed0c55a615eb4c0c8ed5daf3f08">(commit)</a>, SYNC_WAKEUPS feature <a class="http" href="http://git.kernel.org/linus/c6ee36c423c3ed1fb86bb3eabba9fc256a300d16">(commit)</a>, WAKEUP_SYNC feature <a class="http" href="http://git.kernel.org/linus/f2e74eeac03ffb779d64b66a643c5e598145a28b">(commit)</a> <span class="anchor" id="line-211"></span>
+              </li>
+              <li>
+                <p class="line862">Tweak sched_latency and min_granularity, speeds up a tiny bit tbench <a class="http" href="http://git.kernel.org/linus/21406928afe43f1db6acab4931bb8c886f4d04ce">(commit)</a> <span class="anchor" id="line-212"></span>
+              </li>
+              <li>
+                <p class="line862">Rate-limit nohz <a class="http" href="http://git.kernel.org/linus/39c0cbe2150cbd848a25ba6cdb271d1ad46818ad">(commit)</a> <span class="anchor" id="line-213"></span><span class="anchor" id="line-214"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Cpufreq.2Fcpuidle">12. Cpufreq/cpuidle</h1>
+            <span class="anchor" id="line-215"></span>
+            <ul>
+              <li>
+                <p class="line862">powernow-k8: Add Core Performance Boost support <a class="http" href="http://git.kernel.org/linus/73860c6b2fd159a35637e233d735e36887c266ad">(commit)</a> <span class="anchor" id="line-216"></span>
+              </li>
+              <li>
+                <p class="line862">cpuidle: add a <a class="http" href="http://lwn.net/Articles/387250/">repeating pattern detector</a> to the menu governor, to allow better sleeping patterns <a class="http" href="http://git.kernel.org/linus/1f85f87d4f81d1e5a2d502d48316a1bdc5acac0b">(commit)</a> <span class="anchor" id="line-217"></span>
+              </li>
+              <li>
+                <p class="line862">Native hardware cpuidle driver for latest Intel processors <a class="http" href="http://git.kernel.org/linus/2671717265ae6e720a9ba5f13fbec3a718983b65">(commit)</a> <span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span>
+              </li>
+            </ul>
+            <p class="line867">
+            <h1 id="Security">13. Security</h1>
+            <span class="anchor" id="line-220"></span>
+            <ul>
+              <li>
+                <p class="line862">TOMOYO: Add pathname grouping support. <a class="http" href="http://git.kernel.org/linus/7762fbfffdbce8191f5236d5053b290035d3d749">(commit)</a> <span class="anchor" id="line-221"></span>
+              </li>
+            </ul><span class="anchor" id="bottom"></span>
+          </div>
+          <!-- End of page contents -->
+          <div class="clearfix"></div>
+
+        </div> <!-- /#contentbox -->
+        <!-- End of content body -->
+      </div> <!-- /.container, #pagebox -->
+    </div> <!-- /#outbox -->
+
+    <!-- pageinfo -->
+    <div id="pageinfo-container">
+      <div class="container">
+        <p id="pageinfo" class="info" lang="en" dir="ltr">KernelNewbies: Linux_2_6_35 (last edited 2017-12-30 01:29:51 by <span title="??? @ localhost[127.0.0.1]">localhost</span>)</p>
+
+      </div>
+    </div>
+    <!-- End of pageinfo -->
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container text-right text-muted">
+        <ul id="credits">
+          <li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li>
+          <li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li>
+          <li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li>
+          <li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+        </ul>
+
+
+
+      </div> <!-- /.container -->
+    </div> <!-- /#footer -->
+    <!-- End of footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/moin_static199/memodump/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/moin_static199/memodump/js/bootstrap.min.js"></script>
+    <!-- toggle.js by dossist -->
+    <script src="/moin_static199/memodump/js/toggle.js"></script>
+    <!-- Custom script -->
+
+    <script>
+      + function($) {
+        // Toggle minified navbar under mobile landscape view
+        $('.navbar-collapse').on('show.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('show');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('hide');
+        });
+
+        //Scroll position fix for hash anchors
+        var mdAnchorFix = {
+          escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+          escape: function(str) {
+            return str.replace(mdAnchorFix.escapeRe, '\\$&');
+          },
+          rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+          isTransparent: function(rgbstr) {
+            if (rgbstr === 'transparent') {
+              return true;
+            }
+            rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+            if (rgbMatch) {
+              return (Number(rgbMatch[2]) ? false : true);
+            }
+            return false;
+          },
+          navbarHeight: function() {
+            var height = 0;
+            var $navbar = $('.navbar');
+            if (!mdAnchorFix.isTransparent($navbar.css('background-color')) &&
+              ($navbar.css('display') !== 'none') &&
+              ($navbar.css('visibility') !== 'hidden')) {
+              height = $navbar.height();
+            }
+            return height;
+          },
+          jump: function() {
+            origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+            offset = mdAnchorFix.navbarHeight() + 15;
+            setTimeout(function() {
+              window.scrollTo(0, origin - offset);
+            }, 1);
+          },
+          clickWrapper: function() {
+            if (($(this).attr('href') === location.hash) ||
+              !('onhashchange' in window.document.body)) {
+              setTimeout(function() {
+                $(window).trigger("hashchange");
+              }, 1);
+            }
+          },
+        };
+        $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+        $(window).on("hashchange", mdAnchorFix.jump);
+        if (location.hash) setTimeout(function() {
+          mdAnchorFix.jump();
+        }, 100);
+      }(jQuery);
+    </script>
+
+    <!-- End of JavaScript -->
+  </body>
+
+</html>
