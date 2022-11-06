@@ -1,6 +1,7 @@
 const express = require('express')
 const favicon = require('serve-favicon')
 const senarai = require("./src/senarai/senarai.json");
+const detail = require("./src/detail/detail.json");
 
 const app = express()
 const port = 3000
@@ -20,6 +21,13 @@ app.get('/senarai', (req, res) => {
   res.json({
     status: true,
     result: senarai
+  })
+})
+
+app.get('/detail', (req, res) => {
+  res.json({
+    status: true,
+    result: detail
   })
 })
 

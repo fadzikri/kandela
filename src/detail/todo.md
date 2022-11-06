@@ -2,5 +2,6 @@
 
 Todo :
 
-- [ ] Detail setiap versi
-- [ ] Yang kosong buat null saja
+- [x] Unduh semua HTML
+- [x] Detail setiap versi
+- [x] Yang kosong buat null saja
