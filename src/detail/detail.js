@@ -37,7 +37,7 @@ const createDetailJSON = () => {
 
                 let name = file.replace("_", " ");
                 name = name.replace(".html", "")
-                name = file.replaceAll("_", ".");
+                name = name.replaceAll("_", ".");
 
                 let text = new String();
                 let regex = new RegExp(/^summary\:\s/i);
