@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     status: true,
     message: "Hello...",
     senarai: "https://kandela.cyclic.app/senarai",
-    detail: "Nanti"
+    detail: "https://kandela.cyclic.app/detail"
   })
 })
 
