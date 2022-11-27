@@ -14,4 +14,5 @@ Todo :
 Berjalan di : <https://kandela.cyclic.app>
 
 Status Update :
+
 [![Node.js CI](https://github.com/fadzikri/kandela/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/node.js.yml)
