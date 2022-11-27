@@ -7,7 +7,7 @@ Tujuan untuk belajar membuat API dengan dataset buatan.
 Todo :
 
 - [x] Manual Scrape
-- [ ] Automatic Scrape per 2.5 Months
+- [x] Automatic Scrape per ~2.5 Months~ Month
 - [x] Service Express
 - [x] Version and Detail Version
 
