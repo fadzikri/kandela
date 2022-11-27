@@ -17,13 +17,13 @@ jobs:
                 node-version: latest
 
             - name: "Installing Package"
-              run: npm install
+            - run: npm install
             
             - name: "Updating Data"
-              run: node src/update.js
+            - run: node src/update.js
 
             - name: "Commit and Push"
-              run: |
+            - run: |
                   git config user.name github-actions
                   git config user.email github-actions@github.com
                   git add .
