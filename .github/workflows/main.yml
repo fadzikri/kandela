@@ -2,23 +2,23 @@ name: Update Data API
 
 on:
     schedule: 
-        - cron: "0 0 * * *"
+        - cron: "5 0 * * *"
 
 jobs:
     update:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-              name: "Fetch Metadata"
+            - name: "Fetch Metadata"
+              uses: actions/checkout@v3
 
-            - uses: actions/setup-node@v3
+            - name: "Setup NodeJS"
+              uses: actions/setup-node@v3
               with:
                 node-version: latest
-              name: "Setup NodeJS"
 
             - name: "Installing Package"
               run: npm install
-            
+
             - name: "Updating Data"
               run: node src/update.js
 
