@@ -8,21 +8,21 @@ jobs:
     update:
         runs-on: ubuntu-latest
         steps:
-            - name: "Fetch Metadata"
-              uses: actions/checkout@v3
+#             - name: "Fetch Metadata"
+            - uses: actions/checkout@v3
 
-            - name: "Setup NodeJS"
-              uses: actions/setup-node@v3
+#             - name: "Setup NodeJS"
+            - uses: actions/setup-node@v3
               with:
                 node-version: latest
 
-            - name: "Installing Package"
+#             - name: "Installing Package"
             - run: npm install
             
-            - name: "Updating Data"
+#             - name: "Updating Data"
             - run: node src/update.js
 
-            - name: "Commit and Push"
+#             - name: "Commit and Push"
             - run: |
                   git config user.name github-actions
                   git config user.email github-actions@github.com
