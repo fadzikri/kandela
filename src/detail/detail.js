@@ -19,8 +19,8 @@ const createAllDetailHTML = async () => {
 
                 console.log(`${name}.html berhasil diunduh!`);
             }).catch((error) => {
-                console.log(error);
-                process.exit(5);
+                console.log("Terjadi kesalahan! Mengulang kembali...");
+                createAllDetailHTML();
             });
         });
     });
