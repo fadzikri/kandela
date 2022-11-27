@@ -5,8 +5,10 @@ const fs = require("fs");
 
 const baseURL = "https://kernelnewbies.org";
 
-const createAllDetailHTML = () => {
+const createAllDetailHTML = async () => {
+    console.log("Mengambil data dari senarai...");
     const senaraiJSON = JSON.parse(fs.readFileSync(`${__dirname}/../senarai/senarai.json`));
+    console.log("Pengunduhan data sumber versi Linux...");
     senaraiJSON.forEach((senarai) => {
         senarai.links.forEach((link) => {
             axios.get(`${baseURL}${link}`).then((response) => {
@@ -18,12 +20,14 @@ const createAllDetailHTML = () => {
                 console.log(`${name}.html berhasil diunduh!`);
             }).catch((error) => {
                 console.log(error);
+                process.exit(5);
             });
-        })
-    })
+        });
+    });
 }
 
 const createDetailJSON = () => {
+    console.log("Membuat JSON detail versi...");
     fs.readdir(__dirname, (error, files) => {
         if (error) return console.log(error);
 
@@ -38,6 +42,8 @@ const createDetailJSON = () => {
                 let name = file.replace("_", " ");
                 name = name.replace(".html", "")
                 name = name.replaceAll("_", ".");
+
+                console.log(`Membuat detail versi ${name}`);
 
                 let text = new String();
                 let regex = new RegExp(/^summary\:\s/i);
@@ -62,7 +68,9 @@ const createDetailJSON = () => {
         });
 
         fs.writeFileSync(`${__dirname}/detail.json`, JSON.stringify(datas), "utf-8");
+        console.log("JSON detail berhasil dibuat!");
+        process.exit(0);
     });
 }
 
-createDetailJSON();
+module.exports = { createAllDetailHTML, createDetailJSON };

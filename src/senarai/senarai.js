@@ -5,12 +5,14 @@ const fs = require("fs");
 
 const baseURL = "https://kernelnewbies.org/LinuxVersions";
 
-const createSenaraiJSON = () => {
+const createSenaraiHTML = () => {
+    console.log("Mengunduh sumber senarai...");
     axios.get(baseURL).then((response) => {
         fs.writeFileSync(`${__dirname}/senarai.html`, pretty(response.data), "utf-8");
-        scrapeSenaraiJSON();
+        console.log("Sumber terunduh!");
     }).catch((error) => {
         console.log(error);
+        process.exit(5);
     });
     return true;
 }
@@ -21,6 +23,7 @@ const scrapeSenaraiJSON = () => {
     const senarai = $("#content ul");
     const datas = new Array();
     
+    console.log("Membuat JSON senarai...");
     header.each((i, el) => {
         if (i == header.length - 1) return true;
         
@@ -29,7 +32,9 @@ const scrapeSenaraiJSON = () => {
         const link = new Array();
         
         $(senarai[i]).find("p").each((i, el) => {
-            versions.push($(el).text().trim());
+            const versi = $(el).text().trim();
+            versions.push(versi);
+            console.log(`Menambahkan senarai ${versi}!`);
         })
         
         $(senarai[i]).find("a").each((i, el) => {
@@ -46,6 +51,8 @@ const scrapeSenaraiJSON = () => {
     })
     
     fs.writeFileSync(`${__dirname}/senarai.json`, JSON.stringify(datas), "utf-8");
+    console.log("JSON senarai dibuat!");
+    process.exit(0);
 }
 
-module.exports = createSenaraiJSON;
+module.exports = { createSenaraiHTML, scrapeSenaraiJSON };
