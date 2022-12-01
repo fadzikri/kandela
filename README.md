@@ -10,7 +10,6 @@ Todo :
 - [x] Automatic Scrape per ~2.5 Months~ Month
 - [x] Service Express
 - [x] Version and Detail Version
-- [ ] If Date = delete, else Create
 
 Berjalan di : <https://kandela.cyclic.app>
 
