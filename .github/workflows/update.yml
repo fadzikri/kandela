@@ -8,7 +8,7 @@ on:
     - cron: "0 0 1 * *"
 
 jobs:
-  build:
+  Update:
     runs-on: ubuntu-latest
     steps:
     - name: Add Package GitHub Action Metadata
