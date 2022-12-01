@@ -11,17 +11,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - name: Add Package GitHub Action Metadata
+      uses: actions/checkout@v3
+    - name: Add Package GitHub NodeJS Setup
+      uses: actions/setup-node@v3
       with:
         node-version: latest
         cache: 'npm'
     - name: Installing Package
-    - run: npm install
+      run: npm install
     - name: Updating All Datas
-    - run: node src/update.js
+      run: node src/update.js
     - name: Creating Commit
-    - run: |
+      run: |
         if [ -f last-update.txt ]
         then
           rm last-update.txt
