@@ -10,9 +10,10 @@ Todo :
 - [x] Automatic Scrape per ~2.5 Months~ Month
 - [x] Service Express
 - [x] Version and Detail Version
+- [ ] If Date = delete, else Create
 
 Berjalan di : <https://kandela.cyclic.app>
 
 Status Update :
 
-[![Node.js CI](https://github.com/fadzikri/kandela/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/node.js.yml)
+[![Update Data](https://github.com/fadzikri/kandela/actions/workflows/update.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/update.yml)
