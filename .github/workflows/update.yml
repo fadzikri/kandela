@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Update Data
 
 on:
   push:
@@ -13,14 +13,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -32,8 +28,8 @@ jobs:
     - run: node src/update.js
     - run: |
         date > generated.txt
-        git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.name fadzikri
+        git config user.email 109416385+fadzikri@users.noreply.github.com
         git add .
         git commit -m "Update Data (Auto)"
         git push
