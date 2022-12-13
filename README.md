@@ -19,4 +19,4 @@ Status Update :
 
 [![Update Data](https://github.com/fadzikri/kandela/actions/workflows/update.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/update.yml)
 
-Catatan : Terkadang tautan pendek lama loading-nya, dan jangan pakai untuk HTTP Request.
+Catatan : Terkadang tautan pendek lama loading-nya, dan jangan pakai untuk HTTP Request
