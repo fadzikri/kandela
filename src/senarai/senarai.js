@@ -22,6 +22,7 @@ const scrapeSenaraiJSON = () => {
     const header = $("#content h1");
     const senarai = $("#content ul");
     const datas = new Array();
+    const names = new Array();
     
     console.log("Membuat JSON senarai...");
     header.each((i, el) => {
@@ -39,6 +40,7 @@ const scrapeSenaraiJSON = () => {
         
         $(senarai[i]).find("a").each((i, el) => {
             link.push($(el).attr("href"));
+            names.push($(el).attr("href").replace(/\//, "").replace(/$/, ".html"));
         })
         
         minor["versions"] = versions;
@@ -52,6 +54,8 @@ const scrapeSenaraiJSON = () => {
     
     fs.writeFileSync(`${__dirname}/senarai.json`, JSON.stringify(datas), "utf-8");
     console.log("JSON senarai dibuat!");
+    fs.writeFileSync(`${__dirname}/filename.json`, JSON.stringify(names), "utf-8");
+    console.log("JSON filename dibuat!");
     process.exit(0);
 }
 
