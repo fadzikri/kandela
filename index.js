@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
   res.json({
     status: true,
     message: "Hello...",
-    senarai: "https://kandela.cyclic.app/senarai",
-    detail: "https://kandela.cyclic.app/detail"
+    senarai: "https://kandela.vercel.app/senarai",
+    detail: "https://kandela.vercel.app/detail"
   });
 });
 
