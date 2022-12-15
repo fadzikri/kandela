@@ -12,7 +12,7 @@ Todo :
 - [x] Version and Detail Version
 - [ ] Fix Wrong Order Detail
 
-Berjalan di : <https://kandela.cyclic.app>
+Berjalan di : <https://kandela.vercel.app>
 
 Tautan pendek : <https://s.id/kandela>
 
