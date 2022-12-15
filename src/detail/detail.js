@@ -6,7 +6,6 @@ const fs = require("fs");
 const baseURL = "https://kernelnewbies.org";
 
 const createAllDetailHTML = async () => {
-console.log("hi")
     console.log("Mengambil data dari senarai...");
     const senaraiJSON = JSON.parse(fs.readFileSync(`${__dirname}/../senarai/senarai.json`));
     console.log("Pengunduhan data sumber versi Linux...");
