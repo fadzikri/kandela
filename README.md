@@ -10,7 +10,7 @@ Todo :
 - [x] Automatic Scrape per ~2.5 Months~ Month
 - [x] Service Express
 - [x] Version and Detail Version
-- [ ] Fix Wrong Order Detail
+- [x] Fix Wrong Order Detail
 
 Berjalan di : <https://kandela.vercel.app>
 
