@@ -56,7 +56,6 @@ const scrapeSenaraiJSON = () => {
     console.log("JSON senarai dibuat!");
     fs.writeFileSync(`${__dirname}/filename.json`, JSON.stringify(names), "utf-8");
     console.log("JSON filename dibuat!");
-    process.exit(0);
 }
 
 module.exports = { createSenaraiHTML, scrapeSenaraiJSON };
