@@ -68,6 +68,4 @@ const createDetailJSON = () => {
     process.exit(0);
 }
 
-createDetailJSON();
-
 module.exports = { createAllDetailHTML, createDetailJSON };
