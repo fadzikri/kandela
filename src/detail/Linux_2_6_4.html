@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="Linux, Kernel, Operative System, Linus Torvalds, Open Source, drivers">
+    <meta name="description" content="Summary of the changes and new features merged in the Linux Kernel during the 2.6.4 development">
+    <meta name="robots" content="index,nofollow">
+
+    <title>Linux_2_6_4 - Linux Kernel Newbies</title>
+    <script type="text/javascript" src="/moin_static199/common/js/common.js"></script>
+
+    <script type="text/javascript">
+      <!--
+      var search_hint = "Search";
+      //
+      -->
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/memodump.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/moinizer.css">
+
+    <!-- css only for MS IE6/IE7 browsers -->
+    <!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" media="all" href="/moin_static199/memodump/css/msie.css">
+<![endif]-->
+
+
+    <link rel="alternate" title="Linux Kernel Newbies: Linux_2_6_4" href="/Linux_2_6_4?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Linux_2_6_4&amp;ddiffs=1" type="application/rss+xml">
+
+
+    <link rel="Start" href="/Linux_Kernel_Newbies">
+    <link rel="Alternate" title="Wiki Markup" href="/Linux_2_6_4?action=raw">
+    <link rel="Alternate" media="print" title="Print View" href="/Linux_2_6_4?action=print">
+    <link rel="Search" href="/FindPage">
+    <link rel="Index" href="/TitleIndex">
+    <link rel="Glossary" href="/WordIndex">
+    <link rel="Help" href="/HelpOnFormatting">
+  </head>
+
+  <body lang="en" dir="ltr">
+
+    <div id="outbox" class="sidebar-toggle">
+      <!-- Bootstrap navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top navbar-mobile-toggle" role="navigation">
+        <div class="container">
+
+          <!-- Navbar header -->
+          <div class="navbar-header">
+            <!-- Sidebar toggler -->
+            <button type="button" class="btn navbar-btn sidebar-toggler" data-toggle="toggle" data-target=".sidebar-toggle">
+              <span class="sr-only">Toggle sidebar</span>
+              <span class="menu-btn-sidebar-toggler sidebar-toggle"></span>
+            </button>
+            <!-- Button to show navbar controls when collapsed -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Sitename -->
+
+            <div class="navbar-brand-wrapper">
+              <a class="navbar-brand" href="/Linux_Kernel_Newbies"><img src="/moin_static199/kn-icon.png" alt="KernelNewbies"></a>
+            </div>
+
+          </div> <!-- /.navbar-header -->
+
+          <!-- Body of navbar -->
+          <div class="collapse navbar-collapse">
+
+            <!-- Navbar elements -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- Comment toggle button -->
+
+              <li class="toggleCommentsButton navbar-comment-toggle" style="display:none;">
+                <a href="#" class="menu-nav-comment nbcomment navbar-comment-toggle" rel="nofollow" onClick="toggleComments();return false;" data-toggle="toggle" data-target=".navbar-comment-toggle">
+                  <span class="hidden-sm">Comments</span>
+                </a>
+              </li>
+
+              <!-- Edit button -->
+
+              <li class="disabled">
+                <a class="menu-nav-edit"><span class="hidden-sm">Immutable Page</span></a>
+              </li>
+
+              <!-- Search form -->
+
+              <li>
+                <div class="navbar-form">
+                  <form class="form-search" role="search" id="searchform" method="get" action="/Linux_2_6_4">
+                    <input type="hidden" name="action" value="fullsearch">
+                    <input type="hidden" name="context" value="180">
+                    <div class="form-group">
+                      <label class="sr-only" for="searchinput">Search:</label>
+                      <input id="searchinput" type="text" class="form-control form-search" placeholder="Search" name="value" value="">
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Menu -->
+
+              <li class="dropdown">
+                <!-- Menu button -->
+                <a href="#" class="menu-nav-menu dropdown-toggle" data-toggle="dropdown">
+                  Menu<span class="padding"></span><span class="caret"></span>
+                </a>
+                <!-- Dropdown contents -->
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Navigation</li>
+                  <li><a href="/RecentChanges" class="menu-dd-RecentChanges" rel="nofollow">RecentChanges</a></li>
+                  <li><a href="/FindPage" class="menu-dd-FindPage" rel="nofollow">FindPage</a></li>
+                  <li><a href="/Linux_2_6_4?action=LocalSiteMap" class="menu-dd-LocalSiteMap" rel="nofollow">Local Site Map</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Help</li>
+                  <li><a href="/HelpContents" class="menu-dd-HelpContents" rel="nofollow">HelpContents</a></li>
+                  <li><a href="/HelpOnMoinWikiSyntax" class="menu-dd-HelpOnMoinWikiSyntax" rel="nofollow">HelpOnMoinWikiSyntax</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Display</li>
+                  <li><a href="/Linux_2_6_4?action=AttachFile" class="menu-dd-AttachFile" rel="nofollow">Attachments</a></li>
+                  <li><a href="/Linux_2_6_4?action=info" class="menu-dd-info" rel="nofollow">Info</a></li>
+                  <li><a href="/Linux_2_6_4?action=raw" class="menu-dd-raw" rel="nofollow">Raw Text</a></li>
+                  <li><a href="/Linux_2_6_4?action=print" class="menu-dd-print" rel="nofollow">Print View</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Edit</li>
+                  <li><a href="/Linux_2_6_4?action=Load" class="menu-dd-Load" rel="nofollow">Load</a></li>
+                  <li><a href="/Linux_2_6_4?action=Save" class="menu-dd-Save" rel="nofollow">Save</a></li>
+                </ul>
+              </li> <!-- /dropdown -->
+
+              <!-- Login user -->
+
+              <li>
+                <a class="menu-nav-login" href="/Linux_2_6_4?action=login" rel="nofollow">Login</a>
+              </li>
+
+
+            </ul> <!-- /.navbar-right -->
+
+          </div> <!-- /.collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+      <!-- End of navbar -->
+
+      <div class="container no-padding" id="pagebox">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar-toggle" id="sidebar-curtain">
+          <div class="sidebar-toggle" id="sidebar-mover">
+            <div class="sidebar-toggle" id="sidebar" role="navigation">
+              <!-- SideBar contents -->
+              <div class="sidebar clearfix">
+                <div dir="ltr" id="SideBar.sidebar-content" lang="en"><span class="anchor" id="SideBar.top"></span>
+                  <span class="anchor" id="SideBar.line-1"></span>
+                  <p class="line874">Kernel Hacking <span class="anchor" id="SideBar.line-2"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a class="https" href="https://kernelnewbies.org/">Frontpage</a> <span class="anchor" id="SideBar.line-3"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelHacking">Kernel Hacking</a> <span class="anchor" id="SideBar.line-4"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/Documents">Kernel Documentation</a> <span class="anchor" id="SideBar.line-5"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelGlossary">Kernel Glossary</a> <span class="anchor" id="SideBar.line-6"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FAQ">FAQ</a> <span class="anchor" id="SideBar.line-7"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/FoundBug">Found a bug?</a> <span class="anchor" id="SideBar.line-8"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/LinuxChanges">Kernel Changelog</a> <span class="anchor" id="SideBar.line-9"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpstreamMerge">Upstream Merge Guide</a> <span class="anchor" id="SideBar.line-10"></span><span class="anchor" id="SideBar.line-11"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Projects <span class="anchor" id="SideBar.line-12"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/KernelJanitors">KernelJanitors</a> <span class="anchor" id="SideBar.line-13"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelMentors">KernelMentors</a> <span class="anchor" id="SideBar.line-14"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/KernelProjects">KernelProjects</a> <span class="anchor" id="SideBar.line-15"></span><span class="anchor" id="SideBar.line-16"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Community <span class="anchor" id="SideBar.line-17"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/Community">Why a community?</a> <span class="anchor" id="SideBar.line-18"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RegionalNewbies">Regional Kernelnewbies</a> <span class="anchor" id="SideBar.line-19"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/PersonalPages">Personal Pages</a> <span class="anchor" id="SideBar.line-20"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/UpcomingEvents">Upcoming Events</a> <span class="anchor" id="SideBar.line-21"></span><span class="anchor" id="SideBar.line-22"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">References <span class="anchor" id="SideBar.line-23"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/ML">Mailing Lists</a> <span class="anchor" id="SideBar.line-24"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/RelatedSites">Related Sites</a> <span class="anchor" id="SideBar.line-25"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/ProgrammingLinks">Programming Links</a> <span class="anchor" id="SideBar.line-26"></span><span class="anchor" id="SideBar.line-27"></span>
+                    </li>
+                  </ul>
+                  <p class="line874">Wiki <span class="anchor" id="SideBar.line-28"></span>
+                  <ul>
+                    <li>
+                      <p class="line891"><a href="/RecentChanges">Recent Changes</a> <span class="anchor" id="SideBar.line-29"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/EditorsGroup">Site Editors</a> <span class="anchor" id="SideBar.line-30"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/SideBar">Side Bar</a> <span class="anchor" id="SideBar.line-31"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a href="/WebTips">Tips for Editors</a> <span class="anchor" id="SideBar.line-32"></span>
+                    </li>
+                    <li>
+                      <p class="line891"><a class="https" href="https://wikiwall.org/">Hosted by WikiWall</a> <span class="anchor" id="SideBar.line-33"></span>
+                    </li>
+                  </ul><span class="anchor" id="SideBar.bottom"></span>
+                </div>
+              </div>
+              <!-- End of SideBar contents -->
+
+              <div>
+                <h4>Navigation</h4>
+                <ul id='navibar'>
+                  <li class="wikilink"><a href="/RecentChanges">RecentChanges</a></li>
+                  <li class="wikilink"><a href="/FindPage">FindPage</a></li>
+                  <li class="wikilink"><a href="/HelpContents">HelpContents</a></li>
+                </ul>
+              </div>
+
+
+            </div> <!-- /#sidebar -->
+          </div> <!-- /#sidebar-mover -->
+        </div>
+        <div id="contentbox"> <!-- End of Sidebar and Beginning of content -->
+
+
+
+
+          <div id="location">
+            <span id="interwiki"><a href="/Linux_Kernel_Newbies" rel="nofollow">KernelNewbies</a><span class="sep">:</span></span>
+
+            <ul id="pagelocation">
+              <li><a href="/Linux_2_6_4">Linux_2_6_4</a></li>
+            </ul>
+
+            <span class="lastupdate">Last updated at 2019-06-07 17:46:06</span>
+          </div>
+
+
+          <!-- Page contents -->
+          <div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+            <span class="anchor" id="line-1"></span><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span>
+            <p class="line862">2.6.4 was released March 11, 2004. <a class="http" href="http://www.kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.4">Changelog</a> <span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span>
+            <ul>
+              <li>
+                <p class="line862">Support for the Intel x86-64 architecture <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ca92c573507014604d943990d4979af5c08152f0">commit</a> <span class="anchor" id="line-7"></span>
+              </li>
+              <li>
+                <p class="line862">tty utf8 mode <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=be758139ef276edd02ef19f52cc5231fe4b01be9">commit</a> <span class="anchor" id="line-8"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4: Add sophisticated ARP reply control via arp_ignore sysctl <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4d99775fee020b291acb77e91e9f97ffd23a7672">commit</a> <span class="anchor" id="line-9"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4: Add sysctl for per-socket limit on number of mcast src filters. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dc2a3808b049ff3847f81a1c8aba74372afcaa2c">commit</a> <span class="anchor" id="line-10"></span>
+              </li>
+              <li>
+                <p class="line862">IPV6: Add sysctl to force MLD version <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=fdd2f9fbb05c87643c463d557e3babb2f4d2a3d3">commit</a> <span class="anchor" id="line-11"></span>
+              </li>
+              <li>
+                <p class="line862">IPV4/IPV6: Add sysctl limits for mcast src filters. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b46f30e25f93439eaf6d20882a7b9d19d754e413">commit</a> <span class="anchor" id="line-12"></span>
+              </li>
+              <li>
+                <p class="line862">SELINUX: Event notifications via netlink. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b797f1280e276d63cc448bbcbfce8fcaab5c5b66">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5117762965d11dbbb9ed02248f52124905da29ce">commit</a> <span class="anchor" id="line-13"></span>
+              </li>
+              <li>
+                <p class="line862">net/bonding: Add support for HW accel. slaves <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7e2991134c578bddeb82e133c86610a67733c854">commit</a> <span class="anchor" id="line-14"></span>
+              </li>
+              <li>
+                <p class="line862">AF_UNIX: Add <tt>SOCK_SEQPACKET</tt> support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=6256106792ec372c80a0d1b08741bd4272869aaf">commit</a> <span class="anchor" id="line-15"></span>
+              </li>
+              <li>
+                <p class="line862">Add VLAN support in ALB mode <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=18d45937a25dcb8257dfc7936719698d7425e527">commit</a> <span class="anchor" id="line-16"></span>
+              </li>
+              <li>
+                <p class="line862">Add VLAN support in TLB mode <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7d585d7ed8f3b1ed42e8be9e202df5600f7e6c5d">commit</a> <span class="anchor" id="line-17"></span>
+              </li>
+              <li>
+                <p class="line862">HFS rewrite and HFS+ support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d1081202f1d0ee35ab0beb490da4b65d4bc763db">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=91556682e0bf004d98a529bf829d339abb98bbbd">commit</a> <span class="anchor" id="line-18"></span>
+              </li>
+              <li>
+                <p class="line862">XFS: Add <tt>XFS_FS_GOINGDOWN</tt> interface to xfs. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8f45cdd98f99e0b93e87f24b2aeff97972432da7">commit</a> <span class="anchor" id="line-19"></span>
+              </li>
+              <li>
+                <p class="line862">JFS: Support sharing of journal by multiple volumes <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=215211de60001762142f7e0295c67b887eac776d">commit</a> <span class="anchor" id="line-20"></span>
+              </li>
+              <li>
+                <p class="line862">Add ARC4 crypto module <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dd2514fea45ffc9242fcd1bb2b7a4cfc29cf01df">commit</a> <span class="anchor" id="line-21"></span>
+              </li>
+              <li>
+                <p class="line862">Raise the number of groups an user can see from 32 to 65536. This limit is also visible via the read-only <tt>/proc/sys/kernel/ngroups_max</tt> file <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a937b06ed59067eb1cc93390b8f13bbfab229458">commit</a> <span class="anchor" id="line-22"></span>
+              </li>
+              <li>
+                <p class="line862">Generic kernel thread infrastructure <a class="http" href="http://lwn.net/Articles/65178/">(LWN article)</a> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=933ba10234f68f44af3a72afb3c0810b082c5a0e">commit</a> <span class="anchor" id="line-23"></span>
+              </li>
+              <li>
+                <p class="line862">Add CONFIG for -mregparm=3 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e852f3182f3ea80239e1b46eecadf57604c39bd9">commit</a> <span class="anchor" id="line-24"></span>
+              </li>
+              <li>
+                <p class="line862">Config option for irqbalance <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c1588714543b1284baf62ac082b3bc24d9c4eb73">commit</a> <span class="anchor" id="line-25"></span>
+              </li>
+              <li>
+                <p class="line862">dm: Add dm-crypt target for device mapper <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=542c3b0adde702e8773b43f5903f9e46105e532e">commit</a> <span class="anchor" id="line-26"></span>
+              </li>
+              <li>
+                <p class="line862">md: Allow partitioning of MD devices. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1797a796c7333ed02bfd8883bbaafaec867ddeb2">commit</a> <span class="anchor" id="line-27"></span>
+              </li>
+              <li>
+                <p class="line862">Add aio sysctl parms <tt>aio-nr</tt> <tt>and&nbsp;aio-max-nr</tt> <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=98fabcaab54ecd736cfc0f290e9e05cffb0294a0">commit</a> <span class="anchor" id="line-28"></span>
+              </li>
+              <li>
+                <p class="line862">Enable coredumps &gt; 2GB <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=95b387a4e9773b98248f9d6594692cd07ecad4b6">commit</a> <span class="anchor" id="line-29"></span>
+              </li>
+              <li>
+                <p class="line862">Dynamic pty allocation <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=562123b5e1c5e73e141748e687b45321484804d1">commit</a> <span class="anchor" id="line-30"></span>
+              </li>
+              <li>
+                <p class="line862">smbfs: support the loop driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=aa81900ec1ee8cc5f3ae56db52ad9b59a90cfe4a">commit</a> <span class="anchor" id="line-31"></span>
+              </li>
+              <li>
+                <p class="line862">kNFSd: IDmap support for the NFSv4 server. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c85705ed8fd01c5816aa54a556638e554d7daa7d">commit</a> <span class="anchor" id="line-32"></span>
+              </li>
+              <li>
+                <p class="line862">kNFSd: Implement the nfsv4 RELEASE_LOCKOWNER operation. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b0ac617ec5ca602fe558eac90756f1a2f2001453">commit</a> <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span>
+              </li>
+              <li class="gap">
+                <p class="line862">Drivers &amp; Architecture <span class="anchor" id="line-35"></span>
+                <ul>
+                  <li>
+                    <p class="line862">Add ARM architecture version 6 support. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ed29a8097665ef86dd9a2d8a8a3b808ab70f28ee">commit</a> <span class="anchor" id="line-36"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Initial support for transmeta's efficeon processors <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=59db583040a3f0629c21b0dea425e4df1a9c9676">commit</a> <span class="anchor" id="line-37"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add ARM925 support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=04275968089ff7aa4fddd29fb5b9b016da82c4c3">commit</a> <span class="anchor" id="line-38"></span>
+                  </li>
+                  <li>
+                    <p class="line862">MIPS mega-patch <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=1d50e5e7a6e0325b1a652c4be296a71dc54a6e96">commit</a> <span class="anchor" id="line-39"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add Pentium M and Pentium-4 M options <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=53720dcf0f764df4a72c8a79f37d4cd7fdc2b303">commit</a> <span class="anchor" id="line-40"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ACPI PM timer <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ad77865cc25cd19c1516f2f22d845402d6d88f8d">commit</a> <span class="anchor" id="line-41"></span>
+                  </li>
+                  <li>
+                    <p class="line862">MIPS: New 2.6 serial drivers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b7df53b3b5e3f74e6dbc943e6ae077e8077d0da9">commit</a> <span class="anchor" id="line-42"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ia64: add Altix hotplug support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=934b6519ddc1a2c2631662afc6bd15201117a98f">commit</a> <span class="anchor" id="line-43"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ia64: add support for NUMA machines with CPU-only (memory-less) nodes <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7f2ca98511da39498e253ca2b08c927fe654a79c">commit</a> <span class="anchor" id="line-44"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ia64: add support for time-interpolation via IBM EXA Cyclone timer <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d00085d239600af6cf33d495e1da9a8ec57dee01">commit</a> <span class="anchor" id="line-45"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PPC64 iSeries virtual disk driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ef2dbb549121b2d41e2350ea5e8ed9981f23bf27">commit</a> <span class="anchor" id="line-46"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Add stack overflow debugging <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e90f6a296718d888e940118b04de9a24d291242b">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=dd6af5b80424cb6a2414bed3f4cbdbcc30be7e58">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=b3a7ef38e4720a4b5940610fe6318aa86273618a">commit</a> <span class="anchor" id="line-47"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64: Add cpus and NUMA memory nodes to sysfs. Also add cpu physical id. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=e2caa6409af9bcdbd8338c3d15e6efe81542efb2">commit</a> <span class="anchor" id="line-48"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ppc64:Implement support for Apple DART IOMMU (<a class="nonexistent" href="/PowerMac">PowerMac</a> G5) <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=565a552f83f4ba90ebfd11e0f8d100a3eeea170e">commit</a> <span class="anchor" id="line-49"></span>
+                  </li>
+                  <li>
+                    <p class="line862">SPARC: Add stack usage instrumentation <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=ddde7f6803f526e8c2177c9329dcf30374cd4d6c">commit</a> <span class="anchor" id="line-50"></span>
+                  </li>
+                  <li>
+                    <p class="line862">oprofile: ARM infrastructure <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=3a67d0c3cb2f8065d9fb63aeabe07a5525af3edf">commit</a> <span class="anchor" id="line-51"></span>
+                  </li>
+                  <li>
+                    <p class="line862">oprofile: add Pentium Mobile support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=7de09205dfa6911306464954015921fc90a9eafd">commit</a> <span class="anchor" id="line-52"></span>
+                  </li>
+                  <li>
+                    <p class="line862">IRDA: Add stir4200 driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=5b76757a6e20f2f982363b072fe312c91cf9fe7b">commit</a> <span class="anchor" id="line-53"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI Hotplug: Add SHPC and PCI Express hot-plug drivers <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c16b4b14d9806e639f4afefa2d651a857a212afe">commit</a> <span class="anchor" id="line-54"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI Hotplug: Add PPC64 PCI Hotplug Driver for RPA <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cb98d96e7b53e1831e08187b99598d9714f6babb">commit</a> <span class="anchor" id="line-55"></span>
+                  </li>
+                  <li>
+                    <p class="line862">PCI Hotplug : add DLPAR driver for PPC64 PCI Hotplug slots <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4b86aba495fb1ff8ece12157520558bf46b2f7aa">commit</a> <span class="anchor" id="line-56"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sk98lin: Added Support for Belkin adapter <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=a2dfeaf8602327dfdc20f2869e2188a4cd9a8933">commit</a> <span class="anchor" id="line-57"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ide-tape: remove obsolete onstream support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=725fb82e87127023870aa299b1944234217d6dc3">commit</a> <span class="anchor" id="line-58"></span>
+                  </li>
+                  <li>
+                    <p class="line862">sf16fmr2 radio card driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=8c357c02fb96d7ac1ece715dfbea2ec4d0b980e5">commit</a> <span class="anchor" id="line-59"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add card types to aacraid driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=176be0016c894fbbea4cca32069843243949ddb7">commit</a> <span class="anchor" id="line-60"></span>
+                  </li>
+                  <li>
+                    <p class="line862">tigon3: Add Apple tigon3 PCI device id. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=d2979329eb8aa65d4eef931600f1b27c7385e382">commit</a> <span class="anchor" id="line-61"></span>
+                  </li>
+                  <li>
+                    <p class="line862">pcnet32.c add PCI hot remove support <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=f3f582fdf1f737d7e190a793937253cfa243a28c">commit</a> <span class="anchor" id="line-62"></span>
+                  </li>
+                  <li>
+                    <p class="line862">e1000: flow control <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=17449078d3d2c83015ef244ced75fa7787394a02">commit</a> <span class="anchor" id="line-63"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add IBM PowerPC Virtual Ethernet Driver <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=9abdbe6063e7ca20194c53db70a8cf24370e0d39">commit</a> <span class="anchor" id="line-64"></span>
+                  </li>
+                  <li>
+                    <p class="line862">V4L: Add new driver for Teletext decoder SAA5246A from Philips <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=483d14ad6c1e9f1df99ec71cb168f06689b8546d">commit</a> <span class="anchor" id="line-65"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add Intel PCI ids to IDE (PATA) driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=4b5ae086198eab457e380148b119a6fc4e5741d4">commit</a> <span class="anchor" id="line-66"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Add Intel PCI ids to old-OSS driver i810_audio <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=c76279677c58cdcad81383f93477608980578b63">commit</a> <span class="anchor" id="line-67"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ata_piix: add support for ICH6 <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=16924d779711d1fdb0ff661989a679174aa6112d">commit</a> <span class="anchor" id="line-68"></span>
+                  </li>
+                  <li>
+                    <p class="line862">Driver for IBM service processor <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=81e38ceb46f271395b09b3d5d7687b9bc5c1f1ad">commit</a>, <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cc9b256efc8e047e7f2837f4d6812a2f3506d4e4">commit</a> <span class="anchor" id="line-69"></span>
+                  </li>
+                  <li>
+                    <p class="line862">ata_piix: Add yet another Intel ICH6 PCI id <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=cdf650f27c0dc1f6c69c6eb6bb9d04ffd201387d">commit</a> <span class="anchor" id="line-70"></span>
+                  </li>
+                  <li>
+                    <p class="line862">New Permedia2 framebuffer driver. <a class="https" href="https://git.kernel.org/pub/scm/linux/kernel/git/history/history.git/commit/?id=87a8254b4151e62ff1fab02f4123c0f1f53e2a87">commit</a> <span class="anchor" id="line-71"></span>
+                  </li>
+                </ul>
+            </ul><span class="anchor" id="bottom"></span>
+          </div>
+          <!-- End of page contents -->
+          <div class="clearfix"></div>
+
+        </div> <!-- /#contentbox -->
+        <!-- End of content body -->
+      </div> <!-- /.container, #pagebox -->
+    </div> <!-- /#outbox -->
+
+    <!-- pageinfo -->
+    <div id="pageinfo-container">
+      <div class="container">
+        <p id="pageinfo" class="info" lang="en" dir="ltr">KernelNewbies: Linux_2_6_4 (last edited 2019-06-07 17:46:06 by <span title="diegocalleja @ 197.red-79-151-112.dynamicip.rima-tde.net[79.151.112.197]"><a href="/diegocalleja" title="diegocalleja @ 197.red-79-151-112.dynamicip.rima-tde.net[79.151.112.197]">diegocalleja</a></span>)</p>
+
+      </div>
+    </div>
+    <!-- End of pageinfo -->
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container text-right text-muted">
+        <ul id="credits">
+          <li><a href="http://moinmo.in/" title="This site uses the MoinMoin Wiki software.">MoinMoin Powered</a></li>
+          <li><a href="http://moinmo.in/Python" title="MoinMoin is written in Python.">Python Powered</a></li>
+          <li><a href="http://moinmo.in/GPL" title="MoinMoin is GPL licensed.">GPL licensed</a></li>
+          <li><a href="http://validator.w3.org/check?uri=referer" title="Click here to validate this page.">Valid HTML 4.01</a></li>
+        </ul>
+
+
+
+      </div> <!-- /.container -->
+    </div> <!-- /#footer -->
+    <!-- End of footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/moin_static199/memodump/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/moin_static199/memodump/js/bootstrap.min.js"></script>
+    <!-- toggle.js by dossist -->
+    <script src="/moin_static199/memodump/js/toggle.js"></script>
+    <!-- Custom script -->
+
+    <script>
+      + function($) {
+        // Toggle minified navbar under mobile landscape view
+        $('.navbar-collapse').on('show.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('show');
+        });
+        $('.navbar-collapse').on('hidden.bs.collapse', function() {
+          $('.navbar-mobile-toggle').togglejs('hide');
+        });
+
+        //Scroll position fix for hash anchors
+        var mdAnchorFix = {
+          escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
+          escape: function(str) {
+            return str.replace(mdAnchorFix.escapeRe, '\\$&');
+          },
+          rgbRe: /^rgba\(([ \t]*\d{1,3},){3}([ \t]*\d{1,3})\)$/i,
+          isTransparent: function(rgbstr) {
+            if (rgbstr === 'transparent') {
+              return true;
+            }
+            rgbMatch = rgbstr.match(mdAnchorFix.rgbRe);
+            if (rgbMatch) {
+              return (Number(rgbMatch[2]) ? false : true);
+            }
+            return false;
+          },
+          navbarHeight: function() {
+            var height = 0;
+            var $navbar = $('.navbar');
+            if (!mdAnchorFix.isTransparent($navbar.css('background-color')) &&
+              ($navbar.css('display') !== 'none') &&
+              ($navbar.css('visibility') !== 'hidden')) {
+              height = $navbar.height();
+            }
+            return height;
+          },
+          jump: function() {
+            origin = $('#' + mdAnchorFix.escape(location.hash.substr(1))).offset().top;
+            offset = mdAnchorFix.navbarHeight() + 15;
+            setTimeout(function() {
+              window.scrollTo(0, origin - offset);
+            }, 1);
+          },
+          clickWrapper: function() {
+            if (($(this).attr('href') === location.hash) ||
+              !('onhashchange' in window.document.body)) {
+              setTimeout(function() {
+                $(window).trigger("hashchange");
+              }, 1);
+            }
+          },
+        };
+        $('#pagebox a[href^="#"]:not([href="#"])').on("click", mdAnchorFix.clickWrapper);
+        $(window).on("hashchange", mdAnchorFix.jump);
+        if (location.hash) setTimeout(function() {
+          mdAnchorFix.jump();
+        }, 100);
+      }(jQuery);
+    </script>
+
+    <!-- End of JavaScript -->
+  </body>
+
+</html>
