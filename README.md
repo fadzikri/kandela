@@ -18,6 +18,6 @@ Tautan pendek : <https://s.id/kandela>
 
 Status Update :
 
-[![Update Data](https://github.com/fadzikri/kandela/actions/workflows/update.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/update.yml)
+[![Update Data](https://github.com/fadzikri/kandela/actions/workflows/update.yml/badge.svg?branch=main)](https://github.com/fadzikri/kandela/actions/workflows/update.yml) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/ks0f.svg)](https://betteruptime.com/?utm_source=status_badge)
 
 Catatan : Terkadang tautan pendek lama loading-nya, dan jangan pakai untuk HTTP Request
